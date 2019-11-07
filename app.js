@@ -14,9 +14,10 @@ const mongoose = require('mongoose');
 const config = require('./config/database');
 
 // Connect to the database
-mongoose.connect(config.database, {
+/*mongoose.connect(config.database, {
   useNewUrlParser: true
-});
+});*/
+mongoose.connect(config.database, {dbName: 'planedu'});
 
 // Connect to the database and log out if it was successful
 mongoose.connection.on('connected', () => {

@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   username: String;
   email: String;
   password: String;
+  universidad: String;
 
   constructor(
     // Need to inject all the services in the constructor
@@ -40,7 +41,8 @@ export class RegisterComponent implements OnInit {
       name: this.name,
       username: this.username,
       email: this.email,
-      password: this.password
+      password: this.password,
+      universidad: this.universidad
     }
 
     // Required fields

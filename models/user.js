@@ -17,11 +17,15 @@ const UserSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  universidad: {
+    type: String,
+    required: true
   }
 });
 
 // Create user / Use this from outside / Send it to the mongoDB
-const User = module.exports = mongoose.model('User', UserSchema);
+const User = module.exports = mongoose.model('Usuario', UserSchema); // 1er argumento = nombre en singular de la colección
 
 module.exports.getUserById = function(id, callback) {
   User.findById(id, callback);
