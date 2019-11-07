@@ -1,14 +1,28 @@
 {
-  "name": "node-todo",
-  "version": "0.0.1",
-  "description": "Simple todo application.",
-  "main": "server.js",
-  "author": "Scotch",
+  "name": "meanauthapp",
+  "version": "1.0.0",
+  "description": "MEAN stack authentication App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.10.8",
-    "method-override": "^2.3.10",
-    "mongoose": "4.10.8",
-    "morgan": "^1.9.0"
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "nodemon": "^1.18.10",
+    "passport": "*",
+    "passport-jwt": "*",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
+  },
+  "author": "Joan Andoni",
+  "license": "ISC",
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.803.17"
   }
 }
