@@ -5,6 +5,7 @@
 .navbar-brand
 {
   color: #919aa1!important;
+  cursor: default;
 }
 
 .navbar a {

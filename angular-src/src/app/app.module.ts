@@ -26,10 +26,10 @@ import { FooterComponent } from './footer/footer.component';
 
 // Array for the routing
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  // Protect the following routes if youre logged in 
+  { path: '', component: LoginComponent },
+  // Protect the following routes if youre logged in
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
 ]
