@@ -57,6 +57,14 @@ export class RegisterComponent implements OnInit {
       return false;
     }
 
+    // Validación de la Universidad
+    /*this.validateUni.getUniByName(user.universidad, (err) => { console.log("HEEY");
+      if (err) {
+        this.flashMessage.show('Introduce un nombre de Universidad válido', { cssClass: 'alert-danger', timeout: 3000 });
+        return false;
+      }
+    });*/
+
     // Register user
     // Use the service with the function and the user object as is an observable
     // we need to subscribe to it and inside we have the data back

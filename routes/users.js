@@ -4,6 +4,7 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const User = require('../models/user');
+const Universidad = require('../models/uni');
 
 //Register a user
 router.post('/register', (req, res, next) => {
@@ -16,19 +17,31 @@ router.post('/register', (req, res, next) => {
     universidad: req.body.universidad
   });
 
-  // Add the user to the db
-  User.addUser(newUser, (err, user) => {
-    // Return the success state as false if it couldn't be registered
-    if (err) {
+  // Validación de la universidad
+  Universidad.getUniByName(newUser.universidad, (err, result) => {
+    // Si la consulta no devuelve un objeto sino "null", el nombre no existe en la BD
+    if (result == null) {
       res.json({
         success: false,
-        msg: 'Failed to register user'
+        msg: 'Nombre de la universidad no válido'
       });
-      // Return the success state as true if it could be registered
-    } else {
-      res.json({
-        success: true,
-        msg: 'User registered'
+    }
+    else {
+      // Add the user to the db
+      User.addUser(newUser, (err, user) => {
+        // Return the success state as false if it couldn't be registered
+        if (err) {
+          res.json({
+            success: false,
+            msg: 'Failed to register user'
+          });
+          // Return the success state as true if it could be registered
+        } else {
+          res.json({
+            success: true,
+            msg: 'User registered'
+          });
+        }
       });
     }
   });
