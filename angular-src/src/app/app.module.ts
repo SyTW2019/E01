@@ -13,6 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 // Services
 import { ValidateService } from './services/validate.service';
@@ -28,10 +29,13 @@ import { FooterComponent } from './footer/footer.component';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent},
   { path: '', component: LoginComponent },
   // Protect the following routes if youre logged in
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  // Ruta Comodín: URLs desconocidas
+  { path: '**', component: NotfoundComponent },
 ]
 
 @NgModule({
@@ -43,7 +47,8 @@ const appRoutes: Routes = [
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
-    FooterComponent
+    FooterComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,8 @@ const config = require('../config/database');
 
 const UniSchema = mongoose.Schema({
   name: {
-    type: String
+    type: String,
+    required: true
   },
   // Página web
   address: {
