@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 // Services
 import { ValidateService } from './services/validate.service';
@@ -23,7 +24,7 @@ import { AuthService } from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './guards/auth.guard';
-import { FooterComponent } from './footer/footer.component';
+
 
 // Array for the routing
 const appRoutes: Routes = [
