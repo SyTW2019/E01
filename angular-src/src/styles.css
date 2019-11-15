@@ -33,3 +33,46 @@ body
 {
   box-shadow: none!important;
 }
+
+.btn-secondary {
+    background-color: #4f525f!important;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0!important;
+    color: #4f525f;
+}
+
+.btn-secondary:not([disabled]):not(.disabled).active,
+.btn-secondary:not([disabled]):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+    background-color: #fff!important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  transition: 1s;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1d1d1d;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border: 2.5px solid #1d1d1d;
+  background: #fff;
+  border-radius: 120px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #565656;
+  border: 2px solid #1d1d1d;
+  transition: 1s;
+  border-radius: 10px;
+}

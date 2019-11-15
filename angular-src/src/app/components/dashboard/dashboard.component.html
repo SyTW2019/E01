@@ -29,29 +29,58 @@
       </div>
     </nav>
 
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <div class="position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light">
 
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <br><h1>Tablón</h1>
+      <div class="position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-primary">
+        <!-- BEGIN SEARCHER -->
         <form class="mx-2 my-auto d-inline w-100 my-2 my-lg-0">
           <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" class="form-control" placeholder="Buscar...">
                <span class="input-group-append">
-                 <button class="btn btn-primary my-0 px-4 p-2" type="submit">Search</button>
+                 <button class="btn btn-secondary my-0 px-4 p-2" type="submit">Buscar</button>
                </span>
           </div>
-          <span class="badge badge-pill badge-dark m-1 px-3 float-sm-left" style="padding: 5px 10px">
+          <span class="btn badge badge-pill badge-dark m-1 px-3 float-sm-left" style="padding: 5px 10px; text-transform: capitalize">
             <i class="fas fa-filter"></i> Filtrar
           </span>
         </form>
+        <!-- END SEARCHER -->
       </div>
 
+      <div class="position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light">
+        <h2>Contenidos</h2>
+        <br>
+        <!-- BEGIN CONTENIDOS AQUÍ -->
+        <div class="container">
+          <div class="row">
 
+            <div class="offset-md-1 col-md-6" style="margin-right: -30px">
+              <div class="card text-white bg-dark overflow-auto" style="height: 250px;">
+                <div class="card-header">Título del contenido <span class="badge badge-light"><small>3 days ago</small></span></div>
+                <div class="card-body text-justify">
+                  <h3 class="card-title">Título documento</h3>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+              </div>
+            </div>
 
+            <div class="col-12 col-md-4">
+              <div class="card" style="border: 1px solid rgb(210, 210, 210); height: 250px;
+              background-image: url('/assets/img/content-example/1.jpg');
+              background-size: cover;
+              background-position: center">
+              </div>
+            </div>
 
+          </div>
 
+        </div>
 
+        <!-- END CONTENIDOS AQUÍ -->
+      </div>
 
     </main>
-
   </div>
 </div>
+<app-footer></app-footer>
