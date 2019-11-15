@@ -7,6 +7,29 @@ body
 .card, .navbar, .pagination .page-item.active .page-link
 {
   box-shadow:
-  0 0px 0px 0 rgba(0,0,0,.16), 
+  0 0px 0px 0 rgba(0,0,0,.16),
   0 0px 0px 0 rgba(0,0,0,.12)!important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1a1a1a!important;
+    border-color: #1a1a1a;
+}
+
+.btn-primary:hover {
+    background-color: #000!important;
+    color: #fff;
+}
+
+.btn-primary:not([disabled]):not(.disabled).active,
+.btn-primary:not([disabled]):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+    background-color: #000000!important;
+}
+
+.btn,
+.badge
+{
+  box-shadow: none!important;
 }

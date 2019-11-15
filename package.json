@@ -9,6 +9,7 @@
     "dev": "nodemon app"
   },
   "dependencies": {
+    "angular-svg-icon": "^8.0.0",
     "bcryptjs": "*",
     "body-parser": "*",
     "cors": "*",

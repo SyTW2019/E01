@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 // Components
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { FooterComponent } from './components/footer/footer.component';
+
 
 // Services
 import { ValidateService } from './services/validate.service';
@@ -58,6 +60,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot(),
+    AngularSvgIconModule,
     // JWT set the JWT module with the local storage token
     JwtModule.forRoot({
       config: {
