@@ -4,15 +4,24 @@
       <h2>Registro</h2>
     </div>
     <div class="dropdown-divider"></div>
+    <flash-messages></flash-messages>
     <form class="px-4 py-3" (submit)="onRegisterSubmit()">
-      <div class="form-group">
-        <label>Nombre</label>
-        <input type="name" class="form-control" [(ngModel)]="name" name="name" placeholder="John Doe">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="name" class="form-control" [(ngModel)]="name" name="name" placeholder="John Doe">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Usuario</label>
+            <input type="username" class="form-control" [(ngModel)]="username" name="username" placeholder="John12345">
+          </div>
+        </div>
       </div>
-      <div class="form-group"> 
-        <label>Nombre de Usuario</label>
-        <input type="username" class="form-control" [(ngModel)]="username" name="username" placeholder="John12345">
-      </div>
+
+
       <div class="form-group">
         <label>Email</label>
         <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="email@example.com">

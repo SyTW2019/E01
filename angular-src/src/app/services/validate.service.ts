@@ -22,3 +22,7 @@ export class ValidateService {
     return re.test(email);
   }
 }
+
+  // Función del servicio de validación para el nombre
+
+  // Función del servicio de validación para el username

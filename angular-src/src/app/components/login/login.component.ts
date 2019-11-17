@@ -38,16 +38,16 @@ export class LoginComponent implements OnInit {
         // If the login is success we are going to store the data into the local storage
         this.authService.storeUserData(data.token, data.user)
         // Show message as logged in
-        this.flashMessage.show("You are now logged in", {
+        this.flashMessage.show("¡Ahora está conectado, bienvenido!", {
           cssClass: 'alert-success',
-          timeout: 5000
+          timeout: 999999999
         });
         this.router.navigate(['/dashboard']);
       } else {
         // Show message as cant log in
         this.flashMessage.show(data.msg, {
           cssClass: 'alert-danger',
-          timeout: 5000
+          timeout: 9999999999
         });
         this.router.navigate(['/login']);
       }
