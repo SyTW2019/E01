@@ -16,7 +16,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-
 // Services
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
@@ -25,6 +24,7 @@ import { AuthService } from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './guards/auth.guard';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
@@ -61,6 +61,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot(),
+    NgFlashMessagesModule.forRoot(),
     AngularSvgIconModule,
     // JWT set the JWT module with the local storage token
     JwtModule.forRoot({

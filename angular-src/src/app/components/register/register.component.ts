@@ -5,7 +5,8 @@ import { ValidateService } from '../../services/validate.service';
 import { AuthService } from '../../services/auth.service';
 
 // Import of the module for the flash messages
-import { FlashMessagesService } from 'angular2-flash-messages';
+import { NgFlashMessageService } from 'ng-flash-messages';
+import * as $ from 'jquery';
 
 // Bring out the Router so we can redirect from the code
 import { Router } from '@angular/router';
@@ -27,14 +28,30 @@ export class RegisterComponent implements OnInit {
   constructor(
     // Need to inject all the services in the constructor
     private validateService: ValidateService,
-    private flashMessage: FlashMessagesService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private ngFlashMessageService: NgFlashMessageService
   ) { }
 
   ngOnInit() {
   }
 
+  // Validar email en el momento
+  onChangeEmail() {
+    const user = { email: this.email,}
+
+    if (!this.validateService.validateEmail(user.email)) {
+      $("input[name='email']").removeClass('ng-valid');
+      $("input[name='email']").addClass('ng-invalid');
+      return false;
+    } else {
+      $("input[name='email']").removeClass('ng-invalid');
+      $("input[name='email']").addClass('ng-valid');
+      return true;
+    }
+  }
+
+  // Validaciones en la confirmación del formulario
   onRegisterSubmit() {
     // Create the user object
     const user = {
@@ -45,15 +62,24 @@ export class RegisterComponent implements OnInit {
       universidad: this.universidad
     }
 
-    // Required fields
     if (!this.validateService.validateRegister(user)) {
-      this.flashMessage.show('Por favor rellene los campos', { cssClass: 'alert-danger', timeout: 99999999999 });
+      this.ngFlashMessageService.showFlashMessage({
+        messages: ["Por favor rellene los campos"],
+        dismissible: true,
+        timeout: false,
+        type: 'danger'
+      });
       return false;
     }
 
     // Validate email
     if (!this.validateService.validateEmail(user.email)) {
-      this.flashMessage.show('Por favor, use un campo de email válido', { cssClass: 'alert-danger', timeout: 99999999999 });
+      this.ngFlashMessageService.showFlashMessage({
+        messages: ["Por favor, use un campo de email válido"],
+        dismissible: true,
+        timeout: false,
+        type: 'danger'
+      });
       return false;
     }
 
@@ -71,11 +97,21 @@ export class RegisterComponent implements OnInit {
     this.authService.registerUser(user).subscribe(data => {
       // Lets validate the response and show the user the response with an alert
       if (data.success) {
-        this.flashMessage.show('You are now registered', { cssClass: 'alert-success', timeout: 3000 });
+        this.ngFlashMessageService.showFlashMessage({
+          messages: ["¡Ahora ya está registrado! Bienvenido."],
+          dismissible: true,
+          timeout: false,
+          type: 'success'
+        });
         // If the registration is success move to the login component
         this.router.navigate(['/login']);
       } else {
-        this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
+        this.ngFlashMessageService.showFlashMessage({
+          messages: ["Algo ocurrió mal."],
+          dismissible: true,
+          timeout: false,
+          type: 'danger'
+        });
         // If the registration is success move to the login component
         this.router.navigate(['/register']);
       }

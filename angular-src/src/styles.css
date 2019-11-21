@@ -76,3 +76,51 @@ body
   transition: 1s;
   border-radius: 10px;
 }
+
+/* validaciones */
+input.ng-invalid.ng-touched
+{
+  padding-right: calc(1.5em + 1.5rem);
+  background-image: url("/assets/svg/cancelar.svg");
+  background-repeat: no-repeat;
+  background-position: center right calc(0.375em + 0.375rem);
+  background-size: calc(0.75em + 0.75rem) calc(0.75em + 0.75rem);
+  border-color: #d9534f;
+  box-shadow: 0 0 0 0.2rem rgba(217,83,79,0.25);
+}
+
+input.ng-invalid.ng-touched:focus {
+    border-color: #d9534f;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(217,83,79,0.25);
+    box-shadow: 0 0 0 0.2rem rgba(217,83,79,0.25);
+}
+
+input.ng-valid.ng-touched:focus:focus {
+    border-color: #4BBF73;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(75,191,115,0.25);
+    box-shadow: 0 0 0 0.2rem rgba(75,191,115,0.25);
+}
+
+input.ng-valid.ng-touched {
+  border-color: #4BBF73;
+padding-right: calc(1.5em + 1.5rem);
+background-image: url("/assets/svg/comprobado.svg");
+background-repeat: no-repeat;
+background-position: center right calc(0.375em + 0.375rem);
+background-size: calc(0.75em + 0.75rem) calc(0.75em + 0.75rem);
+}
+
+/* ALERTS */
+
+.alert a.close:hover {
+    color: inherit!important;
+}
+
+.alert a.close {
+    color: inherit!important;
+}
+
+.alert {
+  border-radius: 2px!important;
+  padding: 15px!important;
+}

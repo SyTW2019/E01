@@ -3,7 +3,6 @@
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
         <ul class="navbar-nav mt-auto">
-
           <li class="nav-item">
             <a class="nav-link" href="/dashboard?word">
               <svg-icon src="assets/svg/busqueda.svg" [svgStyle]="{ 'width.px':15 }"></svg-icon>
@@ -31,6 +30,7 @@
 
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <ng-flash-message></ng-flash-message>
       <br><h1>Tablón</h1>
       <div class="position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-primary">
         <!-- BEGIN SEARCHER -->

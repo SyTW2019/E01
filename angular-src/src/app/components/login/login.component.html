@@ -4,15 +4,18 @@
       <h2>Iniciar sesión</h2>
     </div>
     <div class="dropdown-divider"></div>
-    <flash-messages></flash-messages>
-    <form class="px-4 py-3" (submit)="onLoginSubmit()">
+    <form class="px-4 py-3" (submit)="onLoginSubmit()" name="myForm">
       <div class="form-group">
         <label>Nombre de usuario</label>
-        <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="John12345">
+        <input type="text" class="form-control" name="username" placeholder="John12345"
+        [(ngModel)]="username"
+        required>
       </div>
       <div class="form-group">
         <label>Contraseña</label>
-        <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password">
+        <input type="password" class="form-control" name="password" placeholder="Password"
+        [(ngModel)]="password"
+        required>
       </div>
       <button type="submit" class="btn btn-primary">Iniciar sesión</button>
     </form>
