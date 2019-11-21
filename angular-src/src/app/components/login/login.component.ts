@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
       password: this.password
     }
 
-    // Create the petition to authenticate the user and get all the data from the database
+    // Crea la petición para autenticar al usuario
     this.authService.authenticateUser(user).subscribe(data => {
       if (data.success) {
-        // If the login is success we are going to store the data into the local storage
+        // Login correcto, se almacenan los datos del usuario en el almacenamiento local
         this.authService.storeUserData(data.token, data.user)
         // Show message as logged in
         this.ngFlashMessageService.showFlashMessage({

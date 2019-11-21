@@ -31,12 +31,12 @@ import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 
-// Array for the routing
+// Array de Enrutamiento
 const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent},
   { path: '', component: LoginComponent },
-  // Protect the following routes if youre logged in
+  // Rutas protegidas, solo tienen acceso ususarios autenticados
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   // Ruta Comodín: URLs desconocidas
