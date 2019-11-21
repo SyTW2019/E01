@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 //import { FlashMessagesService } from 'angular2-flash-messages';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-navbar',
@@ -20,6 +21,10 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    //if (this.authService.loggedIn()) $('ul.navbar-nav.mr-auto').show();
+    //else $('ul.navbar-nav.mr-auto li').hide();
+
   }
 
   onLogoutClick() {
@@ -34,5 +39,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login']);
     return false;
   }
+
+
 
 }

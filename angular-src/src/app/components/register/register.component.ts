@@ -37,19 +37,20 @@ export class RegisterComponent implements OnInit {
   }
 
   // Validar email en el momento
-  onChangeEmail() {
+  /*onChangeEmail() {
     const user = { email: this.email,}
 
     if (!this.validateService.validateEmail(user.email)) {
       $("input[name='email']").removeClass('ng-valid');
       $("input[name='email']").addClass('ng-invalid');
+
       return false;
     } else {
       $("input[name='email']").removeClass('ng-invalid');
       $("input[name='email']").addClass('ng-valid');
       return true;
     }
-  }
+  }*/
 
   // Validaciones en la confirmación del formulario
   onRegisterSubmit() {
@@ -107,7 +108,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/login']);
       } else {
         this.ngFlashMessageService.showFlashMessage({
-          messages: ["Algo ocurrió mal."],
+          messages: [data.msg],
           dismissible: true,
           timeout: false,
           type: 'danger'
