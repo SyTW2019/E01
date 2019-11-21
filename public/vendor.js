@@ -73056,6 +73056,2351 @@ var JWT_OPTIONS = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken
 
 /***/ }),
 
+/***/ "./node_modules/@ngrx/effects/fesm5/effects.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/@ngrx/effects/fesm5/effects.js ***!
+  \*****************************************************/
+/*! exports provided: ɵngrx_modules_effects_effects_e, ɵngrx_modules_effects_effects_a, ɵngrx_modules_effects_effects_c, ɵngrx_modules_effects_effects_b, ɵngrx_modules_effects_effects_d, ɵngrx_modules_effects_effects_i, ɵngrx_modules_effects_effects_h, ɵngrx_modules_effects_effects_g, ɵngrx_modules_effects_effects_f, createEffect, Effect, getEffectsMetadata, mergeEffects, Actions, ofType, EffectsModule, EffectSources, ROOT_EFFECTS_INIT, rootEffectsInit, act */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_effects_effects_e", function() { return EffectsFeatureModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_effects_effects_a", function() { return getSourceMetadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_effects_effects_c", function() { return _provideForRootGuard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_effects_effects_b", function() { return createSourceInstances; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_effects_effects_d", function() { return EffectsRootModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_effects_effects_i", function() { return EffectsRunner; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_effects_effects_h", function() { return FEATURE_EFFECTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_effects_effects_g", function() { return ROOT_EFFECTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_effects_effects_f", function() { return _ROOT_EFFECTS_GUARD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEffect", function() { return createEffect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Effect", function() { return Effect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEffectsMetadata", function() { return getEffectsMetadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mergeEffects", function() { return mergeEffects; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Actions", function() { return Actions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ofType", function() { return ofType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EffectsModule", function() { return EffectsModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EffectSources", function() { return EffectSources; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROOT_EFFECTS_INIT", function() { return ROOT_EFFECTS_INIT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rootEffectsInit", function() { return rootEffectsInit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "act", function() { return act; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/**
+ * @license NgRx 8.5.1
+ * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
+ * License: MIT
+ */
+
+
+
+
+
+
+var DEFAULT_EFFECT_CONFIG = {
+    dispatch: true,
+    resubscribeOnError: true,
+};
+var CREATE_EFFECT_METADATA_KEY = '__@ngrx/effects_create__';
+
+/**
+ * @description
+ * Creates an effect from an `Observable` and an `EffectConfig`.
+ *
+ * @param source A function which returns an `Observable`.
+ * @param config A `Partial<EffectConfig>` to configure the effect.  By default, `dispatch` is true and `resubscribeOnError` is true.
+ * @returns If `EffectConfig`#`dispatch` is true, returns `Observable<Action>`.  Else, returns `Observable<unknown>`.
+ *
+ * @usageNotes
+ *
+ * ** Mapping to a different action **
+ * ```ts
+ * effectName$ = createEffect(
+ *   () => this.actions$.pipe(
+ *     ofType(FeatureActions.actionOne),
+ *     map(() => FeatureActions.actionTwo())
+ *   )
+ * );
+ * ```
+ *
+ *  ** Non-dispatching effects **
+ * ```ts
+ * effectName$ = createEffect(
+ *   () => this.actions$.pipe(
+ *     ofType(FeatureActions.actionOne),
+ *     tap(() => console.log('Action One Dispatched'))
+ *   ),
+ *   { dispatch: false }
+ *   // FeatureActions.actionOne is not dispatched
+ * );
+ * ```
+ */
+function createEffect(source, config) {
+    var effect = source();
+    var value = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, DEFAULT_EFFECT_CONFIG, config);
+    Object.defineProperty(effect, CREATE_EFFECT_METADATA_KEY, {
+        value: value,
+    });
+    return effect;
+}
+function getCreateEffectMetadata(instance) {
+    var propertyNames = Object.getOwnPropertyNames(instance);
+    var metadata = propertyNames
+        .filter(function (propertyName) {
+        return instance[propertyName] &&
+            instance[propertyName].hasOwnProperty(CREATE_EFFECT_METADATA_KEY);
+    })
+        .map(function (propertyName) {
+        var metaData = instance[propertyName][CREATE_EFFECT_METADATA_KEY];
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ propertyName: propertyName }, metaData);
+    });
+    return metadata;
+}
+
+function getSourceForInstance(instance) {
+    return Object.getPrototypeOf(instance);
+}
+
+var METADATA_KEY = '__@ngrx/effects__';
+function Effect(config) {
+    if (config === void 0) { config = {}; }
+    return function (target, propertyName) {
+        var metadata = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, DEFAULT_EFFECT_CONFIG, config, { // Overrides any defaults if values are provided
+            propertyName: propertyName });
+        addEffectMetadataEntry(target, metadata);
+    };
+}
+function getEffectDecoratorMetadata(instance) {
+    var effectsDecorators = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["compose"])(getEffectMetadataEntries, getSourceForInstance)(instance);
+    return effectsDecorators;
+}
+/**
+ * Type guard to detemine whether METADATA_KEY is already present on the Class
+ * constructor
+ */
+function hasMetadataEntries(sourceProto) {
+    return sourceProto.constructor.hasOwnProperty(METADATA_KEY);
+}
+/** Add Effect Metadata to the Effect Class constructor under specific key */
+function addEffectMetadataEntry(sourceProto, metadata) {
+    if (hasMetadataEntries(sourceProto)) {
+        sourceProto.constructor[METADATA_KEY].push(metadata);
+    }
+    else {
+        Object.defineProperty(sourceProto.constructor, METADATA_KEY, {
+            value: [metadata],
+        });
+    }
+}
+function getEffectMetadataEntries(sourceProto) {
+    return hasMetadataEntries(sourceProto)
+        ? sourceProto.constructor[METADATA_KEY]
+        : [];
+}
+
+function getEffectsMetadata(instance) {
+    return getSourceMetadata(instance).reduce(function (acc, _a) {
+        var propertyName = _a.propertyName, dispatch = _a.dispatch, resubscribeOnError = _a.resubscribeOnError;
+        acc[propertyName] = { dispatch: dispatch, resubscribeOnError: resubscribeOnError };
+        return acc;
+    }, {});
+}
+function getSourceMetadata(instance) {
+    var effects = [
+        getEffectDecoratorMetadata,
+        getCreateEffectMetadata,
+    ];
+    return effects.reduce(function (sources, source) { return sources.concat(source(instance)); }, []);
+}
+
+function mergeEffects(sourceInstance, errorHandler) {
+    var sourceName = getSourceForInstance(sourceInstance).constructor.name;
+    var observables$ = getSourceMetadata(sourceInstance).map(function (_a) {
+        var propertyName = _a.propertyName, dispatch = _a.dispatch, resubscribeOnError = _a.resubscribeOnError;
+        var observable$ = typeof sourceInstance[propertyName] === 'function'
+            ? sourceInstance[propertyName]()
+            : sourceInstance[propertyName];
+        var resubscribable$ = resubscribeOnError
+            ? resubscribeInCaseOfError(observable$, errorHandler)
+            : observable$;
+        if (dispatch === false) {
+            return resubscribable$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["ignoreElements"])());
+        }
+        var materialized$ = resubscribable$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["materialize"])());
+        return materialized$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (notification) { return ({
+            effect: sourceInstance[propertyName],
+            notification: notification,
+            propertyName: propertyName,
+            sourceName: sourceName,
+            sourceInstance: sourceInstance,
+        }); }));
+    });
+    return rxjs__WEBPACK_IMPORTED_MODULE_2__["merge"].apply(void 0, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])(observables$));
+}
+function resubscribeInCaseOfError(observable$, errorHandler) {
+    return observable$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
+        if (errorHandler)
+            errorHandler.handleError(error);
+        // Return observable that produces this particular effect
+        return resubscribeInCaseOfError(observable$, errorHandler);
+    }));
+}
+
+var Actions = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(Actions, _super);
+    function Actions(source) {
+        var _this = _super.call(this) || this;
+        if (source) {
+            _this.source = source;
+        }
+        return _this;
+    }
+    Actions_1 = Actions;
+    Actions.prototype.lift = function (operator) {
+        var observable = new Actions_1();
+        observable.source = this;
+        observable.operator = operator;
+        return observable;
+    };
+    var Actions_1;
+    Actions = Actions_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Inject"])(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["ScannedActionsSubject"])),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]])
+    ], Actions);
+    return Actions;
+}(rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]));
+function ofType() {
+    var allowedTypes = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        allowedTypes[_i] = arguments[_i];
+    }
+    return Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (action) {
+        return allowedTypes.some(function (typeOrActionCreator) {
+            if (typeof typeOrActionCreator === 'string') {
+                // Comparing the string to type
+                return typeOrActionCreator === action.type;
+            }
+            // We are filtering by ActionCreator
+            return typeOrActionCreator.type === action.type;
+        });
+    });
+}
+
+function reportInvalidActions(output, reporter) {
+    if (output.notification.kind === 'N') {
+        var action = output.notification.value;
+        var isInvalidAction = !isAction(action);
+        if (isInvalidAction) {
+            reporter.handleError(new Error("Effect " + getEffectName(output) + " dispatched an invalid action: " + stringify(action)));
+        }
+    }
+}
+function isAction(action) {
+    return (typeof action !== 'function' &&
+        action &&
+        action.type &&
+        typeof action.type === 'string');
+}
+function getEffectName(_a) {
+    var propertyName = _a.propertyName, sourceInstance = _a.sourceInstance, sourceName = _a.sourceName;
+    var isMethod = typeof sourceInstance[propertyName] === 'function';
+    return "\"" + sourceName + "." + String(propertyName) + (isMethod ? '()' : '') + "\"";
+}
+function stringify(action) {
+    try {
+        return JSON.stringify(action);
+    }
+    catch (_a) {
+        return action;
+    }
+}
+
+var onIdentifyEffectsKey = 'ngrxOnIdentifyEffects';
+var onRunEffectsKey = 'ngrxOnRunEffects';
+var onInitEffects = 'ngrxOnInitEffects';
+
+var EffectSources = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(EffectSources, _super);
+    function EffectSources(errorHandler, store) {
+        var _this = _super.call(this) || this;
+        _this.errorHandler = errorHandler;
+        _this.store = store;
+        return _this;
+    }
+    EffectSources.prototype.addEffects = function (effectSourceInstance) {
+        this.next(effectSourceInstance);
+        if (onInitEffects in effectSourceInstance &&
+            typeof effectSourceInstance[onInitEffects] === 'function') {
+            this.store.dispatch(effectSourceInstance[onInitEffects]());
+        }
+    };
+    /**
+     * @internal
+     */
+    EffectSources.prototype.toActions = function () {
+        var _this = this;
+        return this.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["groupBy"])(getSourceForInstance), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (source$) { return source$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["groupBy"])(effectsInstance)); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (source$) {
+            return source$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["exhaustMap"])(resolveEffectSource(_this.errorHandler)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (output) {
+                reportInvalidActions(output, _this.errorHandler);
+                return output.notification;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (notification) {
+                return notification.kind === 'N';
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["dematerialize"])());
+        }));
+    };
+    EffectSources = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_4__["ErrorHandler"], _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
+    ], EffectSources);
+    return EffectSources;
+}(rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]));
+function effectsInstance(sourceInstance) {
+    if (onIdentifyEffectsKey in sourceInstance &&
+        typeof sourceInstance[onIdentifyEffectsKey] === 'function') {
+        return sourceInstance[onIdentifyEffectsKey]();
+    }
+    return '';
+}
+function resolveEffectSource(errorHandler) {
+    return function (sourceInstance) {
+        var mergedEffects$ = mergeEffects(sourceInstance, errorHandler);
+        if (isOnRunEffects(sourceInstance)) {
+            return sourceInstance.ngrxOnRunEffects(mergedEffects$);
+        }
+        return mergedEffects$;
+    };
+}
+function isOnRunEffects(sourceInstance) {
+    var source = getSourceForInstance(sourceInstance);
+    return (onRunEffectsKey in source && typeof source[onRunEffectsKey] === 'function');
+}
+
+var _ROOT_EFFECTS_GUARD = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["InjectionToken"]('@ngrx/effects Internal Root Guard');
+var IMMEDIATE_EFFECTS = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["InjectionToken"]('ngrx/effects: Immediate Effects');
+var ROOT_EFFECTS = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["InjectionToken"]('ngrx/effects: Root Effects');
+var FEATURE_EFFECTS = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["InjectionToken"]('ngrx/effects: Feature Effects');
+
+var EffectsRunner = /** @class */ (function () {
+    function EffectsRunner(effectSources, store) {
+        this.effectSources = effectSources;
+        this.store = store;
+        this.effectsSubscription = null;
+    }
+    EffectsRunner.prototype.start = function () {
+        if (!this.effectsSubscription) {
+            this.effectsSubscription = this.effectSources
+                .toActions()
+                .subscribe(this.store);
+        }
+    };
+    EffectsRunner.prototype.ngOnDestroy = function () {
+        if (this.effectsSubscription) {
+            this.effectsSubscription.unsubscribe();
+            this.effectsSubscription = null;
+        }
+    };
+    EffectsRunner = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])(),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [EffectSources,
+            _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
+    ], EffectsRunner);
+    return EffectsRunner;
+}());
+
+var ROOT_EFFECTS_INIT = '@ngrx/effects/init';
+var rootEffectsInit = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["createAction"])(ROOT_EFFECTS_INIT);
+var EffectsRootModule = /** @class */ (function () {
+    function EffectsRootModule(sources, runner, store, rootEffects, storeRootModule, storeFeatureModule, guard) {
+        this.sources = sources;
+        runner.start();
+        rootEffects.forEach(function (effectSourceInstance) {
+            return sources.addEffects(effectSourceInstance);
+        });
+        store.dispatch({ type: ROOT_EFFECTS_INIT });
+    }
+    EffectsRootModule.prototype.addEffects = function (effectSourceInstance) {
+        this.sources.addEffects(effectSourceInstance);
+    };
+    EffectsRootModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["NgModule"])({}),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Inject"])(ROOT_EFFECTS)),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Optional"])()),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(5, Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Optional"])()),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(6, Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Optional"])()),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(6, Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Inject"])(_ROOT_EFFECTS_GUARD)),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [EffectSources,
+            EffectsRunner,
+            _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"], Array, _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["StoreRootModule"],
+            _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["StoreFeatureModule"], Object])
+    ], EffectsRootModule);
+    return EffectsRootModule;
+}());
+
+var EffectsFeatureModule = /** @class */ (function () {
+    function EffectsFeatureModule(root, effectSourceGroups, storeRootModule, storeFeatureModule) {
+        effectSourceGroups.forEach(function (group) {
+            return group.forEach(function (effectSourceInstance) {
+                return root.addEffects(effectSourceInstance);
+            });
+        });
+    }
+    EffectsFeatureModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["NgModule"])({}),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Inject"])(FEATURE_EFFECTS)),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Optional"])()),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Optional"])()),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [EffectsRootModule, Array, _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["StoreRootModule"],
+            _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["StoreFeatureModule"]])
+    ], EffectsFeatureModule);
+    return EffectsFeatureModule;
+}());
+
+var EffectsModule = /** @class */ (function () {
+    function EffectsModule() {
+    }
+    EffectsModule.forFeature = function (featureEffects) {
+        return {
+            ngModule: EffectsFeatureModule,
+            providers: [
+                featureEffects,
+                {
+                    provide: FEATURE_EFFECTS,
+                    multi: true,
+                    deps: featureEffects,
+                    useFactory: createSourceInstances,
+                },
+            ],
+        };
+    };
+    EffectsModule.forRoot = function (rootEffects) {
+        return {
+            ngModule: EffectsRootModule,
+            providers: [
+                {
+                    provide: _ROOT_EFFECTS_GUARD,
+                    useFactory: _provideForRootGuard,
+                    deps: [[EffectsRunner, new _angular_core__WEBPACK_IMPORTED_MODULE_4__["Optional"](), new _angular_core__WEBPACK_IMPORTED_MODULE_4__["SkipSelf"]()]],
+                },
+                EffectsRunner,
+                EffectSources,
+                Actions,
+                rootEffects,
+                {
+                    provide: ROOT_EFFECTS,
+                    deps: rootEffects,
+                    useFactory: createSourceInstances,
+                },
+            ],
+        };
+    };
+    EffectsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["NgModule"])({})
+    ], EffectsModule);
+    return EffectsModule;
+}());
+function createSourceInstances() {
+    var instances = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        instances[_i] = arguments[_i];
+    }
+    return instances;
+}
+function _provideForRootGuard(runner) {
+    if (runner) {
+        throw new TypeError("EffectsModule.forRoot() called twice. Feature modules should use EffectsModule.forFeature() instead.");
+    }
+    return 'guarded';
+}
+
+function act(
+/** Allow to take either config object or project/error functions */
+configOrProject, errorFn) {
+    var _a = typeof configOrProject === 'function'
+        ? {
+            project: configOrProject,
+            error: errorFn,
+            operator: rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["concatMap"],
+            complete: undefined,
+            unsubscribe: undefined,
+        }
+        : Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, configOrProject, { operator: configOrProject.operator || rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["concatMap"] }), project = _a.project, error = _a.error, complete = _a.complete, operator = _a.operator, unsubscribe = _a.unsubscribe;
+    return function (source) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["defer"])(function () {
+            var subject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["merge"])(source.pipe(operator(function (input, index) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["defer"])(function () {
+                    var completed = false;
+                    var errored = false;
+                    var projectedCount = 0;
+                    return project(input, index).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["materialize"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (notification) {
+                        switch (notification.kind) {
+                            case 'E':
+                                errored = true;
+                                return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Notification"](
+                                // TODO: remove any in RxJS 6.5
+                                'N', error(notification.error, input));
+                            case 'C':
+                                completed = true;
+                                return complete
+                                    ? new rxjs__WEBPACK_IMPORTED_MODULE_2__["Notification"](
+                                    // TODO: remove any in RxJS 6.5
+                                    'N', complete(projectedCount, input))
+                                    : undefined;
+                            default:
+                                ++projectedCount;
+                                return notification;
+                        }
+                    }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (n) { return n != null; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["dematerialize"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["finalize"])(function () {
+                        if (!completed && !errored && unsubscribe) {
+                            subject.next(unsubscribe(projectedCount, input));
+                        }
+                    }));
+                });
+            })), subject);
+        });
+    };
+}
+
+/**
+ * DO NOT EDIT
+ *
+ * This file is automatically generated at build
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+//# sourceMappingURL=effects.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@ngrx/store/fesm5/store.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@ngrx/store/fesm5/store.js ***!
+  \*************************************************/
+/*! exports provided: ɵngrx_modules_store_store_c, ɵngrx_modules_store_store_d, ɵngrx_modules_store_store_bd, ɵngrx_modules_store_store_z, ɵngrx_modules_store_store_bb, ɵngrx_modules_store_store_ba, ɵngrx_modules_store_store_bc, ɵngrx_modules_store_store_e, ɵngrx_modules_store_store_f, ɵngrx_modules_store_store_g, ɵngrx_modules_store_store_b, ɵngrx_modules_store_store_x, ɵngrx_modules_store_store_v, ɵngrx_modules_store_store_u, ɵngrx_modules_store_store_t, ɵngrx_modules_store_store_w, ɵngrx_modules_store_store_y, ɵngrx_modules_store_store_s, ɵngrx_modules_store_store_n, ɵngrx_modules_store_store_m, ɵngrx_modules_store_store_p, ɵngrx_modules_store_store_k, ɵngrx_modules_store_store_i, ɵngrx_modules_store_store_j, ɵngrx_modules_store_store_q, ɵngrx_modules_store_store_h, ɵngrx_modules_store_store_o, ɵngrx_modules_store_store_l, ɵngrx_modules_store_store_r, createAction, props, union, Store, select, combineReducers, compose, createReducerFactory, ActionsSubject, INIT, ReducerManager, ReducerObservable, ReducerManagerDispatcher, UPDATE, ScannedActionsSubject, createSelector, createSelectorFactory, createFeatureSelector, defaultMemoize, defaultStateFn, resultMemoize, State, StateObservable, reduceState, INITIAL_STATE, REDUCER_FACTORY, INITIAL_REDUCERS, STORE_FEATURES, META_REDUCERS, FEATURE_REDUCERS, USER_PROVIDED_META_REDUCERS, USER_RUNTIME_CHECKS, StoreModule, StoreRootModule, StoreFeatureModule, on, createReducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_c", function() { return ACTIONS_SUBJECT_PROVIDERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_d", function() { return REDUCER_MANAGER_PROVIDERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_bd", function() { return _runtimeChecksFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_z", function() { return createActiveRuntimeChecks; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_bb", function() { return createImmutabilityCheckMetaReducer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_ba", function() { return createSerializationCheckMetaReducer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_bc", function() { return provideRuntimeChecks; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_e", function() { return SCANNED_ACTIONS_SUBJECT_PROVIDERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_f", function() { return isEqualCheck; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_g", function() { return STATE_PROVIDERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_b", function() { return STORE_PROVIDERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_x", function() { return _concatMetaReducers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_v", function() { return _createFeatureReducers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_u", function() { return _createFeatureStore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_t", function() { return _createStoreReducers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_w", function() { return _initialStateFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_y", function() { return _provideForRootGuard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_s", function() { return _ACTIVE_RUNTIME_CHECKS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_n", function() { return _FEATURE_CONFIGS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_m", function() { return _FEATURE_REDUCERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_p", function() { return _FEATURE_REDUCERS_TOKEN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_k", function() { return _INITIAL_REDUCERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_i", function() { return _INITIAL_STATE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_j", function() { return _REDUCER_FACTORY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_q", function() { return _RESOLVED_META_REDUCERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_h", function() { return _ROOT_STORE_GUARD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_o", function() { return _STORE_FEATURES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_l", function() { return _STORE_REDUCERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵngrx_modules_store_store_r", function() { return _USER_RUNTIME_CHECKS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAction", function() { return createAction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "props", function() { return props; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "union", function() { return union; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return Store; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "select", function() { return select; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return combineReducers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return compose; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReducerFactory", function() { return createReducerFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActionsSubject", function() { return ActionsSubject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INIT", function() { return INIT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReducerManager", function() { return ReducerManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReducerObservable", function() { return ReducerObservable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReducerManagerDispatcher", function() { return ReducerManagerDispatcher; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE", function() { return UPDATE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScannedActionsSubject", function() { return ScannedActionsSubject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSelector", function() { return createSelector; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSelectorFactory", function() { return createSelectorFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFeatureSelector", function() { return createFeatureSelector; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultMemoize", function() { return defaultMemoize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultStateFn", function() { return defaultStateFn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resultMemoize", function() { return resultMemoize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StateObservable", function() { return StateObservable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reduceState", function() { return reduceState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INITIAL_STATE", function() { return INITIAL_STATE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REDUCER_FACTORY", function() { return REDUCER_FACTORY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INITIAL_REDUCERS", function() { return INITIAL_REDUCERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STORE_FEATURES", function() { return STORE_FEATURES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "META_REDUCERS", function() { return META_REDUCERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FEATURE_REDUCERS", function() { return FEATURE_REDUCERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_PROVIDED_META_REDUCERS", function() { return USER_PROVIDED_META_REDUCERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_RUNTIME_CHECKS", function() { return USER_RUNTIME_CHECKS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreModule", function() { return StoreModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreRootModule", function() { return StoreRootModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreFeatureModule", function() { return StoreFeatureModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "on", function() { return on; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReducer", function() { return createReducer; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/**
+ * @license NgRx 8.5.1
+ * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
+ * License: MIT
+ */
+
+
+
+
+
+/**
+ * @description
+ * Creates a configured `Creator` function that, when called, returns an object in the shape of the `Action` interface.
+ *
+ * Action creators reduce the explicitness of class-based action creators.
+ *
+ * @param type Describes the action that will be dispatched
+ * @param config Additional metadata needed for the handling of the action.  See {@link createAction#usage-notes Usage Notes}.
+ *
+ * @usageNotes
+ *
+ * **Declaring an action creator**
+ *
+ * Without additional metadata:
+ * ```ts
+ * export const increment = createAction('[Counter] Increment');
+ * ```
+ * With additional metadata:
+ * ```ts
+ * export const loginSuccess = createAction(
+ *   '[Auth/API] Login Success',
+ *   props<{ user: User }>()
+ * );
+ * ```
+ * With a function:
+ * ```ts
+ * export const loginSuccess = createAction(
+ *   '[Auth/API] Login Success',
+ *   (response: Response) => response.user
+ * );
+ * ```
+ *
+ * **Dispatching an action**
+ *
+ * Without additional metadata:
+ * ```ts
+ * store.dispatch(increment());
+ * ```
+ * With additional metadata:
+ * ```ts
+ * store.dispatch(loginSuccess({ user: newUser }));
+ * ```
+ *
+ * **Referencing an action in a reducer**
+ *
+ * Using a switch statement:
+ * ```ts
+ * switch (action.type) {
+ *   // ...
+ *   case AuthApiActions.loginSuccess.type: {
+ *     return {
+ *       ...state,
+ *       user: action.user
+ *     };
+ *   }
+ * }
+ * ```
+ * Using a reducer creator:
+ * ```ts
+ * on(AuthApiActions.loginSuccess, (state, { user }) => ({ ...state, user }))
+ * ```
+ *
+ *  **Referencing an action in an effect**
+ * ```ts
+ * effectName$ = createEffect(
+ *   () => this.actions$.pipe(
+ *     ofType(AuthApiActions.loginSuccess),
+ *     // ...
+ *   )
+ * );
+ * ```
+ */
+function createAction(type, config) {
+    if (typeof config === 'function') {
+        return defineType(type, function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            return (Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, config.apply(void 0, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])(args)), { type: type }));
+        });
+    }
+    var as = config ? config._as : 'empty';
+    switch (as) {
+        case 'empty':
+            return defineType(type, function () { return ({ type: type }); });
+        case 'props':
+            return defineType(type, function (props) { return (Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, props, { type: type })); });
+        default:
+            throw new Error('Unexpected config.');
+    }
+}
+function props() {
+    // the return type does not match TypePropertyIsNotAllowed, so double casting
+    // is used.
+    return { _as: 'props', _p: undefined };
+}
+function union(creators) {
+    return undefined;
+}
+function defineType(type, creator) {
+    return Object.defineProperty(creator, 'type', {
+        value: type,
+        writable: false,
+    });
+}
+
+var INIT = '@ngrx/store/init';
+var ActionsSubject = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(ActionsSubject, _super);
+    function ActionsSubject() {
+        return _super.call(this, { type: INIT }) || this;
+    }
+    ActionsSubject.prototype.next = function (action) {
+        if (typeof action === 'function') {
+            throw new TypeError("\n        Dispatch expected an object, instead it received a function.\n        If you're using the createAction function, make sure to invoke the function\n        before dispatching the action. For example, someAction should be someAction().");
+        }
+        else if (typeof action === 'undefined') {
+            throw new TypeError("Actions must be objects");
+        }
+        else if (typeof action.type === 'undefined') {
+            throw new TypeError("Actions must have a type property");
+        }
+        _super.prototype.next.call(this, action);
+    };
+    ActionsSubject.prototype.complete = function () {
+        /* noop */
+    };
+    ActionsSubject.prototype.ngOnDestroy = function () {
+        _super.prototype.complete.call(this);
+    };
+    ActionsSubject = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    ], ActionsSubject);
+    return ActionsSubject;
+}(rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]));
+var ACTIONS_SUBJECT_PROVIDERS = [ActionsSubject];
+
+var _ROOT_STORE_GUARD = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Root Guard');
+var _INITIAL_STATE = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Initial State');
+var INITIAL_STATE = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Initial State');
+var REDUCER_FACTORY = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Reducer Factory');
+var _REDUCER_FACTORY = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Reducer Factory Provider');
+var INITIAL_REDUCERS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Initial Reducers');
+var _INITIAL_REDUCERS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Initial Reducers');
+var STORE_FEATURES = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Store Features');
+var _STORE_REDUCERS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Store Reducers');
+var _FEATURE_REDUCERS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Feature Reducers');
+var _FEATURE_CONFIGS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Feature Configs');
+var _STORE_FEATURES = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Store Features');
+var _FEATURE_REDUCERS_TOKEN = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Feature Reducers Token');
+var FEATURE_REDUCERS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Feature Reducers');
+/**
+ * User-defined meta reducers from StoreModule.forRoot()
+ */
+var USER_PROVIDED_META_REDUCERS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store User Provided Meta Reducers');
+/**
+ * Meta reducers defined either internally by @ngrx/store or by library authors
+ */
+var META_REDUCERS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Meta Reducers');
+/**
+ * Concats the user provided meta reducers and the meta reducers provided on the multi
+ * injection token
+ */
+var _RESOLVED_META_REDUCERS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Resolved Meta Reducers');
+/**
+ * Runtime checks defined by the user via an InjectionToken
+ * Defaults to `_USER_RUNTIME_CHECKS`
+ */
+var USER_RUNTIME_CHECKS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store User Runtime Checks Config');
+/**
+ * Runtime checks defined by the user via forRoot()
+ */
+var _USER_RUNTIME_CHECKS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal User Runtime Checks Config');
+/**
+ * Runtime checks currently in use
+ */
+var _ACTIVE_RUNTIME_CHECKS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('@ngrx/store Internal Runtime Checks');
+
+function combineReducers(reducers, initialState) {
+    if (initialState === void 0) { initialState = {}; }
+    var reducerKeys = Object.keys(reducers);
+    var finalReducers = {};
+    for (var i = 0; i < reducerKeys.length; i++) {
+        var key = reducerKeys[i];
+        if (typeof reducers[key] === 'function') {
+            finalReducers[key] = reducers[key];
+        }
+    }
+    var finalReducerKeys = Object.keys(finalReducers);
+    return function combination(state, action) {
+        state = state === undefined ? initialState : state;
+        var hasChanged = false;
+        var nextState = {};
+        for (var i = 0; i < finalReducerKeys.length; i++) {
+            var key = finalReducerKeys[i];
+            var reducer = finalReducers[key];
+            var previousStateForKey = state[key];
+            var nextStateForKey = reducer(previousStateForKey, action);
+            nextState[key] = nextStateForKey;
+            hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+        }
+        return hasChanged ? nextState : state;
+    };
+}
+function omit(object, keyToRemove) {
+    return Object.keys(object)
+        .filter(function (key) { return key !== keyToRemove; })
+        .reduce(function (result, key) {
+        var _a;
+        return Object.assign(result, (_a = {}, _a[key] = object[key], _a));
+    }, {});
+}
+function compose() {
+    var functions = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        functions[_i] = arguments[_i];
+    }
+    return function (arg) {
+        if (functions.length === 0) {
+            return arg;
+        }
+        var last = functions[functions.length - 1];
+        var rest = functions.slice(0, -1);
+        return rest.reduceRight(function (composed, fn) { return fn(composed); }, last(arg));
+    };
+}
+function createReducerFactory(reducerFactory, metaReducers) {
+    if (Array.isArray(metaReducers) && metaReducers.length > 0) {
+        reducerFactory = compose.apply(null, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])(metaReducers, [
+            reducerFactory,
+        ]));
+    }
+    return function (reducers, initialState) {
+        var reducer = reducerFactory(reducers);
+        return function (state, action) {
+            state = state === undefined ? initialState : state;
+            return reducer(state, action);
+        };
+    };
+}
+function createFeatureReducerFactory(metaReducers) {
+    var reducerFactory = Array.isArray(metaReducers) && metaReducers.length > 0
+        ? compose.apply(void 0, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])(metaReducers)) : function (r) { return r; };
+    return function (reducer, initialState) {
+        reducer = reducerFactory(reducer);
+        return function (state, action) {
+            state = state === undefined ? initialState : state;
+            return reducer(state, action);
+        };
+    };
+}
+
+var ReducerObservable = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(ReducerObservable, _super);
+    function ReducerObservable() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return ReducerObservable;
+}(rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]));
+var ReducerManagerDispatcher = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(ReducerManagerDispatcher, _super);
+    function ReducerManagerDispatcher() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return ReducerManagerDispatcher;
+}(ActionsSubject));
+var UPDATE = '@ngrx/store/update-reducers';
+var ReducerManager = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(ReducerManager, _super);
+    function ReducerManager(dispatcher, initialState, reducers, reducerFactory) {
+        var _this = _super.call(this, reducerFactory(reducers, initialState)) || this;
+        _this.dispatcher = dispatcher;
+        _this.initialState = initialState;
+        _this.reducers = reducers;
+        _this.reducerFactory = reducerFactory;
+        return _this;
+    }
+    ReducerManager.prototype.addFeature = function (feature) {
+        this.addFeatures([feature]);
+    };
+    ReducerManager.prototype.addFeatures = function (features) {
+        var reducers = features.reduce(function (reducerDict, _a) {
+            var reducers = _a.reducers, reducerFactory = _a.reducerFactory, metaReducers = _a.metaReducers, initialState = _a.initialState, key = _a.key;
+            var reducer = typeof reducers === 'function'
+                ? createFeatureReducerFactory(metaReducers)(reducers, initialState)
+                : createReducerFactory(reducerFactory, metaReducers)(reducers, initialState);
+            reducerDict[key] = reducer;
+            return reducerDict;
+        }, {});
+        this.addReducers(reducers);
+    };
+    ReducerManager.prototype.removeFeature = function (feature) {
+        this.removeFeatures([feature]);
+    };
+    ReducerManager.prototype.removeFeatures = function (features) {
+        this.removeReducers(features.map(function (p) { return p.key; }));
+    };
+    ReducerManager.prototype.addReducer = function (key, reducer) {
+        var _a;
+        this.addReducers((_a = {}, _a[key] = reducer, _a));
+    };
+    ReducerManager.prototype.addReducers = function (reducers) {
+        this.reducers = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.reducers, reducers);
+        this.updateReducers(Object.keys(reducers));
+    };
+    ReducerManager.prototype.removeReducer = function (featureKey) {
+        this.removeReducers([featureKey]);
+    };
+    ReducerManager.prototype.removeReducers = function (featureKeys) {
+        var _this = this;
+        featureKeys.forEach(function (key) {
+            _this.reducers = omit(_this.reducers, key) /*TODO(#823)*/;
+        });
+        this.updateReducers(featureKeys);
+    };
+    ReducerManager.prototype.updateReducers = function (featureKeys) {
+        this.next(this.reducerFactory(this.reducers, this.initialState));
+        this.dispatcher.next({
+            type: UPDATE,
+            features: featureKeys,
+        });
+    };
+    ReducerManager.prototype.ngOnDestroy = function () {
+        this.complete();
+    };
+    ReducerManager = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(INITIAL_STATE)),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(INITIAL_REDUCERS)),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(REDUCER_FACTORY)),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ReducerManagerDispatcher, Object, Object, Function])
+    ], ReducerManager);
+    return ReducerManager;
+}(rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]));
+var REDUCER_MANAGER_PROVIDERS = [
+    ReducerManager,
+    { provide: ReducerObservable, useExisting: ReducerManager },
+    { provide: ReducerManagerDispatcher, useExisting: ActionsSubject },
+];
+
+var ScannedActionsSubject = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(ScannedActionsSubject, _super);
+    function ScannedActionsSubject() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ScannedActionsSubject.prototype.ngOnDestroy = function () {
+        this.complete();
+    };
+    ScannedActionsSubject = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+    ], ScannedActionsSubject);
+    return ScannedActionsSubject;
+}(rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]));
+var SCANNED_ACTIONS_SUBJECT_PROVIDERS = [
+    ScannedActionsSubject,
+];
+
+var StateObservable = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(StateObservable, _super);
+    function StateObservable() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return StateObservable;
+}(rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]));
+var State = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(State, _super);
+    function State(actions$, reducer$, scannedActions, initialState) {
+        var _this = _super.call(this, initialState) || this;
+        var actionsOnQueue$ = actions$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["observeOn"])(rxjs__WEBPACK_IMPORTED_MODULE_2__["queueScheduler"]));
+        var withLatestReducer$ = actionsOnQueue$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["withLatestFrom"])(reducer$));
+        var seed = { state: initialState };
+        var stateAndAction$ = withLatestReducer$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["scan"])(reduceState, seed));
+        _this.stateSubscription = stateAndAction$.subscribe(function (_a) {
+            var state = _a.state, action = _a.action;
+            _this.next(state);
+            scannedActions.next(action);
+        });
+        return _this;
+    }
+    State.prototype.ngOnDestroy = function () {
+        this.stateSubscription.unsubscribe();
+        this.complete();
+    };
+    State.INIT = INIT;
+    State = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(INITIAL_STATE)),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ActionsSubject,
+            ReducerObservable,
+            ScannedActionsSubject, Object])
+    ], State);
+    return State;
+}(rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]));
+function reduceState(stateActionPair, _a) {
+    if (stateActionPair === void 0) { stateActionPair = { state: undefined }; }
+    var _b = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(_a, 2), action = _b[0], reducer = _b[1];
+    var state = stateActionPair.state;
+    return { state: reducer(state, action), action: action };
+}
+var STATE_PROVIDERS = [
+    State,
+    { provide: StateObservable, useExisting: State },
+];
+
+var Store = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(Store, _super);
+    function Store(state$, actionsObserver, reducerManager) {
+        var _this = _super.call(this) || this;
+        _this.actionsObserver = actionsObserver;
+        _this.reducerManager = reducerManager;
+        _this.source = state$;
+        return _this;
+    }
+    Store_1 = Store;
+    Store.prototype.select = function (pathOrMapFn) {
+        var _a;
+        var paths = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            paths[_i - 1] = arguments[_i];
+        }
+        return (_a = select).call.apply(_a, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])([null, pathOrMapFn], paths))(this);
+    };
+    Store.prototype.lift = function (operator) {
+        var store = new Store_1(this, this.actionsObserver, this.reducerManager);
+        store.operator = operator;
+        return store;
+    };
+    Store.prototype.dispatch = function (action) {
+        this.actionsObserver.next(action);
+    };
+    Store.prototype.next = function (action) {
+        this.actionsObserver.next(action);
+    };
+    Store.prototype.error = function (err) {
+        this.actionsObserver.error(err);
+    };
+    Store.prototype.complete = function () {
+        this.actionsObserver.complete();
+    };
+    Store.prototype.addReducer = function (key, reducer) {
+        this.reducerManager.addReducer(key, reducer);
+    };
+    Store.prototype.removeReducer = function (key) {
+        this.reducerManager.removeReducer(key);
+    };
+    var Store_1;
+    Store = Store_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [StateObservable,
+            ActionsSubject,
+            ReducerManager])
+    ], Store);
+    return Store;
+}(rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]));
+var STORE_PROVIDERS = [Store];
+function select(pathOrMapFn, propsOrPath) {
+    var paths = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        paths[_i - 2] = arguments[_i];
+    }
+    return function selectOperator(source$) {
+        var mapped$;
+        if (typeof pathOrMapFn === 'string') {
+            var pathSlices = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])([propsOrPath], paths).filter(Boolean);
+            mapped$ = source$.pipe(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["pluck"].apply(void 0, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])([pathOrMapFn], pathSlices)));
+        }
+        else if (typeof pathOrMapFn === 'function') {
+            mapped$ = source$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (source) { return pathOrMapFn(source, propsOrPath); }));
+        }
+        else {
+            throw new TypeError("Unexpected type '" + typeof pathOrMapFn + "' in select operator," +
+                " expected 'string' or 'function'");
+        }
+        return mapped$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])());
+    };
+}
+
+function isEqualCheck(a, b) {
+    return a === b;
+}
+function isArgumentsChanged(args, lastArguments, comparator) {
+    for (var i = 0; i < args.length; i++) {
+        if (!comparator(args[i], lastArguments[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+function resultMemoize(projectionFn, isResultEqual) {
+    return defaultMemoize(projectionFn, isEqualCheck, isResultEqual);
+}
+function defaultMemoize(projectionFn, isArgumentsEqual, isResultEqual) {
+    if (isArgumentsEqual === void 0) { isArgumentsEqual = isEqualCheck; }
+    if (isResultEqual === void 0) { isResultEqual = isEqualCheck; }
+    var lastArguments = null;
+    // tslint:disable-next-line:no-any anything could be the result.
+    var lastResult = null;
+    var overrideResult;
+    function reset() {
+        lastArguments = null;
+        lastResult = null;
+    }
+    function setResult(result) {
+        if (result === void 0) { result = undefined; }
+        overrideResult = result;
+    }
+    // tslint:disable-next-line:no-any anything could be the result.
+    function memoized() {
+        if (overrideResult !== undefined) {
+            return overrideResult;
+        }
+        if (!lastArguments) {
+            lastResult = projectionFn.apply(null, arguments);
+            lastArguments = arguments;
+            return lastResult;
+        }
+        if (!isArgumentsChanged(arguments, lastArguments, isArgumentsEqual)) {
+            return lastResult;
+        }
+        var newResult = projectionFn.apply(null, arguments);
+        lastArguments = arguments;
+        if (isResultEqual(lastResult, newResult)) {
+            return lastResult;
+        }
+        lastResult = newResult;
+        return newResult;
+    }
+    return { memoized: memoized, reset: reset, setResult: setResult };
+}
+function createSelector() {
+    var input = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        input[_i] = arguments[_i];
+    }
+    return createSelectorFactory(defaultMemoize).apply(void 0, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])(input));
+}
+function defaultStateFn(state, selectors, props, memoizedProjector) {
+    if (props === undefined) {
+        var args_1 = selectors.map(function (fn) { return fn(state); });
+        return memoizedProjector.memoized.apply(null, args_1);
+    }
+    var args = selectors.map(function (fn) {
+        return fn(state, props);
+    });
+    return memoizedProjector.memoized.apply(null, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])(args, [props]));
+}
+function createSelectorFactory(memoize, options) {
+    if (options === void 0) { options = {
+        stateFn: defaultStateFn,
+    }; }
+    return function () {
+        var input = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            input[_i] = arguments[_i];
+        }
+        var args = input;
+        if (Array.isArray(args[0])) {
+            var _a = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(args), head = _a[0], tail = _a.slice(1);
+            args = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])(head, tail);
+        }
+        var selectors = args.slice(0, args.length - 1);
+        var projector = args[args.length - 1];
+        var memoizedSelectors = selectors.filter(function (selector) {
+            return selector.release && typeof selector.release === 'function';
+        });
+        var memoizedProjector = memoize(function () {
+            var selectors = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                selectors[_i] = arguments[_i];
+            }
+            return projector.apply(null, selectors);
+        });
+        var memoizedState = defaultMemoize(function (state, props) {
+            return options.stateFn.apply(null, [
+                state,
+                selectors,
+                props,
+                memoizedProjector,
+            ]);
+        });
+        function release() {
+            memoizedState.reset();
+            memoizedProjector.reset();
+            memoizedSelectors.forEach(function (selector) { return selector.release(); });
+        }
+        return Object.assign(memoizedState.memoized, {
+            release: release,
+            projector: memoizedProjector.memoized,
+            setResult: memoizedState.setResult,
+        });
+    };
+}
+function createFeatureSelector(featureName) {
+    return createSelector(function (state) {
+        var featureState = state[featureName];
+        if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])() && !(featureName in state)) {
+            console.warn("@ngrx/store: The feature name \"" + featureName + "\" does " +
+                'not exist in the state, therefore createFeatureSelector ' +
+                'cannot access it.  Be sure it is imported in a loaded module ' +
+                ("using StoreModule.forRoot('" + featureName + "', ...) or ") +
+                ("StoreModule.forFeature('" + featureName + "', ...).  If the default ") +
+                'state is intended to be undefined, as is the case with router ' +
+                'state, this development-only warning message can be ignored.');
+        }
+        return featureState;
+    }, function (featureState) { return featureState; });
+}
+
+function isUndefined(target) {
+    return target === undefined;
+}
+function isNull(target) {
+    return target === null;
+}
+function isArray(target) {
+    return Array.isArray(target);
+}
+function isString(target) {
+    return typeof target === 'string';
+}
+function isBoolean(target) {
+    return typeof target === 'boolean';
+}
+function isNumber(target) {
+    return typeof target === 'number';
+}
+function isObjectLike(target) {
+    return typeof target === 'object' && target !== null;
+}
+function isObject(target) {
+    return isObjectLike(target) && !isArray(target);
+}
+function isPlainObject(target) {
+    if (!isObject(target)) {
+        return false;
+    }
+    var targetPrototype = Object.getPrototypeOf(target);
+    return targetPrototype === Object.prototype || targetPrototype === null;
+}
+function isFunction(target) {
+    return typeof target === 'function';
+}
+function hasOwnProperty(target, propertyName) {
+    return Object.prototype.hasOwnProperty.call(target, propertyName);
+}
+
+function immutabilityCheckMetaReducer(reducer, checks) {
+    return function (state, action) {
+        var act = checks.action ? freeze(action) : action;
+        var nextState = reducer(state, act);
+        return checks.state ? freeze(nextState) : nextState;
+    };
+}
+function freeze(target) {
+    Object.freeze(target);
+    var targetIsFunction = isFunction(target);
+    Object.getOwnPropertyNames(target).forEach(function (prop) {
+        if (hasOwnProperty(target, prop) &&
+            (targetIsFunction
+                ? prop !== 'caller' && prop !== 'callee' && prop !== 'arguments'
+                : true)) {
+            var propValue = target[prop];
+            if ((isObjectLike(propValue) || isFunction(propValue)) &&
+                !Object.isFrozen(propValue)) {
+                freeze(propValue);
+            }
+        }
+    });
+    return target;
+}
+
+function serializationCheckMetaReducer(reducer, checks) {
+    return function (state, action) {
+        if (checks.action) {
+            var unserializableAction = getUnserializable(action);
+            throwIfUnserializable(unserializableAction, 'action');
+        }
+        var nextState = reducer(state, action);
+        if (checks.state) {
+            var unserializableState = getUnserializable(nextState);
+            throwIfUnserializable(unserializableState, 'state');
+        }
+        return nextState;
+    };
+}
+function getUnserializable(target, path) {
+    if (path === void 0) { path = []; }
+    // Guard against undefined and null, e.g. a reducer that returns undefined
+    if ((isUndefined(target) || isNull(target)) && path.length === 0) {
+        return {
+            path: ['root'],
+            value: target,
+        };
+    }
+    var keys = Object.keys(target);
+    return keys.reduce(function (result, key) {
+        if (result) {
+            return result;
+        }
+        var value = target[key];
+        if (isUndefined(value) ||
+            isNull(value) ||
+            isNumber(value) ||
+            isBoolean(value) ||
+            isString(value) ||
+            isArray(value)) {
+            return false;
+        }
+        if (isPlainObject(value)) {
+            return getUnserializable(value, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])(path, [key]));
+        }
+        return {
+            path: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])(path, [key]),
+            value: value,
+        };
+    }, false);
+}
+function throwIfUnserializable(unserializable, context) {
+    if (unserializable === false) {
+        return;
+    }
+    var unserializablePath = unserializable.path.join('.');
+    var error = new Error("Detected unserializable " + context + " at \"" + unserializablePath + "\"");
+    error.value = unserializable.value;
+    error.unserializablePath = unserializablePath;
+    throw error;
+}
+
+function createActiveRuntimeChecks(runtimeChecks) {
+    if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["isDevMode"])()) {
+        if (runtimeChecks === undefined) {
+            console.warn('@ngrx/store: runtime checks are currently opt-in but will be the default in the next major version with the possibility to opt-out, see https://ngrx.io/guide/migration/v8 for more information.');
+        }
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ strictStateSerializability: false, strictActionSerializability: false, strictStateImmutability: false, strictActionImmutability: false }, runtimeChecks);
+    }
+    return {
+        strictStateSerializability: false,
+        strictActionSerializability: false,
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+    };
+}
+function createSerializationCheckMetaReducer(_a) {
+    var strictActionSerializability = _a.strictActionSerializability, strictStateSerializability = _a.strictStateSerializability;
+    return function (reducer) {
+        return strictActionSerializability || strictStateSerializability
+            ? serializationCheckMetaReducer(reducer, {
+                action: strictActionSerializability,
+                state: strictStateSerializability,
+            })
+            : reducer;
+    };
+}
+function createImmutabilityCheckMetaReducer(_a) {
+    var strictActionImmutability = _a.strictActionImmutability, strictStateImmutability = _a.strictStateImmutability;
+    return function (reducer) {
+        return strictActionImmutability || strictStateImmutability
+            ? immutabilityCheckMetaReducer(reducer, {
+                action: strictActionImmutability,
+                state: strictStateImmutability,
+            })
+            : reducer;
+    };
+}
+function provideRuntimeChecks(runtimeChecks) {
+    return [
+        {
+            provide: _USER_RUNTIME_CHECKS,
+            useValue: runtimeChecks,
+        },
+        {
+            provide: USER_RUNTIME_CHECKS,
+            useFactory: _runtimeChecksFactory,
+            deps: [_USER_RUNTIME_CHECKS],
+        },
+        {
+            provide: _ACTIVE_RUNTIME_CHECKS,
+            deps: [USER_RUNTIME_CHECKS],
+            useFactory: createActiveRuntimeChecks,
+        },
+        {
+            provide: META_REDUCERS,
+            multi: true,
+            deps: [_ACTIVE_RUNTIME_CHECKS],
+            useFactory: createImmutabilityCheckMetaReducer,
+        },
+        {
+            provide: META_REDUCERS,
+            multi: true,
+            deps: [_ACTIVE_RUNTIME_CHECKS],
+            useFactory: createSerializationCheckMetaReducer,
+        },
+    ];
+}
+function _runtimeChecksFactory(runtimeChecks) {
+    return runtimeChecks;
+}
+
+var StoreRootModule = /** @class */ (function () {
+    function StoreRootModule(actions$, reducer$, scannedActions$, store, guard) {
+    }
+    StoreRootModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({}),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_ROOT_STORE_GUARD)),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [ActionsSubject,
+            ReducerObservable,
+            ScannedActionsSubject,
+            Store, Object])
+    ], StoreRootModule);
+    return StoreRootModule;
+}());
+var StoreFeatureModule = /** @class */ (function () {
+    function StoreFeatureModule(features, featureReducers, reducerManager, root) {
+        this.features = features;
+        this.featureReducers = featureReducers;
+        this.reducerManager = reducerManager;
+        var feats = features.map(function (feature, index) {
+            var featureReducerCollection = featureReducers.shift();
+            var reducers = featureReducerCollection /*TODO(#823)*/[index];
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, feature, { reducers: reducers, initialState: _initialStateFactory(feature.initialState) });
+        });
+        reducerManager.addFeatures(feats);
+    }
+    StoreFeatureModule.prototype.ngOnDestroy = function () {
+        this.reducerManager.removeFeatures(this.features);
+    };
+    StoreFeatureModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({}),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_STORE_FEATURES)),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(FEATURE_REDUCERS)),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Array, Array, ReducerManager,
+            StoreRootModule])
+    ], StoreFeatureModule);
+    return StoreFeatureModule;
+}());
+var StoreModule = /** @class */ (function () {
+    function StoreModule() {
+    }
+    StoreModule.forRoot = function (reducers, config) {
+        if (config === void 0) { config = {}; }
+        return {
+            ngModule: StoreRootModule,
+            providers: [
+                {
+                    provide: _ROOT_STORE_GUARD,
+                    useFactory: _provideForRootGuard,
+                    deps: [[Store, new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"](), new _angular_core__WEBPACK_IMPORTED_MODULE_1__["SkipSelf"]()]],
+                },
+                { provide: _INITIAL_STATE, useValue: config.initialState },
+                {
+                    provide: INITIAL_STATE,
+                    useFactory: _initialStateFactory,
+                    deps: [_INITIAL_STATE],
+                },
+                { provide: _INITIAL_REDUCERS, useValue: reducers },
+                {
+                    provide: _STORE_REDUCERS,
+                    useExisting: reducers instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"] ? reducers : _INITIAL_REDUCERS,
+                },
+                {
+                    provide: INITIAL_REDUCERS,
+                    deps: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _INITIAL_REDUCERS, [new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"](_STORE_REDUCERS)]],
+                    useFactory: _createStoreReducers,
+                },
+                {
+                    provide: USER_PROVIDED_META_REDUCERS,
+                    useValue: config.metaReducers ? config.metaReducers : [],
+                },
+                {
+                    provide: _RESOLVED_META_REDUCERS,
+                    deps: [META_REDUCERS, USER_PROVIDED_META_REDUCERS],
+                    useFactory: _concatMetaReducers,
+                },
+                {
+                    provide: _REDUCER_FACTORY,
+                    useValue: config.reducerFactory
+                        ? config.reducerFactory
+                        : combineReducers,
+                },
+                {
+                    provide: REDUCER_FACTORY,
+                    deps: [_REDUCER_FACTORY, _RESOLVED_META_REDUCERS],
+                    useFactory: createReducerFactory,
+                },
+                ACTIONS_SUBJECT_PROVIDERS,
+                REDUCER_MANAGER_PROVIDERS,
+                SCANNED_ACTIONS_SUBJECT_PROVIDERS,
+                STATE_PROVIDERS,
+                STORE_PROVIDERS,
+                provideRuntimeChecks(config.runtimeChecks),
+            ],
+        };
+    };
+    StoreModule.forFeature = function (featureName, reducers, config) {
+        if (config === void 0) { config = {}; }
+        return {
+            ngModule: StoreFeatureModule,
+            providers: [
+                {
+                    provide: _FEATURE_CONFIGS,
+                    multi: true,
+                    useValue: config,
+                },
+                {
+                    provide: STORE_FEATURES,
+                    multi: true,
+                    useValue: {
+                        key: featureName,
+                        reducerFactory: !(config instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]) && config.reducerFactory
+                            ? config.reducerFactory
+                            : combineReducers,
+                        metaReducers: !(config instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]) && config.metaReducers
+                            ? config.metaReducers
+                            : [],
+                        initialState: !(config instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]) && config.initialState
+                            ? config.initialState
+                            : undefined,
+                    },
+                },
+                {
+                    provide: _STORE_FEATURES,
+                    deps: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _FEATURE_CONFIGS, STORE_FEATURES],
+                    useFactory: _createFeatureStore,
+                },
+                { provide: _FEATURE_REDUCERS, multi: true, useValue: reducers },
+                {
+                    provide: _FEATURE_REDUCERS_TOKEN,
+                    multi: true,
+                    useExisting: reducers instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"] ? reducers : _FEATURE_REDUCERS,
+                },
+                {
+                    provide: FEATURE_REDUCERS,
+                    multi: true,
+                    deps: [
+                        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
+                        _FEATURE_REDUCERS,
+                        [new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"](_FEATURE_REDUCERS_TOKEN)],
+                    ],
+                    useFactory: _createFeatureReducers,
+                },
+            ],
+        };
+    };
+    StoreModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({})
+    ], StoreModule);
+    return StoreModule;
+}());
+function _createStoreReducers(injector, reducers) {
+    return reducers instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"] ? injector.get(reducers) : reducers;
+}
+function _createFeatureStore(injector, configs, featureStores) {
+    return featureStores.map(function (feat, index) {
+        if (configs[index] instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]) {
+            var conf = injector.get(configs[index]);
+            return {
+                key: feat.key,
+                reducerFactory: conf.reducerFactory
+                    ? conf.reducerFactory
+                    : combineReducers,
+                metaReducers: conf.metaReducers ? conf.metaReducers : [],
+                initialState: conf.initialState,
+            };
+        }
+        return feat;
+    });
+}
+function _createFeatureReducers(injector, reducerCollection) {
+    var reducers = reducerCollection.map(function (reducer) {
+        return reducer instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"] ? injector.get(reducer) : reducer;
+    });
+    return reducers;
+}
+function _initialStateFactory(initialState) {
+    if (typeof initialState === 'function') {
+        return initialState();
+    }
+    return initialState;
+}
+function _concatMetaReducers(metaReducers, userProvidedMetaReducers) {
+    return metaReducers.concat(userProvidedMetaReducers);
+}
+function _provideForRootGuard(store) {
+    if (store) {
+        throw new TypeError("StoreModule.forRoot() called twice. Feature modules should use StoreModule.forFeature() instead.");
+    }
+    return 'guarded';
+}
+
+/**
+ * @description
+ * Associates actions with a given state change function.
+ * A state change function must be provided as the last parameter.
+ *
+ * @param args `ActionCreator`'s followed by a state change function.
+ *
+ * **To maintain type-safety**: pass 10 or less `ActionCreator`'s.
+ * @returns an association of action types with a state change function.
+ */
+function on() {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    var reducer = args.pop();
+    var types = args.reduce(function (result, creator) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"])(result, [creator.type]); }, []);
+    return { reducer: reducer, types: types };
+}
+/**
+ * @description
+ * Creates a reducer function to handle state transitions.
+ *
+ * Reducer creators reduce the explicitness of reducer functions with switch statements.
+ *
+ * @param initialState Provides a state value if the current state is `undefined`, as it is initially.
+ * @param ons Associations between actions and state changes.
+ * @returns A reducer function.
+ *
+ * @usageNotes
+ *
+ * - Must be used with `ActionCreator`'s (returned by `createAction`).  Cannot be used with class-based action creators.
+ * - An action can be associated with multiple state change functions. In this case the functions will be executed in the specified order.
+ * - The returned `ActionReducer` should additionally be returned from an exported `reducer` function.
+ * This is because [function calls are not supported](https://angular.io/guide/aot-compiler#function-calls-are-not-supported) by the AOT compiler.
+ *
+ * **Declaring a reducer creator with an exported reducer function**
+ *
+ * ```ts
+ * const featureReducer = createReducer(
+ *   initialState,
+ *   on(
+ *     featureActions.actionOne,
+ *     featureActions.actionTwo,
+ *     (state, { updatedValue }) => ({ ...state, prop: updatedValue })
+ *   ),
+ *   on(featureActions.actionThree, () => initialState);
+ * );
+ *
+ * export function reducer(state: State | undefined, action: Action) {
+ *   return featureReducer(state, action);
+ * }
+ * ```
+ */
+function createReducer(initialState) {
+    var e_1, _a;
+    var ons = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        ons[_i - 1] = arguments[_i];
+    }
+    var map = new Map();
+    var _loop_1 = function (on_1) {
+        var e_2, _a;
+        var _loop_2 = function (type) {
+            if (map.has(type)) {
+                var existingReducer_1 = map.get(type);
+                var newReducer = function (state, action) {
+                    return on_1.reducer(existingReducer_1(state, action), action);
+                };
+                map.set(type, newReducer);
+            }
+            else {
+                map.set(type, on_1.reducer);
+            }
+        };
+        try {
+            for (var _b = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__values"])(on_1.types), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var type = _c.value;
+                _loop_2(type);
+            }
+        }
+        catch (e_2_1) { e_2 = { error: e_2_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_2) throw e_2.error; }
+        }
+    };
+    try {
+        for (var ons_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__values"])(ons), ons_1_1 = ons_1.next(); !ons_1_1.done; ons_1_1 = ons_1.next()) {
+            var on_1 = ons_1_1.value;
+            _loop_1(on_1);
+        }
+    }
+    catch (e_1_1) { e_1 = { error: e_1_1 }; }
+    finally {
+        try {
+            if (ons_1_1 && !ons_1_1.done && (_a = ons_1.return)) _a.call(ons_1);
+        }
+        finally { if (e_1) throw e_1.error; }
+    }
+    return function (state, action) {
+        if (state === void 0) { state = initialState; }
+        var reducer = map.get(action.type);
+        return reducer ? reducer(state, action) : state;
+    };
+}
+
+/**
+ * DO NOT EDIT
+ *
+ * This file is automatically generated at build
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+//# sourceMappingURL=store.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/angular-svg-icon/fesm5/angular-svg-icon.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/angular-svg-icon/fesm5/angular-svg-icon.js ***!
+  \*****************************************************************/
+/*! exports provided: AngularSvgIconModule, SERVER_URL, SVG_ICON_REGISTRY_PROVIDER, SVG_ICON_REGISTRY_PROVIDER_FACTORY, SvgHttpLoader, SvgIconComponent, SvgIconRegistryService, SvgLoader */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AngularSvgIconModule", function() { return AngularSvgIconModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SERVER_URL", function() { return SERVER_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SVG_ICON_REGISTRY_PROVIDER", function() { return SVG_ICON_REGISTRY_PROVIDER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SVG_ICON_REGISTRY_PROVIDER_FACTORY", function() { return SVG_ICON_REGISTRY_PROVIDER_FACTORY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SvgHttpLoader", function() { return SvgHttpLoader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SvgIconComponent", function() { return SvgIconComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SvgIconRegistryService", function() { return SvgIconRegistryService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SvgLoader", function() { return SvgLoader; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+
+
+
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+/**
+ * @abstract
+ */
+var  /**
+ * @abstract
+ */
+SvgLoader = /** @class */ (function () {
+    function SvgLoader() {
+    }
+    return SvgLoader;
+}());
+var SvgHttpLoader = /** @class */ (function (_super) {
+    __extends(SvgHttpLoader, _super);
+    function SvgHttpLoader(http) {
+        var _this = _super.call(this) || this;
+        _this.http = http;
+        return _this;
+    }
+    /**
+     * @param {?} url
+     * @return {?}
+     */
+    SvgHttpLoader.prototype.getSvg = /**
+     * @param {?} url
+     * @return {?}
+     */
+    function (url) {
+        return this.http.get(url, { responseType: 'text' });
+    };
+    SvgHttpLoader.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    SvgHttpLoader.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
+    ]; };
+    return SvgHttpLoader;
+}(SvgLoader));
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+var SERVER_URL = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('SERVER_URL');
+var SvgIconRegistryService = /** @class */ (function () {
+    function SvgIconRegistryService(loader, platformId, serverUrl, _document) {
+        this.loader = loader;
+        this.platformId = platformId;
+        this.serverUrl = serverUrl;
+        this._document = _document;
+        this.iconsByUrl = new Map();
+        this.iconsLoadingByUrl = new Map();
+        this.document = this._document;
+    }
+    /** Add a SVG to the registry by passing a name and the SVG. */
+    /**
+     * Add a SVG to the registry by passing a name and the SVG.
+     * @param {?} name
+     * @param {?} data
+     * @return {?}
+     */
+    SvgIconRegistryService.prototype.addSvg = /**
+     * Add a SVG to the registry by passing a name and the SVG.
+     * @param {?} name
+     * @param {?} data
+     * @return {?}
+     */
+    function (name, data) {
+        if (!this.iconsByUrl.has(name)) {
+            /** @type {?} */
+            var div = this.document.createElement('DIV');
+            div.innerHTML = data;
+            /** @type {?} */
+            var svg = (/** @type {?} */ (div.querySelector('svg')));
+            this.iconsByUrl.set(name, svg);
+        }
+    };
+    /** Load a SVG to the registry from a URL. */
+    /**
+     * Load a SVG to the registry from a URL.
+     * @param {?} url
+     * @param {?=} name
+     * @return {?}
+     */
+    SvgIconRegistryService.prototype.loadSvg = /**
+     * Load a SVG to the registry from a URL.
+     * @param {?} url
+     * @param {?=} name
+     * @return {?}
+     */
+    function (url, name) {
+        var _this = this;
+        if (name === void 0) { name = url; }
+        // not sure if there should be a possibility to use name for server usage
+        // so overriding it for now if provided
+        // maybe should separate functionality for url and name use-cases
+        if (this.serverUrl && url.match(/^(http(s)?):/) === null) {
+            url = this.serverUrl + url;
+            name = url;
+        }
+        if (this.iconsByUrl.has(name)) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(this.iconsByUrl.get(name));
+        }
+        else if (this.iconsLoadingByUrl.has(name)) {
+            return this.iconsLoadingByUrl.get(name);
+        }
+        /** @type {?} */
+        var o = (/** @type {?} */ (this.loader.getSvg(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} svg
+         * @return {?}
+         */
+        function (svg) {
+            /** @type {?} */
+            var div = _this.document.createElement('DIV');
+            div.innerHTML = svg;
+            return (/** @type {?} */ (div.querySelector('svg')));
+        })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])((/**
+         * @param {?} svg
+         * @return {?}
+         */
+        function (svg) { return _this.iconsByUrl.set(name, svg); })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((/**
+         * @param {?} err
+         * @return {?}
+         */
+        function (err) {
+            console.error(err);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(err);
+        })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["finalize"])((/**
+         * @return {?}
+         */
+        function () { return _this.iconsLoadingByUrl.delete(name); })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["share"])())));
+        this.iconsLoadingByUrl.set(name, o);
+        return o;
+    };
+    /** Get loaded SVG from registry by name. (also works by url because of blended map) */
+    /**
+     * Get loaded SVG from registry by name. (also works by url because of blended map)
+     * @param {?} name
+     * @return {?}
+     */
+    SvgIconRegistryService.prototype.getSvgByName = /**
+     * Get loaded SVG from registry by name. (also works by url because of blended map)
+     * @param {?} name
+     * @return {?}
+     */
+    function (name) {
+        if (this.iconsByUrl.has(name)) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(this.iconsByUrl.get(name));
+        }
+        else if (this.iconsLoadingByUrl.has(name)) {
+            return this.iconsLoadingByUrl.get(name);
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])("No svg with name '" + name + "' has been loaded");
+    };
+    /** Remove a SVG from the registry by URL (or name). */
+    /**
+     * Remove a SVG from the registry by URL (or name).
+     * @param {?} url
+     * @return {?}
+     */
+    SvgIconRegistryService.prototype.unloadSvg = /**
+     * Remove a SVG from the registry by URL (or name).
+     * @param {?} url
+     * @return {?}
+     */
+    function (url) {
+        if (this.iconsByUrl.has(url)) {
+            this.iconsByUrl.delete(url);
+        }
+    };
+    SvgIconRegistryService.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    SvgIconRegistryService.ctorParameters = function () { return [
+        { type: SvgLoader },
+        { type: Object, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"],] }] },
+        { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [SERVER_URL,] }] },
+        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["DOCUMENT"],] }] }
+    ]; };
+    return SvgIconRegistryService;
+}());
+/**
+ * @param {?} parentRegistry
+ * @param {?} loader
+ * @param {?} platformId
+ * @param {?=} serverUrl
+ * @param {?=} document
+ * @return {?}
+ */
+function SVG_ICON_REGISTRY_PROVIDER_FACTORY(parentRegistry, loader, platformId, serverUrl, document) {
+    return parentRegistry || new SvgIconRegistryService(loader, platformId, serverUrl, document);
+}
+/** @type {?} */
+var SVG_ICON_REGISTRY_PROVIDER = {
+    provide: SvgIconRegistryService,
+    deps: [[new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"](), new _angular_core__WEBPACK_IMPORTED_MODULE_0__["SkipSelf"](), SvgIconRegistryService], SvgLoader, [(/** @type {?} */ (_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"]))],
+        [new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"](), (/** @type {?} */ (SERVER_URL))], [new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"](), (/** @type {?} */ (_angular_common__WEBPACK_IMPORTED_MODULE_1__["DOCUMENT"]))]
+    ],
+    useFactory: SVG_ICON_REGISTRY_PROVIDER_FACTORY
+};
+
+var __read = (undefined && undefined.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+var SvgIconComponent = /** @class */ (function () {
+    function SvgIconComponent(element, differs, renderer, iconReg, cdr) {
+        this.element = element;
+        this.differs = differs;
+        this.renderer = renderer;
+        this.iconReg = iconReg;
+        this.cdr = cdr;
+        this.stretch = false;
+        this.applyCss = false;
+    }
+    Object.defineProperty(SvgIconComponent.prototype, "svgStyle", {
+        // Adapted from ngStyle
+        set: 
+        // Adapted from ngStyle
+        /**
+         * @param {?} v
+         * @return {?}
+         */
+        function (v) {
+            this._svgStyle = v;
+            if (!this.differ && v) {
+                this.differ = this.differs.find(v).create();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @return {?}
+     */
+    SvgIconComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
+        this.init();
+    };
+    /**
+     * @return {?}
+     */
+    SvgIconComponent.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        this.destroy();
+    };
+    /**
+     * @param {?} changeRecord
+     * @return {?}
+     */
+    SvgIconComponent.prototype.ngOnChanges = /**
+     * @param {?} changeRecord
+     * @return {?}
+     */
+    function (changeRecord) {
+        if (changeRecord.src || changeRecord.name) {
+            if (this.svg) {
+                this.destroy();
+            }
+            this.init();
+        }
+        if (changeRecord.stretch) {
+            this.stylize();
+        }
+    };
+    /**
+     * @return {?}
+     */
+    SvgIconComponent.prototype.ngDoCheck = /**
+     * @return {?}
+     */
+    function () {
+        if (this.svg && this.differ) {
+            /** @type {?} */
+            var changes = this.differ.diff(this._svgStyle);
+            if (changes) {
+                this.applyChanges(changes);
+            }
+        }
+    };
+    /**
+     * @private
+     * @return {?}
+     */
+    SvgIconComponent.prototype.init = /**
+     * @private
+     * @return {?}
+     */
+    function () {
+        if (this.name) {
+            this.icnSub = this.iconReg.getSvgByName(this.name).subscribe(this.initSvg.bind(this));
+        }
+        else if (this.src) {
+            this.icnSub = this.iconReg.loadSvg(this.src).subscribe(this.initSvg.bind(this));
+        }
+    };
+    /**
+     * @private
+     * @param {?} svg
+     * @return {?}
+     */
+    SvgIconComponent.prototype.initSvg = /**
+     * @private
+     * @param {?} svg
+     * @return {?}
+     */
+    function (svg) {
+        this.setSvg(svg);
+        this.resetDiffer();
+    };
+    /**
+     * @private
+     * @return {?}
+     */
+    SvgIconComponent.prototype.destroy = /**
+     * @private
+     * @return {?}
+     */
+    function () {
+        this.svg = undefined;
+        this.differ = undefined;
+        if (this.icnSub) {
+            this.icnSub.unsubscribe();
+        }
+    };
+    /**
+     * @private
+     * @return {?}
+     */
+    SvgIconComponent.prototype.resetDiffer = /**
+     * @private
+     * @return {?}
+     */
+    function () {
+        if (this._svgStyle && !this.differ) {
+            this.differ = this.differs.find(this._svgStyle).create();
+        }
+    };
+    /**
+     * @private
+     * @param {?} svg
+     * @return {?}
+     */
+    SvgIconComponent.prototype.setSvg = /**
+     * @private
+     * @param {?} svg
+     * @return {?}
+     */
+    function (svg) {
+        if (svg) {
+            this.svg = svg;
+            /** @type {?} */
+            var icon = (/** @type {?} */ (svg.cloneNode(true)));
+            /** @type {?} */
+            var elem = this.element.nativeElement;
+            if (this.applyCss) {
+                this.copyNgContentAttribute(elem, icon);
+            }
+            elem.innerHTML = '';
+            this.renderer.appendChild(elem, icon);
+            this.stylize();
+            this.cdr.markForCheck();
+        }
+    };
+    /**
+     * @private
+     * @param {?} hostElem
+     * @param {?} icon
+     * @return {?}
+     */
+    SvgIconComponent.prototype.copyNgContentAttribute = /**
+     * @private
+     * @param {?} hostElem
+     * @param {?} icon
+     * @return {?}
+     */
+    function (hostElem, icon) {
+        /** @type {?} */
+        var attributes = (/** @type {?} */ (hostElem.attributes));
+        /** @type {?} */
+        var len = attributes.length;
+        for (var i = 0; i < len; i += 1) {
+            /** @type {?} */
+            var attribute = attributes.item(i);
+            if (attribute.name.startsWith('_ngcontent')) {
+                this.setNgContentAttribute(icon, attribute.name);
+                break;
+            }
+        }
+    };
+    /**
+     * @private
+     * @param {?} parent
+     * @param {?} attributeName
+     * @return {?}
+     */
+    SvgIconComponent.prototype.setNgContentAttribute = /**
+     * @private
+     * @param {?} parent
+     * @param {?} attributeName
+     * @return {?}
+     */
+    function (parent, attributeName) {
+        this.renderer.setAttribute(parent, attributeName, '');
+        /** @type {?} */
+        var len = parent.childNodes.length;
+        for (var i = 0; i < len; i += 1) {
+            /** @type {?} */
+            var child = parent.childNodes[i];
+            if (child instanceof Element) {
+                this.setNgContentAttribute(child, attributeName);
+            }
+        }
+    };
+    /**
+     * @private
+     * @return {?}
+     */
+    SvgIconComponent.prototype.stylize = /**
+     * @private
+     * @return {?}
+     */
+    function () {
+        if (this.svg) {
+            /** @type {?} */
+            var svg = this.element.nativeElement.firstChild;
+            if (this.stretch === true) {
+                this.renderer.setAttribute(svg, 'preserveAspectRatio', 'none');
+            }
+            else if (this.stretch === false) {
+                this.renderer.removeAttribute(svg, 'preserveAspectRatio');
+            }
+        }
+    };
+    /**
+     * @private
+     * @param {?} changes
+     * @return {?}
+     */
+    SvgIconComponent.prototype.applyChanges = /**
+     * @private
+     * @param {?} changes
+     * @return {?}
+     */
+    function (changes) {
+        var _this = this;
+        changes.forEachRemovedItem((/**
+         * @param {?} record
+         * @return {?}
+         */
+        function (record) { return _this.setStyle(record.key, null); }));
+        changes.forEachAddedItem((/**
+         * @param {?} record
+         * @return {?}
+         */
+        function (record) { return _this.setStyle(record.key, record.currentValue); }));
+        changes.forEachChangedItem((/**
+         * @param {?} record
+         * @return {?}
+         */
+        function (record) { return _this.setStyle(record.key, record.currentValue); }));
+    };
+    /**
+     * @private
+     * @param {?} nameAndUnit
+     * @param {?} value
+     * @return {?}
+     */
+    SvgIconComponent.prototype.setStyle = /**
+     * @private
+     * @param {?} nameAndUnit
+     * @param {?} value
+     * @return {?}
+     */
+    function (nameAndUnit, value) {
+        var _a = __read(nameAndUnit.split('.'), 2), name = _a[0], unit = _a[1];
+        value = value !== null && unit ? "" + value + unit : value;
+        /** @type {?} */
+        var svg = this.element.nativeElement.firstChild;
+        if (value !== null) {
+            this.renderer.setStyle(svg, name, (/** @type {?} */ (value)));
+        }
+        else {
+            this.renderer.removeStyle(svg, name);
+        }
+    };
+    SvgIconComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                    selector: 'svg-icon',
+                    template: '<ng-content></ng-content>'
+                }] }
+    ];
+    /** @nocollapse */
+    SvgIconComponent.ctorParameters = function () { return [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["KeyValueDiffers"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] },
+        { type: SvgIconRegistryService },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"] }
+    ]; };
+    SvgIconComponent.propDecorators = {
+        src: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+        name: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+        stretch: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+        applyCss: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+        svgStyle: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
+    };
+    return SvgIconComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+var AngularSvgIconModule = /** @class */ (function () {
+    function AngularSvgIconModule() {
+    }
+    /**
+     * @param {?=} config
+     * @return {?}
+     */
+    AngularSvgIconModule.forRoot = /**
+     * @param {?=} config
+     * @return {?}
+     */
+    function (config) {
+        if (config === void 0) { config = {}; }
+        return {
+            ngModule: AngularSvgIconModule,
+            providers: [
+                config.loader || { provide: SvgLoader, useClass: SvgHttpLoader },
+                SVG_ICON_REGISTRY_PROVIDER
+            ]
+        };
+    };
+    AngularSvgIconModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                    imports: [
+                        _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                    ],
+                    declarations: [SvgIconComponent],
+                    providers: [SVG_ICON_REGISTRY_PROVIDER, { provide: SvgLoader, useClass: SvgHttpLoader }],
+                    exports: [SvgIconComponent]
+                },] }
+    ];
+    return AngularSvgIconModule;
+}());
+
+
+//# sourceMappingURL=angular-svg-icon.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/angular2-flash-messages/module/flash-message.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/angular2-flash-messages/module/flash-message.js ***!

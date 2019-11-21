@@ -32,19 +32,19 @@ export class LoginComponent implements OnInit {
       password: this.password
     }
 
-    // Create the petition to authenticate the user and get all the data from the database
+    // Crea la petición para autenticar al usuario
     this.authService.authenticateUser(user).subscribe(data => {
       if (data.success) {
-        // If the login is success we are going to store the data into the local storage
+        // Login correcto, se almacenan los datos del usuario en el almacenamiento local
         this.authService.storeUserData(data.token, data.user)
-        // Show message as logged in
-        this.flashMessage.show("You are now logged in", {
+        // Mensaje de login correcto
+        this.flashMessage.show("Has iniciado sesión", {
           cssClass: 'alert-success',
           timeout: 5000
         });
         this.router.navigate(['/dashboard']);
       } else {
-        // Show message as cant log in
+        // Mensaje de login incorrecto
         this.flashMessage.show(data.msg, {
           cssClass: 'alert-danger',
           timeout: 5000
