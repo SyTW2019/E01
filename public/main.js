@@ -150,10 +150,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_17__);
 /* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
 /* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./reducers */ "./src/app/reducers/index.ts");
-/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm5/effects.js");
-/* harmony import */ var _app_effects__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./app.effects */ "./src/app/app.effects.ts");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./reducers */ "./src/app/reducers/index.ts");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm5/effects.js");
+/* harmony import */ var _app_effects__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./app.effects */ "./src/app/app.effects.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -180,6 +182,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // Libraries
+
 
 
 
@@ -220,6 +223,7 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(appRoutes),
                 angular2_flash_messages__WEBPACK_IMPORTED_MODULE_17__["FlashMessagesModule"].forRoot(),
+                ng_flash_messages__WEBPACK_IMPORTED_MODULE_20__["NgFlashMessagesModule"].forRoot(),
                 angular_svg_icon__WEBPACK_IMPORTED_MODULE_6__["AngularSvgIconModule"],
                 // JWT set the JWT module with the local storage token
                 _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_18__["JwtModule"].forRoot({
@@ -229,14 +233,14 @@ var AppModule = /** @class */ (function () {
                         }
                     }
                 }),
-                _ngrx_store__WEBPACK_IMPORTED_MODULE_20__["StoreModule"].forRoot(_reducers__WEBPACK_IMPORTED_MODULE_21__["reducers"], {
-                    metaReducers: _reducers__WEBPACK_IMPORTED_MODULE_21__["metaReducers"],
+                _ngrx_store__WEBPACK_IMPORTED_MODULE_21__["StoreModule"].forRoot(_reducers__WEBPACK_IMPORTED_MODULE_22__["reducers"], {
+                    metaReducers: _reducers__WEBPACK_IMPORTED_MODULE_22__["metaReducers"],
                     runtimeChecks: {
                         strictStateImmutability: true,
                         strictActionImmutability: true
                     }
                 }),
-                _ngrx_effects__WEBPACK_IMPORTED_MODULE_22__["EffectsModule"].forRoot([_app_effects__WEBPACK_IMPORTED_MODULE_23__["AppEffects"]])
+                _ngrx_effects__WEBPACK_IMPORTED_MODULE_23__["EffectsModule"].forRoot([_app_effects__WEBPACK_IMPORTED_MODULE_24__["AppEffects"]])
             ],
             providers: [
                 _services_validate_service__WEBPACK_IMPORTED_MODULE_15__["ValidateService"],
@@ -260,7 +264,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "svg {\n  width: 15px;\n  height: 15px;\n  margin-right: 10px;\n}\n\n.nav-item {\n  height: 2.5em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGFBQWE7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsic3ZnIHtcbiAgd2lkdGg6IDE1cHg7XG4gIGhlaWdodDogMTVweDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuXG4ubmF2LWl0ZW0ge1xuICBoZWlnaHQ6IDIuNWVtO1xufSJdfQ== */"
+module.exports = "svg {\n  width: 15px;\n  height: 15px;\n  margin-right: 10px;\n}\n\n.nav-item {\n  height: 2.5em;\n}\n\n.offset-md-1.col-md-6::after {\n    display: block;\n    content: \".\";\n    background: -webkit-gradient(linear, left bottom, left top, from(rgba(52,58,64,1)), color-stop(0%, rgba(52,58,64,1)), color-stop(40%, rgba(255,255,255,0)));\n    background: linear-gradient(0deg, rgba(52,58,64,1) 0%, rgba(52,58,64,1) 0%, rgba(255,255,255,0) 40%);\n    height: 50px;\n    color: transparent;\n    width: 96%;\n    margin-top: -50px;\n    z-index: 3;\n    position: relative;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGFBQWE7QUFDZjs7QUFFQTtJQUNJLGNBQWM7SUFDZCxZQUFZO0lBQ1osMkpBQW9HO0lBQXBHLG9HQUFvRztJQUNwRyxZQUFZO0lBQ1osa0JBQWtCO0lBQ2xCLFVBQVU7SUFDVixpQkFBaUI7SUFDakIsVUFBVTtJQUNWLGtCQUFrQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsic3ZnIHtcbiAgd2lkdGg6IDE1cHg7XG4gIGhlaWdodDogMTVweDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuXG4ubmF2LWl0ZW0ge1xuICBoZWlnaHQ6IDIuNWVtO1xufVxuXG4ub2Zmc2V0LW1kLTEuY29sLW1kLTY6OmFmdGVyIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBjb250ZW50OiBcIi5cIjtcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMGRlZywgcmdiYSg1Miw1OCw2NCwxKSAwJSwgcmdiYSg1Miw1OCw2NCwxKSAwJSwgcmdiYSgyNTUsMjU1LDI1NSwwKSA0MCUpO1xuICAgIGhlaWdodDogNTBweDtcbiAgICBjb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgd2lkdGg6IDk2JTtcbiAgICBtYXJnaW4tdG9wOiAtNTBweDtcbiAgICB6LWluZGV4OiAzO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -271,7 +275,7 @@ module.exports = "svg {\n  width: 15px;\n  height: 15px;\n  margin-right: 10px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"col-md-2 d-none d-md-block bg-light sidebar\">\n      <div class=\"sidebar-sticky\">\n        <ul class=\"navbar-nav mt-auto\">\n\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"/dashboard?word\">\n              <svg-icon src=\"assets/svg/busqueda.svg\" [svgStyle]=\"{ 'width.px':15 }\"></svg-icon>\n              Buscar\n            </a>\n          </li>\n\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">\n              <svg-icon src=\"assets/svg/content.svg\" [svgStyle]=\"{ 'width.px':15 }\"></svg-icon>\n              Contenido\n            </a>\n          </li>\n\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">\n              <br>\n              <br>\n            </a>\n          </li>\n\n        </ul>\n      </div>\n    </nav>\n\n\n    <main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-4\">\n      <br><h1>Tablón</h1>\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-primary\">\n        <!-- BEGIN SEARCHER -->\n        <form class=\"mx-2 my-auto d-inline w-100 my-2 my-lg-0\">\n          <div class=\"input-group\">\n              <input type=\"text\" class=\"form-control\" placeholder=\"Buscar...\">\n               <span class=\"input-group-append\">\n                 <button class=\"btn btn-secondary my-0 px-4 p-2\" type=\"submit\">Buscar</button>\n               </span>\n          </div>\n          <span class=\"btn badge badge-pill badge-dark m-1 px-3 float-sm-left\" style=\"padding: 5px 10px; text-transform: capitalize\">\n            <i class=\"fas fa-filter\"></i> Filtrar\n          </span>\n        </form>\n        <!-- END SEARCHER -->\n      </div>\n\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light\">\n        <h2>Contenidos</h2>\n        <br>\n        <!-- BEGIN CONTENIDOS AQUÍ -->\n        <div class=\"container\">\n\n          <!-- ITEM 1 -->\n          <div class=\"row\">\n            <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n              <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n                <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n                <div class=\"card-body text-justify\">\n                  <h3 class=\"card-title\">Título documento</h3>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-4\">\n              <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n              background-image: url('/assets/img/content-example/1.jpg');\n              background-size: cover;\n              background-position: center\">\n              </div>\n            </div>\n          </div>\n          <!-- END ITEM 1 -->\n          <br>\n          <!-- ITEM 2 -->\n          <div class=\"row\">\n            <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n              <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n                <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n                <div class=\"card-body text-justify\">\n                  <h3 class=\"card-title\">Título documento</h3>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-4\">\n              <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n              background-image: url('/assets/img/content-example/2.jpg');\n              background-size: cover;\n              background-position: center\">\n              </div>\n            </div>\n          </div>\n          <!-- END ITEM 2 -->\n\n        </div>\n\n        <!-- END CONTENIDOS AQUÍ -->\n      </div>\n\n      <div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n        <div class=\"row\">\n          <div class=\"col-md-4\">\n            <h3>First column</h3>\n            <p>Hey there we are making a try</p>\n          </div>\n          <div class=\"col-md-4\">\n            <h3>Second column</h3>\n            <p>Hey there we are making a try</p>\n          </div>\n          <div class=\"col-md-4\">\n            <h3>Third column</h3>\n            <p>Hey there we are making a try</p>\n          </div>\n        </div>\n      </div>\n\n    </main>\n  </div>\n</div>\n<app-footer></app-footer>\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"col-md-2 d-none d-md-block bg-light sidebar\">\n      <div class=\"sidebar-sticky\">\n        <ul class=\"navbar-nav mt-auto\">\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"/dashboard?word\">\n              <svg-icon src=\"assets/svg/busqueda.svg\" [svgStyle]=\"{ 'width.px':15 }\"></svg-icon>\n              Buscar\n            </a>\n          </li>\n\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">\n              <svg-icon src=\"assets/svg/content.svg\" [svgStyle]=\"{ 'width.px':15 }\"></svg-icon>\n              Contenido\n            </a>\n          </li>\n\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">\n              <br>\n              <br>\n            </a>\n          </li>\n\n        </ul>\n      </div>\n    </nav>\n\n\n    <main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-4\">\n      <ng-flash-message></ng-flash-message>\n      <br><h1>Tablón</h1>\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-primary\">\n        <!-- BEGIN SEARCHER -->\n        <form class=\"mx-2 my-auto d-inline w-100 my-2 my-lg-0\">\n          <div class=\"input-group\">\n              <input type=\"text\" class=\"form-control\" placeholder=\"Buscar...\">\n               <span class=\"input-group-append\">\n                 <button class=\"btn btn-secondary my-0 px-4 p-2\" type=\"submit\">Buscar</button>\n               </span>\n          </div>\n          <span class=\"btn badge badge-pill badge-dark m-1 px-3 float-sm-left\" style=\"padding: 5px 10px; text-transform: capitalize\">\n            <i class=\"fas fa-filter\"></i> Filtrar\n          </span>\n        </form>\n        <!-- END SEARCHER -->\n      </div>\n\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light\">\n        <h2>Contenidos</h2>\n        <br>\n        <!-- BEGIN CONTENIDOS AQUÍ -->\n        <div class=\"container\">\n\n          <!-- ITEM 1 -->\n          <div class=\"row\">\n            <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n              <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n                <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n                <div class=\"card-body text-justify\">\n                  <h3 class=\"card-title\">Título documento</h3>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-4\">\n              <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n              background-image: url('/assets/img/content-example/1.jpg');\n              background-size: cover;\n              background-position: center\">\n              </div>\n            </div>\n          </div>\n          <!-- END ITEM 1 -->\n          <br>\n          <!-- ITEM 2 -->\n          <div class=\"row\">\n            <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n              <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n                <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n                <div class=\"card-body text-justify\">\n                  <h3 class=\"card-title\">Título documento</h3>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                  <br><br>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-4\">\n              <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n              background-image: url('/assets/img/content-example/2.jpg');\n              background-size: cover;\n              background-position: center\">\n              </div>\n            </div>\n          </div>\n          <!-- END ITEM 2 -->\n\n        </div>\n\n        <!-- END CONTENIDOS AQUÍ -->\n      </div>\n\n      <div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n        <div class=\"row\">\n          <div class=\"col-md-4\">\n            <h3>First column</h3>\n            <p>Hey there we are making a try</p>\n          </div>\n          <div class=\"col-md-4\">\n            <h3>Second column</h3>\n            <p>Hey there we are making a try</p>\n          </div>\n          <div class=\"col-md-4\">\n            <h3>Third column</h3>\n            <p>Hey there we are making a try</p>\n          </div>\n        </div>\n      </div>\n\n    </main>\n  </div>\n</div>\n<app-footer></app-footer>\n"
 
 /***/ }),
 
@@ -397,7 +401,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-5 p-lg-5 mx-auto my-6\">\n    <div class=\"form-group\">\n      <h2>Iniciar sesión</h2>\n    </div>\n    <div class=\"dropdown-divider\"></div>\n    <form class=\"px-4 py-3\" (submit)=\"onLoginSubmit()\">\n      <div class=\"form-group\">\n        <label>Nombre de usuario</label>\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\" placeholder=\"John12345\">\n      </div>\n      <div class=\"form-group\">\n        <label>Contraseña</label>\n        <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\" placeholder=\"Password\">\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\">Iniciar sesión</button>\n    </form>\n    <div class=\"dropdown-divider\"></div>\n    <a class=\"dropdown-item\" [routerLink]=\"['/register']\">¿Nuevo por aquí? Regístrate</a>\n  </div>\n</div>"
+module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-5 p-lg-5 mx-auto my-6\">\n    <div class=\"form-group\">\n      <h2>Iniciar sesión</h2>\n    </div>\n    <div class=\"dropdown-divider\"></div>\n    <form class=\"px-4 py-3\" (submit)=\"onLoginSubmit()\" name=\"myForm\">\n      <div class=\"form-group\">\n        <label>Nombre de usuario</label>\n        <input type=\"text\" class=\"form-control\" name=\"username\" placeholder=\"John12345\"\n        [(ngModel)]=\"username\"\n        required>\n      </div>\n      <div class=\"form-group\">\n        <label>Contraseña</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Password\"\n        [(ngModel)]=\"password\"\n        required>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\">Iniciar sesión</button>\n    </form>\n    <div class=\"dropdown-divider\"></div>\n    <a class=\"dropdown-item\" [routerLink]=\"['/register']\">¿Nuevo por aquí? Regístrate</a>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -414,8 +418,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -430,10 +434,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(authService, router, flashMessage) {
+    function LoginComponent(authService, router, ngFlashMessageService) {
         this.authService = authService;
         this.router = router;
-        this.flashMessage = flashMessage;
+        this.ngFlashMessageService = ngFlashMessageService;
     }
     LoginComponent.prototype.ngOnInit = function () {
         if (this.authService.loggedIn)
@@ -451,18 +455,22 @@ var LoginComponent = /** @class */ (function () {
             if (data.success) {
                 // Login correcto, se almacenan los datos del usuario en el almacenamiento local
                 _this.authService.storeUserData(data.token, data.user);
-                // Mensaje de login correcto
-                _this.flashMessage.show("Has iniciado sesión", {
-                    cssClass: 'alert-success',
-                    timeout: 5000
+                // Show message as logged in
+                _this.ngFlashMessageService.showFlashMessage({
+                    messages: ["¡Ya está conectado, bienvenido!"],
+                    dismissible: true,
+                    timeout: false,
+                    type: 'success'
                 });
                 _this.router.navigate(['/dashboard']);
             }
             else {
-                // Mensaje de login incorrecto
-                _this.flashMessage.show(data.msg, {
-                    cssClass: 'alert-danger',
-                    timeout: 5000
+                // Show message as cant log in
+                _this.ngFlashMessageService.showFlashMessage({
+                    messages: [data.msg],
+                    dismissible: true,
+                    timeout: false,
+                    type: 'danger'
                 });
                 _this.router.navigate(['/login']);
             }
@@ -476,7 +484,7 @@ var LoginComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"]])
+            ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__["NgFlashMessageService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -492,7 +500,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/*.navbar {\n  background: #3e4460!important;\n}\n\n.navbar-brand\n{\n  color: #919aa1!important;\n  cursor: default;\n}\n\n.navbar a {\n  color: #ffffffc4!important;\n  transition: ease-in-out 0.2s;\n}\n\n.navbar a:hover {\n  color: #919aa1;\n  transition: ease-in-out 0.2s;\n}\n\n.navbar-light .navbar-nav .active>.nav-link,\n.navbar-light .navbar-nav .nav-link.active\n{\n  color: #919aa1!important;\n}\n\n.navbar-light .navbar-toggler {\n  color: rgba(243, 243, 243, 0.3)!important;\n  border-color: rgba(255, 255, 255, 0.1);\n  padding: 5px 6px;\n}*/\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9uYXZiYXIvbmF2YmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztFQThCRSIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbmF2YmFyL25hdmJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoubmF2YmFyIHtcbiAgYmFja2dyb3VuZDogIzNlNDQ2MCFpbXBvcnRhbnQ7XG59XG5cbi5uYXZiYXItYnJhbmRcbntcbiAgY29sb3I6ICM5MTlhYTEhaW1wb3J0YW50O1xuICBjdXJzb3I6IGRlZmF1bHQ7XG59XG5cbi5uYXZiYXIgYSB7XG4gIGNvbG9yOiAjZmZmZmZmYzQhaW1wb3J0YW50O1xuICB0cmFuc2l0aW9uOiBlYXNlLWluLW91dCAwLjJzO1xufVxuXG4ubmF2YmFyIGE6aG92ZXIge1xuICBjb2xvcjogIzkxOWFhMTtcbiAgdHJhbnNpdGlvbjogZWFzZS1pbi1vdXQgMC4ycztcbn1cblxuLm5hdmJhci1saWdodCAubmF2YmFyLW5hdiAuYWN0aXZlPi5uYXYtbGluayxcbi5uYXZiYXItbGlnaHQgLm5hdmJhci1uYXYgLm5hdi1saW5rLmFjdGl2ZVxue1xuICBjb2xvcjogIzkxOWFhMSFpbXBvcnRhbnQ7XG59XG5cbi5uYXZiYXItbGlnaHQgLm5hdmJhci10b2dnbGVyIHtcbiAgY29sb3I6IHJnYmEoMjQzLCAyNDMsIDI0MywgMC4zKSFpbXBvcnRhbnQ7XG4gIGJvcmRlci1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpO1xuICBwYWRkaW5nOiA1cHggNnB4O1xufSovXG4iXX0= */"
+module.exports = "\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbmF2YmFyL25hdmJhci5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -503,7 +511,7 @@ module.exports = "/*.navbar {\n  background: #3e4460!important;\n}\n\n.navbar-br
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n  <a class=\"navbar-brand\" href=\"#\">PLANEDU</a>\n  <button class=\"navbar-toggler collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"navbar-collapse collapse\" id=\"navbarColor01\" style=\"\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"!#\">Pestaña<span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"!#\">Pestaña</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"!#\">Pestaña</a>\n      </li>\n    </ul>\n    <ul class=\" navbar-nav mt-auto\">\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/dashboard']\">Tablón</a></li>\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/profile']\">Perfil</a></li>\n\n      <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/']\">Iniciar sesión</a></li>\n      <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/register']\">Registrarse</a></li>\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\"><a class=\"nav-link\" (click)=\"onLogoutClick()\" href=\"#\">Cerrar sesión</a></li>\n    </ul>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n  <a class=\"navbar-brand\" href=\"#\">PLANEDU</a>\n  <button class=\"navbar-toggler collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"navbar-collapse collapse\" id=\"navbarColor01\" style=\"\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"!#\">Pestaña<span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"!#\">Pestaña</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"!#\">Pestaña</a>\n      </li>\n    </ul>\n    <ul class=\" navbar-nav mt-auto\">\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/dashboard']\">Tablón</a></li>\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/profile']\">Perfil</a></li>\n\n      <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/']\">Iniciar sesión</a></li>\n      <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/register']\">Registrarse</a></li>\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\"><a class=\"nav-link\" (click)=\"onLogoutClick()\" href=\"#\">Cerrar sesión</a></li>\n    </ul>\n  </div>\n</nav>\n  <ng-flash-message></ng-flash-message>\n"
 
 /***/ }),
 
@@ -520,8 +528,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -534,21 +542,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+//import { FlashMessagesService } from 'angular2-flash-messages';
 
 var NavbarComponent = /** @class */ (function () {
-    function NavbarComponent(authService, router, flashMessage) {
+    function NavbarComponent(authService, router, 
+    //private flashMessage: FlashMessagesService,
+    ngFlashMessageService) {
         this.authService = authService;
         this.router = router;
-        this.flashMessage = flashMessage;
+        this.ngFlashMessageService = ngFlashMessageService;
     }
     NavbarComponent.prototype.ngOnInit = function () {
+        //if (this.authService.loggedIn()) $('ul.navbar-nav.mr-auto').show();
+        //else $('ul.navbar-nav.mr-auto li').hide();
     };
     NavbarComponent.prototype.onLogoutClick = function () {
         // Send the instruction to clear the local storage and the memory of the user logged in
         this.authService.logout();
-        this.flashMessage.show('You are logged out', {
-            cssClass: 'alert-warning',
-            timeout: 3000
+        this.ngFlashMessageService.showFlashMessage({
+            messages: ["Tu sesión ha terminado"],
+            dismissible: true,
+            timeout: false,
+            type: 'warning'
         });
         this.router.navigate(['/login']);
         return false;
@@ -561,7 +576,7 @@ var NavbarComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"]])
+            ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__["NgFlashMessageService"]])
     ], NavbarComponent);
     return NavbarComponent;
 }());
@@ -640,7 +655,7 @@ var NotfoundComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcHJvZmlsZS9wcm9maWxlLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcHJvZmlsZS9wcm9maWxlLmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -728,7 +743,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-7 p-lg-5 mx-auto my-8\">\n    <div class=\"form-group\">\n      <h2>Registro</h2>\n    </div>\n    <div class=\"dropdown-divider\"></div>\n    <form class=\"px-4 py-3\" (submit)=\"onRegisterSubmit()\">\n      <div class=\"form-group\">\n        <label>Nombre</label>\n        <input type=\"name\" class=\"form-control\" [(ngModel)]=\"name\" name=\"name\" placeholder=\"John Doe\">\n      </div>\n      <div class=\"form-group\"> \n        <label>Nombre de Usuario</label>\n        <input type=\"username\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\" placeholder=\"John12345\">\n      </div>\n      <div class=\"form-group\">\n        <label>Email</label>\n        <input type=\"email\" class=\"form-control\" [(ngModel)]=\"email\" name=\"email\" placeholder=\"email@example.com\">\n      </div>\n      <div class=\"form-group\">\n        <label>Contraseña</label>\n        <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\" placeholder=\"Password\">\n      </div>\n      <div class=\"form-group\">\n        <label>Universidad</label>\n        <input type=\"universidad\" class=\"form-control\" [(ngModel)]=\"universidad\" name=\"universidad\" placeholder=\"Nombre completo de tu Universidad\">\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">Registrarme</button>\n    </form>\n  </div>\n</div>"
+module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-7 p-lg-5 mx-auto my-8\">\n    <div class=\"form-group\">\n      <h2>Registro</h2>\n    </div>\n    <div class=\"dropdown-divider\"></div>\n    <form class=\"px-4 py-3\" (submit)=\"onRegisterSubmit()\" name=\"register\">\n      <div class=\"row\">\n        <div class=\"col-6\">\n\n          <div class=\"form-group\">\n            <label>Nombre</label>\n            <input type=\"name\" class=\"form-control\" name=\"name\" placeholder=\"John Doe\"\n            [(ngModel)]=\"name\"\n            required>\n          </div>\n\n        </div>\n        <div class=\"col-6\">\n          <div class=\"form-group\">\n            <label>Usuario</label>\n            <input type=\"username\" class=\"form-control\" name=\"username\" placeholder=\"John12345\"\n            [(ngModel)]=\"username\"\n            required>\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"form-group\">\n        <label>Email</label>\n        <input type=\"email\" class=\"form-control\"  name=\"email\" placeholder=\"email@example.com\"\n        [(ngModel)]=\"email\"\n        (change)=\"onChangeEmail()\"\n        required>\n      </div>\n      <div class=\"form-group\">\n        <label>Contraseña</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Password\"\n        [(ngModel)]=\"password\"\n        required>\n      </div>\n      <div class=\"form-group\">\n        <label>Universidad</label>\n        <input type=\"universidad\" class=\"form-control\" name=\"universidad\" placeholder=\"Nombre completo de tu Universidad\"\n        [(ngModel)]=\"universidad\"\n        required>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">Registrarme</button>\n    </form>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -745,8 +760,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_validate_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/validate.service */ "./src/app/services/validate.service.ts");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -768,14 +783,30 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var RegisterComponent = /** @class */ (function () {
     function RegisterComponent(
     // Need to inject all the services in the constructor
-    validateService, flashMessage, authService, router) {
+    validateService, authService, router, ngFlashMessageService) {
         this.validateService = validateService;
-        this.flashMessage = flashMessage;
         this.authService = authService;
         this.router = router;
+        this.ngFlashMessageService = ngFlashMessageService;
     }
     RegisterComponent.prototype.ngOnInit = function () {
     };
+    // Validar email en el momento
+    /*onChangeEmail() {
+      const user = { email: this.email,}
+  
+      if (!this.validateService.validateEmail(user.email)) {
+        $("input[name='email']").removeClass('ng-valid');
+        $("input[name='email']").addClass('ng-invalid');
+  
+        return false;
+      } else {
+        $("input[name='email']").removeClass('ng-invalid');
+        $("input[name='email']").addClass('ng-valid');
+        return true;
+      }
+    }*/
+    // Validaciones en la confirmación del formulario
     RegisterComponent.prototype.onRegisterSubmit = function () {
         var _this = this;
         // Create the user object
@@ -786,14 +817,23 @@ var RegisterComponent = /** @class */ (function () {
             password: this.password,
             universidad: this.universidad
         };
-        // Required fields
         if (!this.validateService.validateRegister(user)) {
-            this.flashMessage.show('Please fill in all the fields', { cssClass: 'alert-danger', timeout: 3000 });
+            this.ngFlashMessageService.showFlashMessage({
+                messages: ["Por favor rellene los campos"],
+                dismissible: true,
+                timeout: false,
+                type: 'danger'
+            });
             return false;
         }
         // Validate email
         if (!this.validateService.validateEmail(user.email)) {
-            this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
+            this.ngFlashMessageService.showFlashMessage({
+                messages: ["Por favor, use un campo de email válido"],
+                dismissible: true,
+                timeout: false,
+                type: 'danger'
+            });
             return false;
         }
         // Validación de la Universidad
@@ -809,13 +849,22 @@ var RegisterComponent = /** @class */ (function () {
         this.authService.registerUser(user).subscribe(function (data) {
             // Lets validate the response and show the user the response with an alert
             if (data.success) {
-                _this.flashMessage.show('You are now registered', { cssClass: 'alert-success', timeout: 3000 });
+                _this.ngFlashMessageService.showFlashMessage({
+                    messages: ["¡Ahora ya está registrado! Bienvenido."],
+                    dismissible: true,
+                    timeout: false,
+                    type: 'success'
+                });
                 // If the registration is success move to the login component
                 _this.router.navigate(['/login']);
             }
             else {
-                _this.flashMessage.show(data.msg, { cssClass: 'alert-danger', timeout: 3000 });
-                //console.log(data);
+                _this.ngFlashMessageService.showFlashMessage({
+                    messages: [data.msg],
+                    dismissible: true,
+                    timeout: false,
+                    type: 'danger'
+                });
                 // If the registration is success move to the login component
                 _this.router.navigate(['/register']);
             }
@@ -828,9 +877,9 @@ var RegisterComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./register.component.css */ "./src/app/components/register/register.component.css")]
         }),
         __metadata("design:paramtypes", [_services_validate_service__WEBPACK_IMPORTED_MODULE_1__["ValidateService"],
-            angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"],
             _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__["NgFlashMessageService"]])
     ], RegisterComponent);
     return RegisterComponent;
 }());
@@ -1061,7 +1110,10 @@ var ValidateService = /** @class */ (function () {
     // Function of the service to validate the email
     ValidateService.prototype.validateEmail = function (email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
+        /*
+         send "email" to backend. El backend debe comprobar si está en la bdd y devolver un true o false.
+        */
+        return re.test(email); // <-- (Devolver re.test(email) * flag del backend)
     };
     ValidateService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

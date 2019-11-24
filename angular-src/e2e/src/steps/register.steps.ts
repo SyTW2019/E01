@@ -9,7 +9,6 @@ Before(() => {
     page = new RegisterPage();
 });
 
-
 // -------------
 //  Scenario #1
 // -------------
