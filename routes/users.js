@@ -59,7 +59,7 @@ router.post('/authenticate', (req, res, next) => {
     if (!user) {
       return res.json({
         success: false,
-        msg: 'user'
+        msg: 'El usuario no existe'
       });
     }
 
@@ -93,7 +93,7 @@ router.post('/authenticate', (req, res, next) => {
       } else {
         return res.json({
           success: false,
-          msg: 'Wrong password'
+          msg: 'Contraseña errónea'
         });
       }
     });
