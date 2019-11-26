@@ -52,9 +52,9 @@ export class RegisterComponent implements OnInit {
     }
   }*/
 
-  // Validaciones en la confirmación del formulario
+  // Al hacer submit del formulario
   onRegisterSubmit() {
-    // Create the user object
+    // Se crea el objeto usuario con los campos
     const user = {
       name: this.name,
       username: this.username,
@@ -63,6 +63,7 @@ export class RegisterComponent implements OnInit {
       universidad: this.universidad
     }
 
+    // Validación de campos
     if (!this.validateService.validateRegister(user)) {
       this.ngFlashMessageService.showFlashMessage({
         messages: ["Por favor rellene los campos"],
@@ -73,7 +74,7 @@ export class RegisterComponent implements OnInit {
       return false;
     }
 
-    // Validate email
+    // Validación de email
     if (!this.validateService.validateEmail(user.email)) {
       this.ngFlashMessageService.showFlashMessage({
         messages: ["Por favor, use un campo de email válido"],
@@ -92,11 +93,11 @@ export class RegisterComponent implements OnInit {
       }
     });*/
 
-    // Register user
+    // Registro de usuario
     // Use the service with the function and the user object as is an observable
     // we need to subscribe to it and inside we have the data back
     this.authService.registerUser(user).subscribe(data => {
-      // Lets validate the response and show the user the response with an alert
+      // Si se ha regitrado correctametne
       if (data.success) {
         this.ngFlashMessageService.showFlashMessage({
           messages: ["¡Ahora ya está registrado! Bienvenido."],
@@ -104,16 +105,18 @@ export class RegisterComponent implements OnInit {
           timeout: false,
           type: 'success'
         });
-        // If the registration is success move to the login component
+        // Redirecciona al formulario de login
         this.router.navigate(['/login']);
-      } else {
+      } 
+      // Si no se ha registrado
+      else {
         this.ngFlashMessageService.showFlashMessage({
           messages: [data.msg],
           dismissible: true,
           timeout: false,
           type: 'danger'
         });
-        // If the registration is success move to the login component
+        // Redirecciona al mismo formulario
         this.router.navigate(['/register']);
       }
     });

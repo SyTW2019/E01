@@ -27,19 +27,26 @@ router.post('/register', (req, res, next) => {
       });
     }
     else {
-      // Add the user to the db
+      // Añade el usuario a la bd
       User.addUser(newUser, (err, user) => {
-        // Return the success state as false if it couldn't be registered
-        if (err) {
+        // Devuelve el estado 'success' como falso si no se ha registrado
+        if (err.errmsg.includes('username')) {
           res.json({
             success: false,
-            msg: 'Failed to register user'
+            msg: 'El nombre de usuario introducido ya está en uso'
           });
-          // Return the success state as true if it could be registered
-        } else {
+        } 
+        else if (err.errmsg.includes('email')) {
+          res.json({
+            success: false,
+            msg: 'El email introducido ya está en uso'
+          });
+        } 
+        // Devuelve el estado 'success' como verdadero si se ha registrado
+        else {
           res.json({
             success: true,
-            msg: 'User registered'
+            msg: 'Usuario registrado correctamente'
           });
         }
       });
