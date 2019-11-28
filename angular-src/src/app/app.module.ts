@@ -16,6 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContentComponent } from './components/content/content.component';
+import { ContentlistComponent } from './components/contentlist/contentlist.component';
 
 // Services
 import { ValidateService } from './services/validate.service';
@@ -31,6 +32,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
+
 
 
 // Array de Enrutamiento
@@ -56,7 +58,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     FooterComponent,
     NotfoundComponent,
-    ContentComponent
+    ContentComponent,
+    ContentlistComponent
   ],
   imports: [
     BrowserModule,
