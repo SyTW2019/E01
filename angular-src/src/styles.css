@@ -129,3 +129,10 @@ background-size: calc(0.75em + 0.75rem) calc(0.75em + 0.75rem);
   border-radius: 2px!important;
   padding: 15px!important;
 }
+
+
+/* Pagination */
+.pagination .page-item.active .page-link {
+    border-radius: .01rem!important;
+    background-color: #1d1f21!important;
+}
