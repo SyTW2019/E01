@@ -15,6 +15,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ContentComponent } from './components/content/content.component';
+import { ContentlistComponent } from './components/contentlist/contentlist.component';
 
 // Services
 import { ValidateService } from './services/validate.service';
@@ -31,6 +33,8 @@ import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 
+
+
 // Array de Enrutamiento
 const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -38,6 +42,7 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   // Rutas protegidas, solo tienen acceso ususarios autenticados
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'content', component: ContentComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   // Ruta Comodín: URLs desconocidas
   { path: '**', component: NotfoundComponent },
@@ -52,7 +57,9 @@ const appRoutes: Routes = [
     DashboardComponent,
     ProfileComponent,
     FooterComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ContentComponent,
+    ContentlistComponent
   ],
   imports: [
     BrowserModule,
