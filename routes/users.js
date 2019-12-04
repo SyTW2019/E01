@@ -77,15 +77,12 @@ router.post('/authenticate', (req, res, next) => {
 
       // Check the password by encripting it and compare it with the one in the db
       if (isMatch) {
-        /*const token = jwt.sign(user, config.secret, {
-          expiresIn: 604800 // 1 week
-        });*/
-        // Create a token that is going to be useful for one week
+        // Creación del token
         const token = jwt.sign(user.toJSON(), config.secret, {
-          expiresIn: 604800 // 1 week
+          expiresIn: 604800 // 1 semana
         });
 
-        // Response of the success match returning the user, token and the success state ad true
+        // Respuesta de éxito que devuelve el user, token y el estado success a true
         res.json({
           success: true,
           token: 'JWT ' + token,
@@ -107,12 +104,12 @@ router.post('/authenticate', (req, res, next) => {
   });
 });
 
-// Profile, access to the data using the token that we generated and check if it still valid
+// Profile, acceso al perfil de usuario comprobando si el token de sesión es válido
 router.get('/profile', passport.authenticate('jwt', {
-  // if it is not valid return session as false
+  // Si no es válido devuelve la sesión como false
   session: false
 }), (req, res, next) => {
-  // if it is valid return the user
+  // Si es válido devuelve el usuario
   res.json({
     user: req.user
   });

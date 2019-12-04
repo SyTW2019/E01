@@ -47,11 +47,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Body parser Middleware
 app.use(bodyParser.json());
 
-// Passport strategy for authenticating with a JSON Web Token.
+// Estrategia de autenticación con Passport basada en JSON Web Token
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Get the code of the settings for the passport
+// Recoge la configuración establecida para passport
 require('./config/passport')(passport);
 
 // Use users as the domain to make the petitions
