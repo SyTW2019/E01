@@ -20,6 +20,7 @@
     "passport-jwt": "*",
     "to": "^0.2.9",
     "travis": "^0.1.1",
+    "travis-ci": "^2.2.0",
     "update": "^0.7.4"
   },
   "author": "Joan Andoni",

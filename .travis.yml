@@ -17,10 +17,9 @@ script:
   - npm run build
   - xvfb-run npm run e2e
 
-account: sytw
-token: zOwATE9j5xq2yo6Jqb8y6YtR
-channel: e01
+# account: sytw
+# token: zOwATE9j5xq2yo6Jqb8y6YtR
+# channel: e01
 
 notifications:
-  slack: '<account>:<token>#channel'
-    rooms:
+  slack: '<sytw>:<zOwATE9j5xq2yo6Jqb8y6YtR>#e01'
