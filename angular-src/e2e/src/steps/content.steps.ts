@@ -1,4 +1,14 @@
 const {defineSupportCode} = require('cucumber');
+import { expect } from 'chai';
+
+import { ContentPage } from '../pages/content.po';
+
+let page: ContentPage;
+
+Before(() => {
+    page = new ContentPage();
+});
+
 
 defineSupportCode(function ({Given, When, Then}) {
   // -------------

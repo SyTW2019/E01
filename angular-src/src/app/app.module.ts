@@ -9,7 +9,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 // Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/login/inner/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -28,12 +28,13 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './guards/auth.guard';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 
+// ngrx
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers, metaReducers, reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
-
-
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 // Array de Enrutamiento
 const appRoutes: Routes = [
@@ -85,7 +86,15 @@ const appRoutes: Routes = [
         strictActionImmutability: true
       }
     }),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects]),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+      }
+    }),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [
     ValidateService,
