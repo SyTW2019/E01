@@ -16,3 +16,15 @@ script:
   - npm run test:headless
   - npm run build
   - xvfb-run npm run e2e
+
+account: sytw
+token: zOwATE9j5xq2yo6Jqb8y6YtR
+channel: e01
+
+notifications:
+  slack: '<account>:<token>#channel'
+  rooms:
+      secure: "sdfusdhfsdofguhdfgubdsifgudfbgs3453durghssecurestringidsuag34522irueg="
+      on_success: always
+
+travis encrypt "acoount:token#channel" --add notifications.slack.rooms
