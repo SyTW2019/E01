@@ -23,8 +23,4 @@ channel: e01
 
 notifications:
   slack: '<account>:<token>#channel'
-  rooms:
-      secure: "sdfusdhfsdofguhdfgubdsifgudfbgs3453durghssecurestringidsuag34522irueg="
-      on_success: always
-
-travis encrypt "acoount:token#channel" --add notifications.slack.rooms
+    rooms:
