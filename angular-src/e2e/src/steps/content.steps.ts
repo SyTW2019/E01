@@ -1,4 +1,4 @@
-const {defineSupportCode} = require('cucumber');
+const { defineSupportCode } = require('cucumber');
 import { expect } from 'chai';
 
 import { ContentPage } from '../pages/content.po';

@@ -9,7 +9,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 // Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginComponent } from './components/login/inner/login.component';
+import { LoginComponent } from './components/login/essentials/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -29,12 +29,13 @@ import { AuthGuard } from './guards/auth.guard';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 // ngrx
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers, reducers, metaReducers } from './reducers';
-import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+//import { reducers, metaReducers, reducers, metaReducers } from './reducers';
+//import { AppEffects } from './app.effects';
 import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 
 // Array de Enrutamiento
 const appRoutes: Routes = [
@@ -79,7 +80,7 @@ const appRoutes: Routes = [
         }
       }
     }),
-    StoreModule.forRoot(reducers, {
+    /*StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
@@ -88,12 +89,12 @@ const appRoutes: Routes = [
     }),
     EffectsModule.forRoot([AppEffects]),
     StoreModule.forRoot(reducers, {
-      metaReducers,
+      //metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true,
       }
-    }),
+    }),*/
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [
