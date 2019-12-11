@@ -1,25 +1,21 @@
 language: node_js
 node_js:
-  - "8"
+- '8'
 dist: trusty
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 addons:
   chrome: stable
-
 script:
-  - npm run lint
-  - npm run test:headless
-  - npm run build
-  - xvfb-run npm run e2e
-
-# account: sytw
-# token: zOwATE9j5xq2yo6Jqb8y6YtR
-# channel: e01
-
+- npm run lint
+- npm run test:headless
+- npm run build
+- xvfb-run npm run e2e
 notifications:
-  slack: '<sytw>:<zOwATE9j5xq2yo6Jqb8y6YtR>#e01'
+  slack:
+    matrix:
+    - "<sytw>:<zOwATE9j5xq2yo6Jqb8y6YtR>#e01"
+    rooms:
+      secure: Mo+2WDWnDPgjaAIaW8bi92bMnjA2dosHbk2XuiRpK8y2cW44UAq/lklRbWEi23v7V0uBGXVkWgYNhhI9yDX4aDThtgipNTLz2ct7GBoKceF+RXcfNNxNnTc/FzNlacPX3kCq3kgh5SolcGZUOcsS2D+PB22WuH873qiJ/3LeOtk2QEjgpI2s7roHSLYDtp05LTo1qO5qceySjuJrYjkQYfRdqdHiEeD/KEDSxYFXcX0DY8oIqygdZTEu169FpDdkAhSJL74Wx5UXiHnfKuQ/4fFv1dD2bfY26P/KJtmEYo1CQ3bEzAd3c50Ubd2abw+CEZpEdHZooz/QTpf6JBZAJVjSlod4XI6Zik7h1xkoplJRHesqRN076yKA2QXhPmWf2RQtugK5vS+4bN9BZkOzvT+RBXEvrnF7CBw/CNMlIIYpGMdaJsI6cQqpueoD9KKweVnz2gq/sbITtJt8/hBLIBhj2UoZK/a9xvg93GOqaviypDhxPkan8NL6ThuFW8Vgi85keNd+MLSL0ZxgKjccIvFNbcHJoj+0oDloIEjPbE0NKzAxas+Ugyft6FkUCu5LIQeeKb4nk/23bhb40TXKxqSxjiaAIiD9SHz7xAzfw7Jy/FV6ihI8rv9s8k2A5hrlzftyqqX6zF3smQd5Ztpulx17Gc7Fpdu8TAtBrLC9B9s=
