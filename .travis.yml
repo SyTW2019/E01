@@ -11,6 +11,7 @@ addons:
 script:
 - cd angular-src
 - npm install
+- node node_modules/protractor/bin/webdriver-manager update
 - ng e2e
 #- npm run lint
 #- npm run test:headless
