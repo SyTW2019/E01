@@ -1,4 +1,5 @@
-# PlanEDU
+# PlanEDU 
+[![Build Status](https://travis-ci.com/SyTW2019/E01.svg?branch=desarrollo)](https://travis-ci.com/SyTW2019/E01)
 
 Contenido aquí.
 
