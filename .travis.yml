@@ -13,6 +13,7 @@ script:
 #- npm run test:headless
 #- npm run build
 #- xvfb-run npm run e2e
+- npm run e2e
 notifications:
   slack:
     matrix:
