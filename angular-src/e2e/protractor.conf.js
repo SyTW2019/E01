@@ -11,7 +11,7 @@ exports.config = {
   ],
   capabilities: {
     browserName: 'firefox',
-    'moz:firefoxOptions': {
+    'moz:firefoxOptions': { // Versión > 57?
       args: [ "--headless" ]
     }
   },
