@@ -13,13 +13,9 @@ script:
 - npm install
 - node node_modules/protractor/bin/webdriver-manager update
 - ng e2e
-#- npm run lint
-#- npm run test:headless
-#- npm run build
-#- xvfb-run npm run e2e
 notifications:
   slack:
     matrix:
-    - "<sytw>:<zOwATE9j5xq2yo6Jqb8y6YtR>#e01"
+    - "<sytw>:<GUjDz0vvrkI1dqBHhx0Kh3Xy>#2019-e01"
     rooms:
-      secure: Mo+2WDWnDPgjaAIaW8bi92bMnjA2dosHbk2XuiRpK8y2cW44UAq/lklRbWEi23v7V0uBGXVkWgYNhhI9yDX4aDThtgipNTLz2ct7GBoKceF+RXcfNNxNnTc/FzNlacPX3kCq3kgh5SolcGZUOcsS2D+PB22WuH873qiJ/3LeOtk2QEjgpI2s7roHSLYDtp05LTo1qO5qceySjuJrYjkQYfRdqdHiEeD/KEDSxYFXcX0DY8oIqygdZTEu169FpDdkAhSJL74Wx5UXiHnfKuQ/4fFv1dD2bfY26P/KJtmEYo1CQ3bEzAd3c50Ubd2abw+CEZpEdHZooz/QTpf6JBZAJVjSlod4XI6Zik7h1xkoplJRHesqRN076yKA2QXhPmWf2RQtugK5vS+4bN9BZkOzvT+RBXEvrnF7CBw/CNMlIIYpGMdaJsI6cQqpueoD9KKweVnz2gq/sbITtJt8/hBLIBhj2UoZK/a9xvg93GOqaviypDhxPkan8NL6ThuFW8Vgi85keNd+MLSL0ZxgKjccIvFNbcHJoj+0oDloIEjPbE0NKzAxas+Ugyft6FkUCu5LIQeeKb4nk/23bhb40TXKxqSxjiaAIiD9SHz7xAzfw7Jy/FV6ihI8rv9s8k2A5hrlzftyqqX6zF3smQd5Ztpulx17Gc7Fpdu8TAtBrLC9B9s=
+      secure: rckEwR+3KmNQukURES97PYuyz6V0Wefq0J5G4MZRvLQu786d0tItlBQ0he9er+eEKrVjtVWZiDZayx40SZni7BOuc3dfMhvxQlP3tLfquIBPTTzqk0CCn4XtN4Dt+kR2CcR3jMNP5vH0ZpXsOvKyy5WlFshgbqZM5MHLQMTb6FFFiq6dTWEtykhCH6B0i69VGk1xaAcTt2Z4IO66ZYSiQziEYucB3io0POMzwbNurQ/8UqL0IJ0wlaxlV0jGhQ/JpFX2kSyLFhPu5FXNYW41/NvamdEyWp1TvWgM5tSXmD/QMaV7ZnRlXbPlc19hzHHt9EmUd5vH8QBocqt14alfEJs2yC270FtMUqSKLlAr5cWWddUm3E53tm/QEYHYUzHpxn92jW2oC7k5Zo3LCjtq5bq5llhnMFvXhbq4jkBBOR7tbKJBucPHS1IfiipdSy2RO1ddpb58EmKT7yCnELvchz9nmCW9PZ0dBui5/FFhMmb/t4nZehQxQuIfpCVVjKrP1yWEODQhLbn5sNvG3BO12k6pAJdNKYG302LZB/Btg6BTdCzgw4Ij6ZxEcArrcPKth0JNzDl7TpAuBEMc6AALPdGm3V0LwDn3cvSaho+CJ/O5/3ZCq60xPIBNmx4840WmsukWCo0FOYguv6Wkkf5+REn8lHOxitJ9jDxFp4b7nEs=
