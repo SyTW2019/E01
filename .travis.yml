@@ -9,6 +9,9 @@ cache:
 addons:
   chrome: stable
   firefox: "latest"
+beforescript:
+- sh -e /etc/init.d/xvfb start
+
 script:
 - cd angular-src
 - npm install
