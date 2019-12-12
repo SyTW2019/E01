@@ -17,7 +17,7 @@ beforescript:
 script:
 - cd angular-src
 - npm install
-#- node node_modules/protractor/bin/webdriver-manager update
+- node node_modules/protractor/bin/webdriver-manager update
 - ng e2e
 notifications:
   slack:
