@@ -7,7 +7,7 @@ export class RegisterPage {
 
     registerBlank() {
 
-        const name = 'Uno Cualquiera';
+        /*const name = 'Uno Cualquiera';
         const username = 'unocualquiera';
         const email = 'test@example.com';
         const password = 'test';
@@ -19,7 +19,7 @@ export class RegisterPage {
         element(by.id('password')).sendKeys(password);
         element(by.css('[type="submit"]')).click();
         
-        return browser.refresh();
+        return browser.refresh();*/
 
     }
 
