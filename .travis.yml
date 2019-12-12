@@ -8,6 +8,7 @@ cache:
   - node_modules
 addons:
   chrome: stable
+  firefox: "latest"
 script:
 - cd angular-src
 - npm install
