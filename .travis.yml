@@ -11,7 +11,7 @@ addons:
 script:
 - cd angular-src
 - npm install
-- node node_modules/protractor/bin/webdriver-manager update --versions.gecko=v0.21.0
+- node node_modules/protractor/bin/webdriver-manager update
 - ng e2e
 notifications:
   slack:

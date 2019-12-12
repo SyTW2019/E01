@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/uno/Escritorio/SyTW/Proyecto SyTW/E01/angular-src/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /home/brian/E01/angular-src/src/styles.css */"./src/styles.css");
 
 
 /***/ })
