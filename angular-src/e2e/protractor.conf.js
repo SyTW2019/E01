@@ -10,10 +10,10 @@ exports.config = {
     './src/features/**/*.feature'
   ],
   capabilities: {
-    'browserName': 'firefox',
-    firefoxOptions: {
+    browserName: 'firefox',
+    'moz:firefoxOptions': {
       version: '>=57',
-      args: ['--headless']
+      args: [ "--headless" ]
     }
   },
   directConnect: true,
