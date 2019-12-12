@@ -10,7 +10,8 @@ exports.config = {
     './src/features/**/*.feature'
   ],
   capabilities: {
-    'browserName': 'firefox'
+    /*'browserName': 'firefox'*/
+    'browserName': 'chrome'
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
