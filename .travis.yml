@@ -13,6 +13,7 @@ addons:
     packages:
     - google-chrome-stable
   #chrome: stable
+  #prueba
 script:
 - cd angular-src
 - npm install
