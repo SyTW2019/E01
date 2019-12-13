@@ -1,17 +1,11 @@
-// Make the comunication with a server to create petitions
-const express = require('express');
-// Make the paths for the paths to create the petitions
-const path = require('path');
-// Parses the information in the body of petitions
-const bodyParser = require('body-parser');
-// Cross-Origin Resource Sharing needed for express to get headers
-const cors = require('cors');
-// Strategy for authenticating with a JSON Web Token.
-const passport = require('passport');
-// MongoDB object modeling tool designed to work in an asynchronous environment.
-const mongoose = require('mongoose');
-// Configuration of the database
-const config = require('./config/database');
+
+const express = require('express'); // Make the comunication with a server to create petitions
+const path = require('path'); // Make the paths for the paths to create the petitions
+const bodyParser = require('body-parser'); // Parses the information in the body of petitions
+const cors = require('cors'); // Cross-Origin Resource Sharing needed for express to get headers
+const passport = require('passport'); // Strategy for authenticating with a JSON Web Token.
+const mongoose = require('mongoose'); // MongoDB object modeling tool designed to work in an asynchronous environment.
+const config = require('./config/database'); // Configuration of the database
 
 // Connect to the database
 /*mongoose.connect(config.database, {
