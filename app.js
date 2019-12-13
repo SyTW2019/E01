@@ -29,6 +29,9 @@ const app = express();
 // Create the routing for the petitions in users URL
 const users = require('./routes/users');
 
+// Enrutamiento para las peticiones a la URL de apuntes
+const apuntes = require('./routes/apuntes');
+
 // Set the port that you want to start the service app
 const port = 3000;
 
@@ -50,6 +53,8 @@ require('./config/passport')(passport);
 
 // Use users as the domain to make the petitions
 app.use('/users', users);
+
+// Dominio apuntes para las peticiones
 app.use('/apuntes', apuntes);
 
 // Index Route / show as invalid end point
@@ -65,3 +70,5 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log('Server started on port ' + port);
 });
+
+
