@@ -70,10 +70,35 @@
       <div class="position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light">
         <h2>Contenidos relevantes</h2>
         <br>
-
-        <!-- Volcado de contenidos relevantes-->
+        
+         <!-- BEGIN VOLCADO TABLA -->
+        <div class="position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col" colspan="3">Lista de Apuntes</th>
+            </tr>
+            <tr>
+              <th scope="col">Título</th>
+              <th scope="col">Asignatura</th>
+              <th scope="col">Autor</th>
+            </tr>
+          </thead>
+          <tbody *ngFor='let apt of apuntesList'>
+            <tr>
+              <td>{{ apt.titulo }}</td>
+              <td>{{ apt.asignatura }}</td>
+              <td>{{ apt.autor }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-secondary my-0 px-4 p-2" type="submit">Insertar</button>
+      </div>
+        <!-- END VOLCADO TABLA -->
+        
         <div class="container">
-          <!-- ITEM 1 -->
+           <!-- Volcado de contenidos relevantes
+          --ITEM 1--
           <div class="row">
             <div class="offset-md-1 col-md-6" style="margin-right: -30px">
               <div class="card text-white bg-dark overflow-auto" style="height: 250px;">
@@ -92,9 +117,9 @@
               </div>
             </div>
           </div>
-          <!-- END ITEM 1 -->
+           --END ITEM 1--
           <br>
-          <!-- ITEM 2 -->
+          --ITEM 2--
           <div class="row">
             <div class="offset-md-1 col-md-6" style="margin-right: -30px">
               <div class="card text-white bg-dark overflow-auto" style="height: 250px;">
@@ -116,8 +141,8 @@
               </div>
             </div>
           </div>
-          <!-- END ITEM 2 -->
-          <!-- end volcado de contenido -->
+          --END ITEM 2--
+          end volcado de contenido -->
         </div>
         <!-- END CONTENIDOS RELEVANTES -->
 

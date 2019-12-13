@@ -8,15 +8,17 @@ import { ApuntesService } from '../../services/apuntes.service';
 })
 export class DashboardComponent implements OnInit {
 
-  apuntesList: any[]
+  apuntesList: any[];
 
-  constructor(protected apuntesService: ApuntesService) { }
+  constructor(
+    protected apuntesService: ApuntesService,
+  ) {}
 
   ngOnInit() {
     this.apuntesService.getApuntesList()
       .subscribe(
         (apuntes) => {
-          this.apuntesList = apuntes[''];
+          this.apuntesList = apuntes['apts'];
         },
         (err) => {
           console.error(err);

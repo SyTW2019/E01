@@ -6,6 +6,8 @@ const cors = require('cors'); // Cross-Origin Resource Sharing needed for expres
 const passport = require('passport'); // Strategy for authenticating with a JSON Web Token.
 const mongoose = require('mongoose'); // MongoDB object modeling tool designed to work in an asynchronous environment.
 const config = require('./config/database'); // Configuration of the database
+const users = require('./routes/users'); // Create the routing for the petitions in users URL
+const apuntes = require('./routes/apuntes'); // Enrutamiento para las peticiones a la URL de apuntes
 
 // Connect to the database
 /*mongoose.connect(config.database, {
@@ -26,12 +28,6 @@ mongoose.connection.on('error', (err) => {
 // Initialize Express
 const app = express();
 
-// Create the routing for the petitions in users URL
-const users = require('./routes/users');
-
-// Enrutamiento para las peticiones a la URL de apuntes
-const apuntes = require('./routes/apuntes');
-
 // Set the port that you want to start the service app
 const port = 3000;
 
@@ -51,11 +47,9 @@ app.use(passport.session());
 // Recoge la configuración establecida para passport
 require('./config/passport')(passport);
 
-// Use users as the domain to make the petitions
-app.use('/users', users);
 
-// Dominio apuntes para las peticiones
-app.use('/apuntes', apuntes);
+app.use('/users', users); // Use users as the domain to make the petitions
+app.use('/apuntes', apuntes); // Dominio apuntes para las peticiones
 
 // Index Route / show as invalid end point
 app.get('/', (req, res) => {

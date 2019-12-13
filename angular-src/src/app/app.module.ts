@@ -21,6 +21,7 @@ import { ContentlistComponent } from './components/contentlist/contentlist.compo
 // Services
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
+import { ApuntesService } from './services/apuntes.service';
 
 // Libraries
 import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -90,7 +91,8 @@ const appRoutes: Routes = [
   providers: [
     ValidateService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    ApuntesService
   ],
   bootstrap: [AppComponent]
 })

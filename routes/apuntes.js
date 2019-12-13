@@ -6,9 +6,11 @@ const Apuntes = require('../models/apuntes');
 router.get('/apuntes', (req, res, next) => {
 
     Apuntes.find({}, (err, apuntes) => {
-        if (err)
-            res.send(err);
-        res.json(apuntes);
+        if (err) res.send(err);
+        res.json({
+            success: true,
+            apts: apuntes
+        });
     });
 
 });
@@ -28,8 +30,7 @@ router.post('/apuntes', (req, res, next) => {
 
     let newApuntes = new Apuntes(apuntesObj);
     newApuntes.save((err, apuntes) => {
-        if (err) 
-            res.send(err);
+        if (err) res.send(err);
         res.json(apuntes);
     });
 
