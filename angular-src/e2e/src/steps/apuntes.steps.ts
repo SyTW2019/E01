@@ -18,7 +18,7 @@ defineSupportCode(({Given, When, Then}) => {
   Given(/^Estoy autentificado/, () => {
     loginPage.navigateTo();
     loginPage.fillCredentials();
-    expect(dashboardPage.getApuntesList().then((count) => {return count})).to.be.above(1);
+    dashboardPage.getApuntesList().then((count) => {expect(count).to.be.above(1)});
 
   When(/^Carga el dashboard/, () => {
     return true;
