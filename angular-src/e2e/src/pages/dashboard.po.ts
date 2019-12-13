@@ -8,7 +8,7 @@ export class DashboardPage {
     }
 
     getApuntesList() {
-        return element.all(by.id('ApuntesListBody'));
+        return element.all(by.id('ApuntesListBody')).count();
     }
 
 }
