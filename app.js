@@ -50,6 +50,7 @@ require('./config/passport')(passport);
 
 // Use users as the domain to make the petitions
 app.use('/users', users);
+app.use('/apuntes', apuntes);
 
 // Index Route / show as invalid end point
 app.get('/', (req, res) => {
