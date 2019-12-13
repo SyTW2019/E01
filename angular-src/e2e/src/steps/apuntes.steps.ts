@@ -1,6 +1,6 @@
 import { DashboardPage } from '../pages/dashboard.po';
 import { LoginPage } from '../pages/login.po';
-import { expect } from 'chai';
+import { expect } from 'protractor';
 import { defineSupportCode, BeforeAll } from 'cucumber';
 
 let loginPage: LoginPage;
