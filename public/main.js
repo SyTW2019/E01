@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<flash-messages></flash-messages>\n<router-outlet></router-outlet>\n<app-footer></app-footer>\n"
+module.exports = "<app-navbar></app-navbar>\n<flash-messages></flash-messages>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -81,6 +81,44 @@ var AppComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/app.effects.ts":
+/*!********************************!*\
+  !*** ./src/app/app.effects.ts ***!
+  \********************************/
+/*! exports provided: AppEffects */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppEffects", function() { return AppEffects; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm5/effects.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AppEffects = /** @class */ (function () {
+    function AppEffects(actions$) {
+        this.actions$ = actions$;
+    }
+    AppEffects = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"]])
+    ], AppEffects);
+    return AppEffects;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.module.ts":
 /*!*******************************!*\
   !*** ./src/app/app.module.ts ***!
@@ -97,20 +135,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/navbar/navbar.component */ "./src/app/components/navbar/navbar.component.ts");
-/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
-/* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/register/register.component */ "./src/app/components/register/register.component.ts");
-/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
+/* harmony import */ var angular_svg_icon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angular-svg-icon */ "./node_modules/angular-svg-icon/fesm5/angular-svg-icon.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/navbar/navbar.component */ "./src/app/components/navbar/navbar.component.ts");
+/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
+/* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/register/register.component */ "./src/app/components/register/register.component.ts");
 /* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
 /* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/profile/profile.component */ "./src/app/components/profile/profile.component.ts");
-/* harmony import */ var _services_validate_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/validate.service */ "./src/app/services/validate.service.ts");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
-/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
-/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
+/* harmony import */ var _components_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/notfound/notfound.component */ "./src/app/components/notfound/notfound.component.ts");
+/* harmony import */ var _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/footer/footer.component */ "./src/app/components/footer/footer.component.ts");
+/* harmony import */ var _components_content_content_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/content/content.component */ "./src/app/components/content/content.component.ts");
+/* harmony import */ var _components_contentlist_contentlist_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/contentlist/contentlist.component */ "./src/app/components/contentlist/contentlist.component.ts");
+/* harmony import */ var _services_validate_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/validate.service */ "./src/app/services/validate.service.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
+/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./reducers */ "./src/app/reducers/index.ts");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm5/effects.js");
+/* harmony import */ var _app_effects__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./app.effects */ "./src/app/app.effects.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -123,7 +170,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 // Components
+
+
+
 
 
 
@@ -139,14 +190,21 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-// Array for the routing
+
+
+
+
+// Array de Enrutamiento
 var appRoutes = [
-    { path: '', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"] },
-    { path: 'register', component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_9__["RegisterComponent"] },
-    { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"] },
-    // Protect the following routes if youre logged in 
-    { path: 'dashboard', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AuthGuard"]] },
-    { path: 'profile', component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__["ProfileComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AuthGuard"]] },
+    { path: 'register', component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"] },
+    { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"] },
+    { path: '', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"] },
+    // Rutas protegidas, solo tienen acceso ususarios autenticados
+    { path: 'dashboard', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]] },
+    { path: 'content', component: _components_content_content_component__WEBPACK_IMPORTED_MODULE_15__["ContentComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]] },
+    { path: 'profile', component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__["ProfileComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]] },
+    // Ruta Comodín: URLs desconocidas
+    { path: '**', component: _components_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_13__["NotfoundComponent"] },
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -154,14 +212,16 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-                _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_7__["NavbarComponent"],
-                _components_login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
-                _components_register_register_component__WEBPACK_IMPORTED_MODULE_9__["RegisterComponent"],
-                _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
+                _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__["NavbarComponent"],
+                _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
+                _components_register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"],
                 _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"],
                 _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__["ProfileComponent"],
-                _footer_footer_component__WEBPACK_IMPORTED_MODULE_18__["FooterComponent"]
+                _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_14__["FooterComponent"],
+                _components_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_13__["NotfoundComponent"],
+                _components_content_content_component__WEBPACK_IMPORTED_MODULE_15__["ContentComponent"],
+                _components_contentlist_contentlist_component__WEBPACK_IMPORTED_MODULE_16__["ContentlistComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -169,25 +229,161 @@ var AppModule = /** @class */ (function () {
                 _angular_http__WEBPACK_IMPORTED_MODULE_3__["HttpModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(appRoutes),
-                angular2_flash_messages__WEBPACK_IMPORTED_MODULE_15__["FlashMessagesModule"].forRoot(),
+                angular2_flash_messages__WEBPACK_IMPORTED_MODULE_19__["FlashMessagesModule"].forRoot(),
+                ng_flash_messages__WEBPACK_IMPORTED_MODULE_22__["NgFlashMessagesModule"].forRoot(),
+                angular_svg_icon__WEBPACK_IMPORTED_MODULE_6__["AngularSvgIconModule"],
                 // JWT set the JWT module with the local storage token
-                _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_16__["JwtModule"].forRoot({
+                _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_20__["JwtModule"].forRoot({
                     config: {
                         tokenGetter: function () {
                             return localStorage.getItem('id_token');
                         }
                     }
-                })
+                }),
+                _ngrx_store__WEBPACK_IMPORTED_MODULE_23__["StoreModule"].forRoot(_reducers__WEBPACK_IMPORTED_MODULE_24__["reducers"], {
+                    metaReducers: _reducers__WEBPACK_IMPORTED_MODULE_24__["metaReducers"],
+                    runtimeChecks: {
+                        strictStateImmutability: true,
+                        strictActionImmutability: true
+                    }
+                }),
+                _ngrx_effects__WEBPACK_IMPORTED_MODULE_25__["EffectsModule"].forRoot([_app_effects__WEBPACK_IMPORTED_MODULE_26__["AppEffects"]])
             ],
             providers: [
-                _services_validate_service__WEBPACK_IMPORTED_MODULE_13__["ValidateService"],
-                _services_auth_service__WEBPACK_IMPORTED_MODULE_14__["AuthService"],
-                _guards_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AuthGuard"]
+                _services_validate_service__WEBPACK_IMPORTED_MODULE_17__["ValidateService"],
+                _services_auth_service__WEBPACK_IMPORTED_MODULE_18__["AuthService"],
+                _guards_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/content/content.component.css":
+/*!**********************************************************!*\
+  !*** ./src/app/components/content/content.component.css ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".fav-nd-share i\n{\n  padding: 5px;\n  font-size: 20px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jb250ZW50L2NvbnRlbnQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7RUFFRSxZQUFZO0VBQ1osZUFBZTtBQUNqQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY29udGVudC9jb250ZW50LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmF2LW5kLXNoYXJlIGlcbntcbiAgcGFkZGluZzogNXB4O1xuICBmb250LXNpemU6IDIwcHg7XG59XG4iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/components/content/content.component.html":
+/*!***********************************************************!*\
+  !*** ./src/app/components/content/content.component.html ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-10 pt-3 pb-0\">\n      <h1>Información del contenido</h1>\n    </div>\n  </div>\n</div>\n\n<div class=\"jumbotron pb-0 pt-2\" >\n    <div\n    class=\"card imagecard\"\n    style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n      background-image: url('/assets/img/content-example/1.jpg');\n      background-size: cover;\n      background-position: center\"\n    >\n    <div class=\"container-fluid h-100\">\n      <div class=\"row h-100\">\n        <div class=\"col-6 pt-2 py-3\">\n          <!-- This is the overlay blurr card info -->\n            <div class=\"card border-secondary mb-3\" style=\"max-width: 30rem;\">\n          <div class=\"card-header\">\n            <div class=\"fav-nd-share float-right\">\n              <i class=\"fab fa-gratipay fa-lg\"></i>\n              <i class=\"fas fa-share-alt fa-lg\"></i>\n            </div>\n\n          </div>\n          <div class=\"card-body\" style=\"max-height: 10rem; overflow-y: scroll\">\n            <h4 class=\"card-title\">Título contenido</h4>\n            <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n          </div>\n        </div>\n        <!-- Aquí acaba la tarjea de info -->\n\n        </div>\n        <div class=\"col-6 align-bottom h-100\">\n            <!-- This is the icon of the author -->\n            <img class=\"float-right img-responsive rounded-circle\"\n            style=\"border: 7px solid #ffffff3b; height: 100px; width: 100px; margin: 10px\"\n            src=\"assets/img/profile/default_profile_200.png\" alt=\"Card image\">\n\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- BEGIN PESTAÑAS -->\n  <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-5 my-md-0 text-center bg-light\">\n    <ul class=\"nav nav-tabs\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link active\" data-toggle=\"tab\" href=\"#info\">Información</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" data-toggle=\"tab\" href=\"#multimed\">Multimedia</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" data-toggle=\"tab\" href=\"#valorates\">Valoraciones</a>\n      </li>\n    </ul>\n    <div id=\"myTabContent\" class=\"tab-content\">\n      <div class=\"tab-pane fade active show \" id=\"info\">\n        <br>\n        <h2>Información</h2>\n        <p class=\"text-justify\">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>\n      </div>\n      <div class=\"tab-pane fade\" id=\"multimed\">\n        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>\n      </div>\n      <div class=\"tab-pane fade\" id=\"valorates\">\n        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>\n      </div>\n    </div>\n  </div>\n<!-- END PESTAÑAS -->\n\n<br>\n<app-footer></app-footer>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/content/content.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/components/content/content.component.ts ***!
+  \*********************************************************/
+/*! exports provided: ContentComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContentComponent", function() { return ContentComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ContentComponent = /** @class */ (function () {
+    function ContentComponent() {
+    }
+    ContentComponent.prototype.ngOnInit = function () {
+    };
+    ContentComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-contents',
+            template: __webpack_require__(/*! ./content.component.html */ "./src/app/components/content/content.component.html"),
+            styles: [__webpack_require__(/*! ./content.component.css */ "./src/app/components/content/content.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ContentComponent);
+    return ContentComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/contentlist/contentlist.component.css":
+/*!******************************************************************!*\
+  !*** ./src/app/components/contentlist/contentlist.component.css ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY29udGVudGxpc3QvY29udGVudGxpc3QuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/contentlist/contentlist.component.html":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/contentlist/contentlist.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light\">\n  <h2>Búsqueda</h2>\n  <br>\n\n<!-- BEGIN CONTENIDOS SEGÚN BÚSQUEDA -->\n<div class=\"container\">\n\n  <!-- ITEM 1 -->\n  <div class=\"row\">\n    <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n      <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n        <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n        <div class=\"card-body text-justify\">\n          <h3 class=\"card-title\">Título documento</h3>\n          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        </div>\n      </div>\n    </div>\n    <div class=\"col-12 col-md-4\">\n      <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n      background-image: url('/assets/img/content-example/1.jpg');\n      background-size: cover;\n      background-position: center\">\n      </div>\n    </div>\n  </div>\n  <!-- END ITEM 1 -->\n  <br>\n  <!-- ITEM 2 -->\n  <div class=\"row\">\n    <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n      <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n        <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n        <div class=\"card-body text-justify\">\n          <h3 class=\"card-title\">Título documento</h3>\n          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n          <br><br>\n          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n        </div>\n      </div>\n    </div>\n    <div class=\"col-12 col-md-4\">\n      <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n      background-image: url('/assets/img/content-example/2.jpg');\n      background-size: cover;\n      background-position: center\">\n      </div>\n    </div>\n  </div>\n  <!-- END ITEM 2 -->\n\n</div>\n<br>\n<div class=\"container\">\n  <div class=\"row text-center\">\n    <div>\n      <ul class=\"pagination\">\n        <li class=\"page-item disabled\">\n          <a class=\"page-link\" href=\"#\">&laquo;</a>\n        </li>\n        <li class=\"page-item active\">\n          <a class=\"page-link\" href=\"dashboard?p=1\">1</a>\n        </li>\n        <li class=\"page-item\">\n          <a class=\"page-link\" href=\"dashboard?p=2\">2</a>\n        </li>\n        <li class=\"page-item\">\n          <a class=\"page-link\" href=\"dashboard?p=3\">3</a>\n        </li>\n        <li class=\"page-item\">\n          <a class=\"page-link\" href=\"dashboard?p=4\">4</a>\n        </li>\n        <li class=\"page-item\">\n          <a class=\"page-link\" href=\"dashboard?p=5\">5</a>\n        </li>\n        <li class=\"page-item\">\n          <a class=\"page-link\" href=\"dashboard?p=6\">&raquo;</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n\n<!-- END CONTENIDOS SEGÚN BúSQUEDA -->\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/contentlist/contentlist.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/contentlist/contentlist.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: ContentlistComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContentlistComponent", function() { return ContentlistComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ContentlistComponent = /** @class */ (function () {
+    function ContentlistComponent() {
+    }
+    ContentlistComponent.prototype.ngOnInit = function () {
+    };
+    ContentlistComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-contentlist',
+            template: __webpack_require__(/*! ./contentlist.component.html */ "./src/app/components/contentlist/contentlist.component.html"),
+            styles: [__webpack_require__(/*! ./contentlist.component.css */ "./src/app/components/contentlist/contentlist.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ContentlistComponent);
+    return ContentlistComponent;
 }());
 
 
@@ -201,7 +397,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "svg {\n  width: 15px;\n  height: 15px;\n  margin-right: 10px;\n}\n\n.nav-item {\n  height: 2.5em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGFBQWE7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsic3ZnIHtcbiAgd2lkdGg6IDE1cHg7XG4gIGhlaWdodDogMTVweDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuXG4ubmF2LWl0ZW0ge1xuICBoZWlnaHQ6IDIuNWVtO1xufSJdfQ== */"
+module.exports = "svg {\n  width: 15px;\n  height: 15px;\n  margin-right: 10px;\n}\n\n.nav-item {\n  height: 2.5em;\n}\n\n.offset-md-1.col-md-6::after {\n    display: block;\n    content: \".\";\n    background: -webkit-gradient(linear, left bottom, left top, from(rgba(52,58,64,1)), color-stop(0%, rgba(52,58,64,1)), color-stop(40%, rgba(255,255,255,0)));\n    background: linear-gradient(0deg, rgba(52,58,64,1) 0%, rgba(52,58,64,1) 0%, rgba(255,255,255,0) 40%);\n    height: 50px;\n    color: transparent;\n    width: 96%;\n    margin-top: -50px;\n    z-index: 3;\n    position: relative;\n}\n\n.bg svg-icon\n{\n  fill: #fff!important;\n}\n\na .bg-primary:hover\n{\n  opacity: .6;\n  -webkit-transition: ease-out 0.45s;\n  transition: ease-out 0.45s;\n}\n\na .bg-primary\n{\n  -webkit-transition: ease-in 0.4s;\n  transition: ease-in 0.4s;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGFBQWE7QUFDZjs7QUFFQTtJQUNJLGNBQWM7SUFDZCxZQUFZO0lBQ1osMkpBQW9HO0lBQXBHLG9HQUFvRztJQUNwRyxZQUFZO0lBQ1osa0JBQWtCO0lBQ2xCLFVBQVU7SUFDVixpQkFBaUI7SUFDakIsVUFBVTtJQUNWLGtCQUFrQjtBQUN0Qjs7QUFFQTs7RUFFRSxvQkFBb0I7QUFDdEI7O0FBRUE7O0VBRUUsV0FBVztFQUNYLGtDQUEwQjtFQUExQiwwQkFBMEI7QUFDNUI7O0FBRUE7O0VBRUUsZ0NBQXdCO0VBQXhCLHdCQUF3QjtBQUMxQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsic3ZnIHtcbiAgd2lkdGg6IDE1cHg7XG4gIGhlaWdodDogMTVweDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuXG4ubmF2LWl0ZW0ge1xuICBoZWlnaHQ6IDIuNWVtO1xufVxuXG4ub2Zmc2V0LW1kLTEuY29sLW1kLTY6OmFmdGVyIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBjb250ZW50OiBcIi5cIjtcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMGRlZywgcmdiYSg1Miw1OCw2NCwxKSAwJSwgcmdiYSg1Miw1OCw2NCwxKSAwJSwgcmdiYSgyNTUsMjU1LDI1NSwwKSA0MCUpO1xuICAgIGhlaWdodDogNTBweDtcbiAgICBjb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgd2lkdGg6IDk2JTtcbiAgICBtYXJnaW4tdG9wOiAtNTBweDtcbiAgICB6LWluZGV4OiAzO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuLmJnIHN2Zy1pY29uXG57XG4gIGZpbGw6ICNmZmYhaW1wb3J0YW50O1xufVxuXG5hIC5iZy1wcmltYXJ5OmhvdmVyXG57XG4gIG9wYWNpdHk6IC42O1xuICB0cmFuc2l0aW9uOiBlYXNlLW91dCAwLjQ1cztcbn1cblxuYSAuYmctcHJpbWFyeVxue1xuICB0cmFuc2l0aW9uOiBlYXNlLWluIDAuNHM7XG59XG4iXX0= */"
 
 /***/ }),
 
@@ -212,7 +408,7 @@ module.exports = "svg {\n  width: 15px;\n  height: 15px;\n  margin-right: 10px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"col-md-2 d-none d-md-block bg-light sidebar\">\n      <div class=\"sidebar-sticky\">\n        <ul class=\"navbar-nav mt-auto\">\n\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-home\">\n                <path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"></path>\n                <polyline points=\"9 22 9 12 15 12 15 22\"></polyline>\n              </svg>\n              Dashboard\n            </a>\n          </li>\n\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file\">\n                <path d=\"M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z\"></path>\n                <polyline points=\"13 2 13 9 20 9\"></polyline>\n              </svg>\n              Orders\n            </a>\n          </li>\n\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\" #\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-shopping-cart\">\n                <circle cx=\"9\" cy=\"21\" r=\"1\"></circle>\n                <circle cx=\"20\" cy=\"21\" r=\"1\"></circle>\n                <path d=\"M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6\"></path>\n              </svg>\n              Products\n            </a>\n          </li>\n\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\" #\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-users\">\n                <path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path>\n                <circle cx=\"9\" cy=\"7\" r=\"4\"></circle>\n                <path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path>\n                <path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path>\n              </svg>\n              Customers\n            </a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\" #\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-bar-chart-2\">\n                <line x1=\"18\" y1=\"20\" x2=\"18\" y2=\"10\"></line>\n                <line x1=\"12\" y1=\"20\" x2=\"12\" y2=\"4\"></line>\n                <line x1=\"6\" y1=\"20\" x2=\"6\" y2=\"14\"></line>\n              </svg>\n              Reports\n            </a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\" #\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-layers\">\n                <polygon points=\"12 2 2 7 12 12 22 7 12 2\"></polygon>\n                <polyline points=\"2 17 12 22 22 17\"></polyline>\n                <polyline points=\"2 12 12 17 22 12\"></polyline>\n              </svg>\n              Integrate\n            </a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n\n    <main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-4\">\n      <div class=\"chartjs-size-monitor\" style=\"position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;\">\n        <div class=\"chartjs-size-monitor-expand\" style=\"position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;\">\n          <div style=\"position:absolute;width:1000000px;height:1000000px;left:0;top:0\"></div>\n        </div>\n        <div class=\"chartjs-size-monitor-shrink\" style=\"position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;\">\n          <div style=\"position:absolute;width:200%;height:200%;left:0; top:0\"></div>\n        </div>\n      </div>\n\n      <div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\">\n        <h1 class=\"h2\">Dashboard</h1>\n        <div class=\"btn-toolbar mb-2 mb-md-0\">\n          <div class=\"btn-group mr-2\">\n            <button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" style=\"margin: 0px 4px;\">Share</button>\n            <button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" style=\"margin: 0px 4px;\">Export</button>\n          </div>\n          <button type=\"button\" class=\"btn btn-sm btn-outline-secondary dropdown-toggle\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-calendar\">\n              <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"></rect>\n              <line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"></line>\n              <line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"></line>\n              <line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"></line>\n            </svg>\n            This week\n          </button>\n        </div>\n      </div>\n\n      <!-- ADD A CHART -->\n\n      <h2>Section title</h2>\n      <div class=\"table-responsive\">\n        <table class=\"table table-striped table-sm\">\n          <thead>\n            <tr>\n              <th>#</th>\n              <th>Header</th>\n              <th>Header</th>\n              <th>Header</th>\n              <th>Header</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>1,001</td>\n              <td>Lorem</td>\n              <td>ipsum</td>\n              <td>dolor</td>\n              <td>sit</td>\n            </tr>\n            <tr>\n              <td>1,002</td>\n              <td>amet</td>\n              <td>consectetur</td>\n              <td>adipiscing</td>\n              <td>elit</td>\n            </tr>\n            <tr>\n              <td>1,003</td>\n              <td>Integer</td>\n              <td>nec</td>\n              <td>odio</td>\n              <td>Praesent</td>\n            </tr>\n            <tr>\n              <td>1,003</td>\n              <td>libero</td>\n              <td>Sed</td>\n              <td>cursus</td>\n              <td>ante</td>\n            </tr>\n            <tr>\n              <td>1,004</td>\n              <td>dapibus</td>\n              <td>diam</td>\n              <td>Sed</td>\n              <td>nisi</td>\n            </tr>\n            <tr>\n              <td>1,005</td>\n              <td>Nulla</td>\n              <td>quis</td>\n              <td>sem</td>\n              <td>at</td>\n            </tr>\n            <tr>\n              <td>1,006</td>\n              <td>nibh</td>\n              <td>elementum</td>\n              <td>imperdiet</td>\n              <td>Duis</td>\n            </tr>\n            <tr>\n              <td>1,007</td>\n              <td>sagittis</td>\n              <td>ipsum</td>\n              <td>Praesent</td>\n              <td>mauris</td>\n            </tr>\n            <tr>\n              <td>1,008</td>\n              <td>Fusce</td>\n              <td>nec</td>\n              <td>tellus</td>\n              <td>sed</td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </main>\n\n  </div>\n</div>"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"col-md-2 d-none d-md-block bg-light sidebar\">\n      <div class=\"sidebar-sticky text-center\">\n        <br>\n        <a href=\"/dashboard?word\" value=\"apuntes\" >\n          <div class=\"bg  light-green lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n              <svg-icon src=\"assets/svg/document.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n          </div>\n        </a>\n\n      <a href=\"/dashboard?word\" value=\"examenes\" >\n        <div class=\"bg orange lighten-2 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n            <svg-icon src=\"assets/svg/examen.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n        </div>\n      </a>\n\n      <a href=\"/dashboard?word\" value=\"informes\" >\n        <div class=\"bg red red lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n            <svg-icon src=\"assets/svg/file.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n        </div>\n      </a>\n\n    <a href=\"/dashboard?word\" value=\"ejercicios\" >\n      <div class=\"bg blue lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n          <svg-icon src=\"assets/svg/write.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n      </div>\n    </a>\n\n    <a href=\"/dashboard?word\" value=\"prácticas\" >\n      <div class=\"bg teal lighten-2 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block\">\n          <svg-icon src=\"assets/svg/practice.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n      </div>\n    </a>\n\n  <a href=\"/dashboard?word\" value=\"tutoriales\" >\n    <div class=\"bg deep-purple lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n        <svg-icon src=\"assets/svg/e-learning.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n    </div>\n  </a>\n\n      </div>\n    </nav>\n\n\n    <main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-4\">\n      <ng-flash-message></ng-flash-message>\n      <br><h1>Tablón</h1>\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-primary\">\n\n        <!-- BEGIN SEARCHER -->\n        <form class=\"mx-2 my-auto d-inline w-100 my-2 my-lg-0\">\n          <div class=\"input-group\">\n              <input type=\"text\" class=\"form-control\" placeholder=\"Buscar...\">\n               <span class=\"input-group-append\">\n                 <button class=\"btn btn-secondary my-0 px-4 p-2\" type=\"submit\">Buscar</button>\n               </span>\n          </div>\n          <span class=\"btn badge badge-pill badge-dark m-1 px-3 float-left\" style=\"padding: 5px 10px; text-transform: capitalize\">\n            <i class=\"fas fa-filter\"></i> Filtrar\n          </span>\n        </form>\n        <!-- END SEARCHER -->\n\n      </div>\n\n      <app-contentlist></app-contentlist>\n\n      <!-- BEGIN CONTENIDOS RELEVANTES -->\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light\">\n        <h2>Contenidos relevantes</h2>\n        <br>\n\n        <!-- Volcado de contenidos relevantes-->\n        <div class=\"container\">\n          <!-- ITEM 1 -->\n          <div class=\"row\">\n            <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n              <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n                <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n                <div class=\"card-body text-justify\">\n                  <h3 class=\"card-title\">Título documento</h3>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-4\">\n              <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n              background-image: url('/assets/img/content-example/1.jpg');\n              background-size: cover;\n              background-position: center\">\n              </div>\n            </div>\n          </div>\n          <!-- END ITEM 1 -->\n          <br>\n          <!-- ITEM 2 -->\n          <div class=\"row\">\n            <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n              <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n                <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n                <div class=\"card-body text-justify\">\n                  <h3 class=\"card-title\">Título documento</h3>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                  <br><br>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-4\">\n              <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n              background-image: url('/assets/img/content-example/2.jpg');\n              background-size: cover;\n              background-position: center\">\n              </div>\n            </div>\n          </div>\n          <!-- END ITEM 2 -->\n          <!-- end volcado de contenido -->\n        </div>\n        <!-- END CONTENIDOS RELEVANTES -->\n\n      </div>\n\n    </main>\n  </div>\n</div>\n<app-footer></app-footer>\n"
 
 /***/ }),
 
@@ -257,38 +453,38 @@ var DashboardComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/home/home.component.css":
-/*!****************************************************!*\
-  !*** ./src/app/components/home/home.component.css ***!
-  \****************************************************/
+/***/ "./src/app/components/footer/footer.component.css":
+/*!********************************************************!*\
+  !*** ./src/app/components/footer/footer.component.css ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* BEGIN SEARCHER */\ninput.form-control.form-control-sm.ml-3.w-75 {\n    border: 1px solid #3e44603b;\n}\n.btn-filter {\n    background: #7a6883;\n    border-radius: 30px;\n    padding: 4px 0px;\n    color: #ffffffd1;\n    text-align: center;\n    width: 64px;\n    font-size: 9px;\n    margin-left: 32px;\n}\n.col-helper\n{\n  text-align: right;\n}\ninput.form-control.form-control-sm.ml-3.w-75\n{\n  width: 85%!important;\n}\n/* END SEARCHER */\n.buttonsMargins {\n  margin: 0px 10px;\n}\n.categoria-card {\n    display: inline-block;\n    width: 200px;\n    background: #fff;\n    border-radius: 5px;\n    box-shadow: 0px 0px 10px #00000029;\n    margin: 5px;\n    overflow: hidden;\n}\n.categoria-card img\n{\n  height: 150%;\n  margin-top: 0px;\n  cursor: pointer!important;\n}\n.categoria-card p\n{\n  display: block;\n  margin-bottom: 0px;\n  padding-bottom: 4px;\n  font-weight: 900;\n  color: #000000d1;\n  letter-spacing: 0px;\n  font-size: 1em;\n}\n.envolvent-card\n{\n  height: 130px;\n  overflow: hidden;\n}\n.img-gradient{\n  position:relative;\n  display:inline-block;\n}\n.img-gradient:after {\n  content:'';\n  position:absolute;\n  left:0; top:0;\n  width:100%; height:100%; /* FF3.6+ */ /* Chrome,Safari4+ */ /* Chrome10+,Safari5.1+ */ /* Opera 11.10+ */ /* IE10+ */\n  background: -webkit-gradient(linear, left top, left bottom, from(rgba(37, 93, 220, 0.25)),to(rgba(54, 0, 75, 0.5)));\n  background: linear-gradient(to bottom, rgba(37, 93, 220, 0.25) 0%,rgba(54, 0, 75, 0.5) 100%); /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */\n}\n.img-gradient img{\n  display:block;\n}\n/* CONTENIDO */\n.contenido-card\n{\n  box-shadow: 0px 0px 10px #00000029;\n  width: 100%;\n  height: 200px;\n  border-radius: 10px;\n  overflow: hidden;\n  margin-bottom: 20px;\n}\n.content-info\n{\n  overflow-y: scroll;\n  height: 200px;\n  padding: 20px;\n  width: 108.5%;\n}\n.contenido-card img\n{\n  height: 200px;\n  margin-left: -50%;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9ob21lL2hvbWUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxtQkFBbUI7QUFDbkI7SUFDSSwyQkFBMkI7QUFDL0I7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIsV0FBVztJQUNYLGNBQWM7SUFDZCxpQkFBaUI7QUFDckI7QUFFQTs7RUFFRSxpQkFBaUI7QUFDbkI7QUFDQTs7RUFFRSxvQkFBb0I7QUFDdEI7QUFHQSxpQkFBaUI7QUFDakI7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtJQUNJLHFCQUFxQjtJQUNyQixZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLGtCQUFrQjtJQUNsQixrQ0FBa0M7SUFDbEMsV0FBVztJQUNYLGdCQUFnQjtBQUNwQjtBQUVBOztFQUVFLFlBQVk7RUFDWixlQUFlO0VBQ2YseUJBQXlCO0FBQzNCO0FBRUE7O0VBRUUsY0FBYztFQUNkLGtCQUFrQjtFQUNsQixtQkFBbUI7RUFDbkIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsY0FBYztBQUNoQjtBQUVBOztFQUVFLGFBQWE7RUFDYixnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixvQkFBb0I7QUFDdEI7QUFDQTtFQUNFLFVBQVU7RUFDVixpQkFBaUI7RUFDakIsTUFBTSxFQUFFLEtBQUs7RUFDYixVQUFVLEVBQUUsV0FBVyxFQUNzRSxXQUFXLEVBQ29DLG9CQUFvQixFQUNoRSx5QkFBeUIsRUFDOUIsaUJBQWlCLEVBQ2hCLFVBQVU7RUFDdEcsbUhBQTRGO0VBQTVGLDRGQUE0RixFQUFFLFFBQVE7RUFDdEcscUhBQXFILEVBQUUsVUFBVTtBQUNuSTtBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBRUEsY0FBYztBQUNkOztFQUVFLGtDQUFrQztFQUNsQyxXQUFXO0VBQ1gsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsbUJBQW1CO0FBQ3JCO0FBRUE7O0VBRUUsa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixhQUFhO0VBQ2IsYUFBYTtBQUNmO0FBRUE7O0VBRUUsYUFBYTtFQUNiLGlCQUFpQjtBQUNuQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBCRUdJTiBTRUFSQ0hFUiAqL1xuaW5wdXQuZm9ybS1jb250cm9sLmZvcm0tY29udHJvbC1zbS5tbC0zLnctNzUge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkICMzZTQ0NjAzYjtcbn1cblxuLmJ0bi1maWx0ZXIge1xuICAgIGJhY2tncm91bmQ6ICM3YTY4ODM7XG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcbiAgICBwYWRkaW5nOiA0cHggMHB4O1xuICAgIGNvbG9yOiAjZmZmZmZmZDE7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIHdpZHRoOiA2NHB4O1xuICAgIGZvbnQtc2l6ZTogOXB4O1xuICAgIG1hcmdpbi1sZWZ0OiAzMnB4O1xufVxuXG4uY29sLWhlbHBlclxue1xuICB0ZXh0LWFsaWduOiByaWdodDtcbn1cbmlucHV0LmZvcm0tY29udHJvbC5mb3JtLWNvbnRyb2wtc20ubWwtMy53LTc1XG57XG4gIHdpZHRoOiA4NSUhaW1wb3J0YW50O1xufVxuXG5cbi8qIEVORCBTRUFSQ0hFUiAqL1xuLmJ1dHRvbnNNYXJnaW5zIHtcbiAgbWFyZ2luOiAwcHggMTBweDtcbn1cblxuLmNhdGVnb3JpYS1jYXJkIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgd2lkdGg6IDIwMHB4O1xuICAgIGJhY2tncm91bmQ6ICNmZmY7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIGJveC1zaGFkb3c6IDBweCAwcHggMTBweCAjMDAwMDAwMjk7XG4gICAgbWFyZ2luOiA1cHg7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLmNhdGVnb3JpYS1jYXJkIGltZ1xue1xuICBoZWlnaHQ6IDE1MCU7XG4gIG1hcmdpbi10b3A6IDBweDtcbiAgY3Vyc29yOiBwb2ludGVyIWltcG9ydGFudDtcbn1cblxuLmNhdGVnb3JpYS1jYXJkIHBcbntcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbi1ib3R0b206IDBweDtcbiAgcGFkZGluZy1ib3R0b206IDRweDtcbiAgZm9udC13ZWlnaHQ6IDkwMDtcbiAgY29sb3I6ICMwMDAwMDBkMTtcbiAgbGV0dGVyLXNwYWNpbmc6IDBweDtcbiAgZm9udC1zaXplOiAxZW07XG59XG5cbi5lbnZvbHZlbnQtY2FyZFxue1xuICBoZWlnaHQ6IDEzMHB4O1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuXG4uaW1nLWdyYWRpZW50e1xuICBwb3NpdGlvbjpyZWxhdGl2ZTtcbiAgZGlzcGxheTppbmxpbmUtYmxvY2s7XG59XG4uaW1nLWdyYWRpZW50OmFmdGVyIHtcbiAgY29udGVudDonJztcbiAgcG9zaXRpb246YWJzb2x1dGU7XG4gIGxlZnQ6MDsgdG9wOjA7XG4gIHdpZHRoOjEwMCU7IGhlaWdodDoxMDAlO1xuICBiYWNrZ3JvdW5kOiAtbW96LWxpbmVhci1ncmFkaWVudCh0b3AscmdiYSgzNywgOTMsIDIyMCwgMC4yNSkgMCUsIHJnYmEoNTQsIDAsIDc1LCAwLjUpIDEwMCUpOyAvKiBGRjMuNisgKi9cbiAgYmFja2dyb3VuZDogLXdlYmtpdC1ncmFkaWVudChsaW5lYXIsIGxlZnQgdG9wLCBsZWZ0IGJvdHRvbSwgY29sb3Itc3RvcCgwJSxyZ2JhKDU0LCAwLCA3NSwgMC41KSksIGNvbG9yLXN0b3AoMTAwJSxyZ2JhKDM3LCA5MywgMjIwLCAwLjI1KSkpOyAvKiBDaHJvbWUsU2FmYXJpNCsgKi9cbiAgYmFja2dyb3VuZDogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQodG9wLCByZ2JhKDM3LCA5MywgMjIwLCAwLjI1KSAwJSxyZ2JhKDU0LCAwLCA3NSwgMC41KSAxMDAlKTsgLyogQ2hyb21lMTArLFNhZmFyaTUuMSsgKi9cbiAgYmFja2dyb3VuZDogLW8tbGluZWFyLWdyYWRpZW50KHRvcCwgcmdiYSgzNywgOTMsIDIyMCwgMC4yNSkgMCUscmdiYSg1NCwgMCwgNzUsIDAuNSkgMTAwJSk7IC8qIE9wZXJhIDExLjEwKyAqL1xuICBiYWNrZ3JvdW5kOiAtbXMtbGluZWFyLWdyYWRpZW50KHRvcCwgcmdiYSgzNywgOTMsIDIyMCwgMC4yNSkgMCUscmdiYSg1NCwgMCwgNzUsIDAuNSkgMTAwJSk7IC8qIElFMTArICovXG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCh0byBib3R0b20sIHJnYmEoMzcsIDkzLCAyMjAsIDAuMjUpIDAlLHJnYmEoNTQsIDAsIDc1LCAwLjUpIDEwMCUpOyAvKiBXM0MgKi9cbiAgZmlsdGVyOiBwcm9naWQ6RFhJbWFnZVRyYW5zZm9ybS5NaWNyb3NvZnQuZ3JhZGllbnQoIHN0YXJ0Q29sb3JzdHI9JyMwMDJmNGInLCBlbmRDb2xvcnN0cj0nIzAwMDAwMDAwJyxHcmFkaWVudFR5cGU9MCApOyAvKiBJRTYtOSAqL1xufVxuLmltZy1ncmFkaWVudCBpbWd7XG4gIGRpc3BsYXk6YmxvY2s7XG59XG5cbi8qIENPTlRFTklETyAqL1xuLmNvbnRlbmlkby1jYXJkXG57XG4gIGJveC1zaGFkb3c6IDBweCAwcHggMTBweCAjMDAwMDAwMjk7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDIwMHB4O1xuICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufVxuXG4uY29udGVudC1pbmZvXG57XG4gIG92ZXJmbG93LXk6IHNjcm9sbDtcbiAgaGVpZ2h0OiAyMDBweDtcbiAgcGFkZGluZzogMjBweDtcbiAgd2lkdGg6IDEwOC41JTtcbn1cblxuLmNvbnRlbmlkby1jYXJkIGltZ1xue1xuICBoZWlnaHQ6IDIwMHB4O1xuICBtYXJnaW4tbGVmdDogLTUwJTtcbn1cbiJdfQ== */"
+module.exports = "/*********footer*******************/\n\n.kilimanjaro_area {\n    position: relative;\n    z-index: 1;\n\t}\n\n.foo_top_header_one {\n      background-color: #15171f;\n      color: #fff;\n  }\n\n.section_padding_100_70 {\n    padding-top: 100px;\n    padding-bottom: 70px;\n}\n\n.foo_top_header_one {\n    color: #fff;\n}\n\n.kilimanjaro_part {\n    margin-bottom: 30px;\n}\n\n.foo_top_header_one .kilimanjaro_part > h5 {\n    color: #fff;\n}\n\n.kilimanjaro_part h4, .kilimanjaro_part h5 {\n    margin-bottom: 30px;\n}\n\n.kilimanjaro_single_contact_info > p, .kilimanjaro_single_contact_info > h5, .kilimanjaro_blog_area > a, .foo_top_header_one .kilimanjaro_part > p {\n    color: rgba(255,255,255,.5);\n}\n\np, ul li, ol li {\n    font-weight: 300;\n}\n\nul {\n    margin: 0;\n    padding: 0;\n}\n\n.kilimanjaro_bottom_header_one {\n    background-color: #222635;\n}\n\n.section_padding_50 {\n    padding: 25px 0;\n}\n\n.kilimanjaro_bottom_header_one p {\n    color: #fff;\n    margin: 0;\n}\n\np, ul li, ol li {\n    font-weight: 300;\n}\n\n.kilimanjaro_bottom_header_one a {\n    color: inherit;\n    font-size: 14px;\n}\n\na, h1, h2, h3, h4, h5, h6 {\n    font-weight: 400;\n}\n\n.m-top-15 {\n    margin-top: 15px;\n}\n\nul {\n    margin: 0;\n    padding: 0;\n}\n\n.kilimanjaro_widget > li {\n    display: inline-block;\n}\n\np, ul li, ol li {\n    font-weight: 300;\n}\n\nol li, ul li {\n    list-style: outside none none;\n}\n\n.kilimanjaro_widget a {\n  border: 1px solid #ffffff14;\n  border-radius: 6px;\n  background: #ffffff05;\n  color: #888;\n  display: inline-block;\n  margin: 2px;\n  font-size: 13px;\n  margin-bottom: 3px;\n  padding: 7px 12px;\n}\n\nul {\n    margin: 0;\n    padding: 0;\n}\n\n.kilimanjaro_links a {\n    border-bottom: 1px solid #ffffff1f;\n    color: rgba(255,255,255,.5);\n    display: block;\n    font-size: 13px;\n    margin-bottom: 5px;\n    padding-bottom: 10px;\n}\n\n.kilimanjaro_links a {\n    color: rgba(255,255,255,.5);\n    font-size: 13px;\n}\n\ntop-15 {\n    margin-top: 15px;\n}\n\n.foo_top_header_one .kilimanjaro_part > h5 {\n    color: #fff;\n}\n\n.kilimanjaro_part h4, .kilimanjaro_part h5 {\n    margin-bottom: 30px;\n}\n\n.kilimanjaro_social_links > li {\n    display: inline-block;\n}\n\np, ul li, ol li {\n    font-weight: 300;\n}\n\n.kilimanjaro_social_links a {\n    border: 1px solid #ffffff14;\n    border-radius: 6px;\n    background: #ffffff05;\n    color: #888;\n    display: inline-block;\n    margin: 2px;\n    font-size: 13px;\n    margin-bottom: 3px;\n    padding: 7px 12px;\n}\n\n.kilimanjaro_blog_area .kilimanjaro_date {\n    color: #27ae60;\n    font-size: 13px;\n    margin-bottom: 5px;\n}\n\n.kilimanjaro_blog_area > p {\n    color: rgba(255,255,255,.5);\n    line-height: 1.3;\n    margin-bottom: 0;\n}\n\n.kilimanjaro_works > a {\n    display: inline-block;\n    float: left;\n    position: relative;\n    width: 33.33333333%;\n    z-index: 1;\n}\n\n.kilimanjaro_thumb {\n    left: 0;\n    position: absolute;\n    top: 0;\n    width: 75px;\n}\n\n.kilimanjaro_links a i {\n    padding-right: 10px;\n}\n\n/* :: 18.0 Footer Area CSS */\n\n.footer_area {\n        position: relative;\n        z-index: 1;\n    }\n\n.footer_bottom p > i,\n    .footer_bottom p > a:hover {\n        color: #27ae60;\n    }\n\n.social_links_area {\n        border-bottom: 1px solid rgba(255, 255, 255, 0.2);\n        padding: 50px 0 30px 0;\n        text-align: center;\n        position: relative;\n        z-index: 1;\n    }\n\n.social_links_area > a:hover {\n        color: #27ae60;\n    }\n\n.inline-style .social_links_area > a:hover {\n        background-color: transparent;\n        color: #27ae60;\n        border: 0px solid transparent;\n    }\n\n.single_feature:hover .feature_text h4 {\n        color: #27ae60;\n    }\n\n.kilimanjaro_blog_area {\n    border-bottom: 1px solid #333;\n    margin-bottom: 15px;\n    padding: 0 0 15px 90px;\n    position: relative;\n    z-index: 1;\n}\n\n.kilimanjaro_links a {\n    border-bottom: 1px solid #ffffff21;\n    color: rgba(255,255,255,.5);\n    display: block;\n    font-size: 13px;\n    margin-bottom: 5px;\n    padding-bottom: 10px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9mb290ZXIvZm9vdGVyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsbUNBQW1DOztBQUVuQztJQUNJLGtCQUFrQjtJQUNsQixVQUFVO0NBQ2I7O0FBQ0M7TUFDSSx5QkFBeUI7TUFDekIsV0FBVztFQUNmOztBQUNGO0lBQ0ksa0JBQWtCO0lBQ2xCLG9CQUFvQjtBQUN4Qjs7QUFDQTtJQUNJLFdBQVc7QUFDZjs7QUFBQztJQUNHLG1CQUFtQjtBQUN2Qjs7QUFDQTtJQUNJLFdBQVc7QUFDZjs7QUFDQTtJQUNJLG1CQUFtQjtBQUN2Qjs7QUFDQTtJQUNJLDJCQUEyQjtBQUMvQjs7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFDQTtJQUNJLFNBQVM7SUFDVCxVQUFVO0FBQ2Q7O0FBQ0E7SUFDSSx5QkFBeUI7QUFDN0I7O0FBQ0E7SUFDSSxlQUFlO0FBQ25COztBQUNBO0lBQ0ksV0FBVztJQUNYLFNBQVM7QUFDYjs7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFDQTtJQUNJLGNBQWM7SUFDZCxlQUFlO0FBQ25COztBQUNBO0lBQ0ksZ0JBQWdCO0FBQ3BCOztBQUNBO0lBQ0ksZ0JBQWdCO0FBQ3BCOztBQUNBO0lBQ0ksU0FBUztJQUNULFVBQVU7QUFDZDs7QUFFQTtJQUNJLHFCQUFxQjtBQUN6Qjs7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFDQTtJQUNJLDZCQUE2QjtBQUNqQzs7QUFDQTtFQUNFLDJCQUEyQjtFQUMzQixrQkFBa0I7RUFDbEIscUJBQXFCO0VBQ3JCLFdBQVc7RUFDWCxxQkFBcUI7RUFDckIsV0FBVztFQUNYLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsaUJBQWlCO0FBQ25COztBQUNBO0lBQ0ksU0FBUztJQUNULFVBQVU7QUFDZDs7QUFDQTtJQUNJLGtDQUFrQztJQUNsQywyQkFBMkI7SUFDM0IsY0FBYztJQUNkLGVBQWU7SUFDZixrQkFBa0I7SUFDbEIsb0JBQW9CO0FBQ3hCOztBQUNBO0lBQ0ksMkJBQTJCO0lBQzNCLGVBQWU7QUFDbkI7O0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSxXQUFXO0FBQ2Y7O0FBQ0E7SUFDSSxtQkFBbUI7QUFDdkI7O0FBQ0E7SUFDSSxxQkFBcUI7QUFDekI7O0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSwyQkFBMkI7SUFDM0Isa0JBQWtCO0lBQ2xCLHFCQUFxQjtJQUNyQixXQUFXO0lBQ1gscUJBQXFCO0lBQ3JCLFdBQVc7SUFDWCxlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLGlCQUFpQjtBQUNyQjs7QUFDQTtJQUNJLGNBQWM7SUFDZCxlQUFlO0lBQ2Ysa0JBQWtCO0FBQ3RCOztBQUNBO0lBQ0ksMkJBQTJCO0lBQzNCLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSxxQkFBcUI7SUFDckIsV0FBVztJQUNYLGtCQUFrQjtJQUNsQixtQkFBbUI7SUFDbkIsVUFBVTtBQUNkOztBQUNBO0lBQ0ksT0FBTztJQUNQLGtCQUFrQjtJQUNsQixNQUFNO0lBQ04sV0FBVztBQUNmOztBQUNBO0lBQ0ksbUJBQW1CO0FBQ3ZCOztBQUNFLDRCQUE0Qjs7QUFFMUI7UUFDSSxrQkFBa0I7UUFDbEIsVUFBVTtJQUNkOztBQUNIOztRQUVPLGNBQWM7SUFDbEI7O0FBRUE7UUFDSSxpREFBaUQ7UUFDakQsc0JBQXNCO1FBQ3RCLGtCQUFrQjtRQUNsQixrQkFBa0I7UUFDbEIsVUFBVTtJQUNkOztBQUNIO1FBQ08sY0FBYztJQUNsQjs7QUFFQTtRQUNJLDZCQUE2QjtRQUM3QixjQUFjO1FBQ2QsNkJBQTZCO0lBQ2pDOztBQUNIO1FBQ08sY0FBYztJQUNsQjs7QUFDSjtJQUNJLDZCQUE2QjtJQUM3QixtQkFBbUI7SUFDbkIsc0JBQXNCO0lBQ3RCLGtCQUFrQjtJQUNsQixVQUFVO0FBQ2Q7O0FBQ0E7SUFDSSxrQ0FBa0M7SUFDbEMsMkJBQTJCO0lBQzNCLGNBQWM7SUFDZCxlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLG9CQUFvQjtBQUN4QiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqKioqKioqKmZvb3RlcioqKioqKioqKioqKioqKioqKiovXG5cbi5raWxpbWFuamFyb19hcmVhIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgei1pbmRleDogMTtcblx0fVxuICAuZm9vX3RvcF9oZWFkZXJfb25lIHtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICMxNTE3MWY7XG4gICAgICBjb2xvcjogI2ZmZjtcbiAgfVxuLnNlY3Rpb25fcGFkZGluZ18xMDBfNzAge1xuICAgIHBhZGRpbmctdG9wOiAxMDBweDtcbiAgICBwYWRkaW5nLWJvdHRvbTogNzBweDtcbn1cbi5mb29fdG9wX2hlYWRlcl9vbmUge1xuICAgIGNvbG9yOiAjZmZmO1xufS5raWxpbWFuamFyb19wYXJ0IHtcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xufVxuLmZvb190b3BfaGVhZGVyX29uZSAua2lsaW1hbmphcm9fcGFydCA+IGg1IHtcbiAgICBjb2xvcjogI2ZmZjtcbn1cbi5raWxpbWFuamFyb19wYXJ0IGg0LCAua2lsaW1hbmphcm9fcGFydCBoNSB7XG4gICAgbWFyZ2luLWJvdHRvbTogMzBweDtcbn1cbi5raWxpbWFuamFyb19zaW5nbGVfY29udGFjdF9pbmZvID4gcCwgLmtpbGltYW5qYXJvX3NpbmdsZV9jb250YWN0X2luZm8gPiBoNSwgLmtpbGltYW5qYXJvX2Jsb2dfYXJlYSA+IGEsIC5mb29fdG9wX2hlYWRlcl9vbmUgLmtpbGltYW5qYXJvX3BhcnQgPiBwIHtcbiAgICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwuNSk7XG59XG5wLCB1bCBsaSwgb2wgbGkge1xuICAgIGZvbnQtd2VpZ2h0OiAzMDA7XG59XG51bCB7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG59XG4ua2lsaW1hbmphcm9fYm90dG9tX2hlYWRlcl9vbmUge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMyMjI2MzU7XG59XG4uc2VjdGlvbl9wYWRkaW5nXzUwIHtcbiAgICBwYWRkaW5nOiAyNXB4IDA7XG59XG4ua2lsaW1hbmphcm9fYm90dG9tX2hlYWRlcl9vbmUgcCB7XG4gICAgY29sb3I6ICNmZmY7XG4gICAgbWFyZ2luOiAwO1xufVxucCwgdWwgbGksIG9sIGxpIHtcbiAgICBmb250LXdlaWdodDogMzAwO1xufVxuLmtpbGltYW5qYXJvX2JvdHRvbV9oZWFkZXJfb25lIGEge1xuICAgIGNvbG9yOiBpbmhlcml0O1xuICAgIGZvbnQtc2l6ZTogMTRweDtcbn1cbmEsIGgxLCBoMiwgaDMsIGg0LCBoNSwgaDYge1xuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XG59XG4ubS10b3AtMTUge1xuICAgIG1hcmdpbi10b3A6IDE1cHg7XG59XG51bCB7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG59XG5cbi5raWxpbWFuamFyb193aWRnZXQgPiBsaSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxucCwgdWwgbGksIG9sIGxpIHtcbiAgICBmb250LXdlaWdodDogMzAwO1xufVxub2wgbGksIHVsIGxpIHtcbiAgICBsaXN0LXN0eWxlOiBvdXRzaWRlIG5vbmUgbm9uZTtcbn1cbi5raWxpbWFuamFyb193aWRnZXQgYSB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNmZmZmZmYxNDtcbiAgYm9yZGVyLXJhZGl1czogNnB4O1xuICBiYWNrZ3JvdW5kOiAjZmZmZmZmMDU7XG4gIGNvbG9yOiAjODg4O1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIG1hcmdpbjogMnB4O1xuICBmb250LXNpemU6IDEzcHg7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbiAgcGFkZGluZzogN3B4IDEycHg7XG59XG51bCB7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG59XG4ua2lsaW1hbmphcm9fbGlua3MgYSB7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNmZmZmZmYxZjtcbiAgICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwuNSk7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgZm9udC1zaXplOiAxM3B4O1xuICAgIG1hcmdpbi1ib3R0b206IDVweDtcbiAgICBwYWRkaW5nLWJvdHRvbTogMTBweDtcbn1cbi5raWxpbWFuamFyb19saW5rcyBhIHtcbiAgICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwuNSk7XG4gICAgZm9udC1zaXplOiAxM3B4O1xufVxudG9wLTE1IHtcbiAgICBtYXJnaW4tdG9wOiAxNXB4O1xufVxuLmZvb190b3BfaGVhZGVyX29uZSAua2lsaW1hbmphcm9fcGFydCA+IGg1IHtcbiAgICBjb2xvcjogI2ZmZjtcbn1cbi5raWxpbWFuamFyb19wYXJ0IGg0LCAua2lsaW1hbmphcm9fcGFydCBoNSB7XG4gICAgbWFyZ2luLWJvdHRvbTogMzBweDtcbn1cbi5raWxpbWFuamFyb19zb2NpYWxfbGlua3MgPiBsaSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxucCwgdWwgbGksIG9sIGxpIHtcbiAgICBmb250LXdlaWdodDogMzAwO1xufVxuLmtpbGltYW5qYXJvX3NvY2lhbF9saW5rcyBhIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZmZmZmZmMTQ7XG4gICAgYm9yZGVyLXJhZGl1czogNnB4O1xuICAgIGJhY2tncm91bmQ6ICNmZmZmZmYwNTtcbiAgICBjb2xvcjogIzg4ODtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgbWFyZ2luOiAycHg7XG4gICAgZm9udC1zaXplOiAxM3B4O1xuICAgIG1hcmdpbi1ib3R0b206IDNweDtcbiAgICBwYWRkaW5nOiA3cHggMTJweDtcbn1cbi5raWxpbWFuamFyb19ibG9nX2FyZWEgLmtpbGltYW5qYXJvX2RhdGUge1xuICAgIGNvbG9yOiAjMjdhZTYwO1xuICAgIGZvbnQtc2l6ZTogMTNweDtcbiAgICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG4ua2lsaW1hbmphcm9fYmxvZ19hcmVhID4gcCB7XG4gICAgY29sb3I6IHJnYmEoMjU1LDI1NSwyNTUsLjUpO1xuICAgIGxpbmUtaGVpZ2h0OiAxLjM7XG4gICAgbWFyZ2luLWJvdHRvbTogMDtcbn1cbi5raWxpbWFuamFyb193b3JrcyA+IGEge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICBmbG9hdDogbGVmdDtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgd2lkdGg6IDMzLjMzMzMzMzMzJTtcbiAgICB6LWluZGV4OiAxO1xufVxuLmtpbGltYW5qYXJvX3RodW1iIHtcbiAgICBsZWZ0OiAwO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDA7XG4gICAgd2lkdGg6IDc1cHg7XG59XG4ua2lsaW1hbmphcm9fbGlua3MgYSBpIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xufVxuICAvKiA6OiAxOC4wIEZvb3RlciBBcmVhIENTUyAqL1xuXG4gICAgLmZvb3Rlcl9hcmVhIHtcbiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgICB6LWluZGV4OiAxO1xuICAgIH1cbiAuZm9vdGVyX2JvdHRvbSBwID4gaSxcbiAgICAuZm9vdGVyX2JvdHRvbSBwID4gYTpob3ZlciB7XG4gICAgICAgIGNvbG9yOiAjMjdhZTYwO1xuICAgIH1cblxuICAgIC5zb2NpYWxfbGlua3NfYXJlYSB7XG4gICAgICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMik7XG4gICAgICAgIHBhZGRpbmc6IDUwcHggMCAzMHB4IDA7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgICB6LWluZGV4OiAxO1xuICAgIH1cbiAuc29jaWFsX2xpbmtzX2FyZWEgPiBhOmhvdmVyIHtcbiAgICAgICAgY29sb3I6ICMyN2FlNjA7XG4gICAgfVxuXG4gICAgLmlubGluZS1zdHlsZSAuc29jaWFsX2xpbmtzX2FyZWEgPiBhOmhvdmVyIHtcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgICAgIGNvbG9yOiAjMjdhZTYwO1xuICAgICAgICBib3JkZXI6IDBweCBzb2xpZCB0cmFuc3BhcmVudDtcbiAgICB9XG4gLnNpbmdsZV9mZWF0dXJlOmhvdmVyIC5mZWF0dXJlX3RleHQgaDQge1xuICAgICAgICBjb2xvcjogIzI3YWU2MDtcbiAgICB9XG4ua2lsaW1hbmphcm9fYmxvZ19hcmVhIHtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgIzMzMztcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xuICAgIHBhZGRpbmc6IDAgMCAxNXB4IDkwcHg7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIHotaW5kZXg6IDE7XG59XG4ua2lsaW1hbmphcm9fbGlua3MgYSB7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNmZmZmZmYyMTtcbiAgICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwuNSk7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgZm9udC1zaXplOiAxM3B4O1xuICAgIG1hcmdpbi1ib3R0b206IDVweDtcbiAgICBwYWRkaW5nLWJvdHRvbTogMTBweDtcbn1cbiJdfQ== */"
 
 /***/ }),
 
-/***/ "./src/app/components/home/home.component.html":
-/*!*****************************************************!*\
-  !*** ./src/app/components/home/home.component.html ***!
-  \*****************************************************/
+/***/ "./src/app/components/footer/footer.component.html":
+/*!*********************************************************!*\
+  !*** ./src/app/components/footer/footer.component.html ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<div class=\"row custom-row-search\">\n  <div class=\"offset-3 col-6\">\n    <!-- Search form -->\n    <form class=\"form-inline\">\n      <i class=\"fas fa-search\" aria-hidden=\"true\"></i>\n      <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\"\n        aria-label=\"Search\">\n    </form>\n    <div class=\"row\" style=\"padding-top: 5px\">\n      <div class=\"col-5\"><div class=\"btn-filter\">\n        <i class=\"fas fa-filter\"></i> Filter</div>\n        <!-- FUNCIONALIDAD DE TAGS FILTROS -->\n      </div>\n      <div class=\"col-6 col-helper\"><i class=\"far fa-question-circle help-button\"></i></div>\n    </div>\n  </div>\n</div>\n<br>\n\n<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-12 p-lg-5 mx-auto my-6\">\n    <h2 class=\"display-4 font-weight-normal\">Categorías</h2>\n    <div class=\"fluid-container\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <div class=\"categoria-card\">\n            <div class=\"envolvent-card img-gradient\"><img class=\"img-responsive\" src=\"assets/img/p-examples/1.jpg\"></div>\n            <p>Categoría 1</p>\n          </div>\n          <div class=\"categoria-card\">\n            <div class=\"envolvent-card img-gradient\"><img class=\"img-responsive\" src=\"assets/img/p-examples/2.jpg\"></div>\n            <p>Categoría 2</p>\n          </div>\n          <div class=\"categoria-card\">\n            <div class=\"envolvent-card img-gradient\"><img class=\"img-responsive\" src=\"assets/img/p-examples/3.jpg\"></div>\n            <p>Categoría 3</p>\n          </div>\n          <div class=\"categoria-card\">\n            <div class=\"envolvent-card img-gradient\"><img class=\"img-responsive\" src=\"assets/img/p-examples/4.jpg\"></div>\n            <p>Categoría 4</p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <br>\n    <div class=\"fluid-container\">\n      <div class=\"row\">\n        <div class=\"offset-1 col-10\">\n\n\n          <div class=\"contenido-card\">\n            <div class=\"row\">\n              <div class=\"col-7\">\n                <div class=\"content-info\">\n                  <h4>Contenido</h4>\n                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                </div>\n                </div>\n              <div class=\"col-5 cover-image-content\" style=\"background-image: url('/assets/img/content-example/1.jpg'); background-size: cover; background-position: center\">\n              </div>\n            </div>\n          </div>\n\n          <div class=\"contenido-card\">\n            <div class=\"row\">\n              <div class=\"col-7\">\n                <div class=\"content-info\">\n                  <h4>Contenido</h4>\n                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                </div>\n                </div>\n              <div class=\"col-5 cover-image-content\" style=\"background-image: url('/assets/img/content-example/2.jpg'); background-size: cover; background-position: center\">\n              </div>\n            </div>\n          </div>\n\n\n        </div>\n      </div>\n    </div>\n\n\n    <!-- OLD\n    <h1 class=\"display-4 font-weight-normal\">Authorization web application</h1>\n    <p class=\"lead font-weight-normal\">Template in MEAN (MongoDb, Express, Angular and Node) for a login web app using validations, services, angular libraries and much more.</p>\n    <div>\n      <a class=\"btn btn-outline-secondary buttonsMargins\" [routerLink]=\"['/login']\">Login</a>\n      <a class=\"btn btn-outline-secondary buttonsMargins\" [routerLink]=\"['/register']\">Register</a>\n    </div>\n    -->\n\n\n\n\n  </div>\n</div>\n<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"row\">\n    <div class=\"col-md-4\">\n      <h3>First column</h3>\n      <p>Hey there we are making a try</p>\n    </div>\n    <div class=\"col-md-4\">\n      <h3>Second column</h3>\n      <p>Hey there we are making a try</p>\n    </div>\n    <div class=\"col-md-4\">\n      <h3>Third column</h3>\n      <p>Hey there we are making a try</p>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!-- BEGIN FOOTER COMPONENT -->\n<footer class=\"kilimanjaro_area\">\n        <!-- Top Footer Area Start -->\n        <div class=\"foo_top_header_one section_padding_100_70\">\n            <div class=\"container\">\n                <div class=\"row\">\n                    <div class=\"col-12 col-md-8 col-lg-4\">\n                        <div class=\"kilimanjaro_part\">\n                            <h5>Sobre nosotros</h5>\n                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>\n                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>\n                        </div>\n                        <div class=\"kilimanjaro_part m-top-15\">\n                            <h5>Redes Sociales</h5>\n                            <ul class=\"kilimanjaro_social_links\">\n                                <li><a href=\"#\"><i class=\"fab fa-facebook\"></i> Facebook</a></li>\n                                <li><a href=\"#\"><i class=\"fab fa-twitter\"></i> Twitter</a></li>\n                                <li><a href=\"#\"><i class=\"fab fa-pinterest\"></i> Pinterest</a></li>\n                                <li><a href=\"#\"><i class=\"fab fa-youtube\"></i> YouTube</a></li>\n                                <li><a href=\"#\"><i class=\"fab fa-linkedin\"></i> Linkedin</a></li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"col-12 col-md-8 col-lg-4\">\n                        <div class=\"kilimanjaro_part\">\n                            <h5>Tags Relacionados</h5>\n                            <ul class=\" kilimanjaro_widget\">\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                            </ul>\n                        </div>\n\n                        <div class=\"kilimanjaro_part m-top-15\">\n                            <h5>Important Links</h5>\n                            <ul class=\"kilimanjaro_links\">\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Términos y condiciones</a></li>\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Licencia</a></li>\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Ayuda y soporte</a></li>\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Formación</a></li>\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Política de privacidad</a></li>\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Comunidad y foros</a></li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"col-12 col-md-8 col-lg-4\">\n                        <div class=\"kilimanjaro_part\">\n                            <h5>Contacto</h5>\n                            <div class=\"kilimanjaro_single_contact_info\">\n                                <h5>Tfno:</h5>\n                                <p>+255 789 54 50 40<br>+2255 766 90 94 00\n                                </p>\n                            </div>\n                            <div class=\"kilimanjaro_single_contact_info\">\n                                <h5>Correo:</h5>\n                                <p>alu01010143266 <br> -  <br> -</p>\n                            </div>\n                        </div>\n                        <div class=\"kilimanjaro_part\">\n                            <h5>Últimos trabajos</h5>\n                            <div class=\"kilimanjaro_works\">\n                                <a class=\"kilimanjaro_works_img\" href=\"\"><img src=\"\" alt=\"\"></a>\n                                <a class=\"kilimanjaro_works_img\" href=\"\"><img src=\"\" alt=\"\"></a>\n                                <a class=\"kilimanjaro_works_img\" href=\"\"><img src=\"\" alt=\"\"></a>\n                                <a class=\"kilimanjaro_works_img\" href=\"\"><img src=\"\" alt=\"\"></a>\n                                <a class=\"kilimanjaro_works_img\" href=\"\"><img src=\"\" alt=\"\"></a>\n                                <a class=\"kilimanjaro_works_img\" href=\"\"><img src=\"\" alt=\"\"></a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <!-- Footer Bottom Area Start -->\n        <div class=\" kilimanjaro_bottom_header_one section_padding_50 text-center\">\n            <div class=\"container\">\n                <div class=\"row\">\n                    <div class=\"col-12\">\n                        <p>© All Rights Reserved by <a href=\"#\">Webublogoverflow.blogspot<i class=\"fa fa-love\"></i></a></p>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </footer>\n<!-- END FOOTER COMPONENT -->\n"
 
 /***/ }),
 
-/***/ "./src/app/components/home/home.component.ts":
-/*!***************************************************!*\
-  !*** ./src/app/components/home/home.component.ts ***!
-  \***************************************************/
-/*! exports provided: HomeComponent */
+/***/ "./src/app/components/footer/footer.component.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/components/footer/footer.component.ts ***!
+  \*******************************************************/
+/*! exports provided: FooterComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FooterComponent", function() { return FooterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -300,20 +496,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+var FooterComponent = /** @class */ (function () {
+    function FooterComponent() {
     }
-    HomeComponent.prototype.ngOnInit = function () {
+    FooterComponent.prototype.ngOnInit = function () {
     };
-    HomeComponent = __decorate([
+    FooterComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-home',
-            template: __webpack_require__(/*! ./home.component.html */ "./src/app/components/home/home.component.html"),
-            styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/components/home/home.component.css")]
+            selector: 'app-footer',
+            template: __webpack_require__(/*! ./footer.component.html */ "./src/app/components/footer/footer.component.html"),
+            styles: [__webpack_require__(/*! ./footer.component.css */ "./src/app/components/footer/footer.component.css")]
         }),
         __metadata("design:paramtypes", [])
-    ], HomeComponent);
-    return HomeComponent;
+    ], FooterComponent);
+    return FooterComponent;
 }());
 
 
@@ -338,7 +534,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-5 p-lg-5 mx-auto my-6\">\n    <div class=\"form-group\">\n      <h2>Log in</h2>\n    </div>\n    <div class=\"dropdown-divider\"></div>\n    <form class=\"px-4 py-3\" (submit)=\"onLoginSubmit()\">\n      <div class=\"form-group\">\n        <label>Username</label>\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\" placeholder=\"John12345\">\n      </div>\n      <div class=\"form-group\">\n        <label>Password</label>\n        <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\" placeholder=\"Password\">\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\">Sign in</button>\n    </form>\n    <div class=\"dropdown-divider\"></div>\n    <a class=\"dropdown-item\" [routerLink]=\"['/register']\">New around here? Sign up</a>\n  </div>\n</div>"
+module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-5 p-lg-5 mx-auto my-6\">\n    <div class=\"form-group\">\n      <h2>Iniciar sesión</h2>\n    </div>\n    <div class=\"dropdown-divider\"></div>\n    <form class=\"px-4 py-3\" (submit)=\"onLoginSubmit()\" name=\"myForm\">\n      <div class=\"form-group\">\n        <label>Nombre de usuario</label>\n        <input type=\"text\" class=\"form-control\" name=\"username\" placeholder=\"John12345\"\n        [(ngModel)]=\"username\"\n        required>\n      </div>\n      <div class=\"form-group\">\n        <label>Contraseña</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Password\"\n        [(ngModel)]=\"password\"\n        required>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\">Iniciar sesión</button>\n    </form>\n    <div class=\"dropdown-divider\"></div>\n    <a class=\"dropdown-item\" [routerLink]=\"['/register']\">¿Nuevo por aquí? Regístrate</a>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -355,8 +551,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -371,12 +567,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(authService, router, flashMessage) {
+    function LoginComponent(authService, router, ngFlashMessageService) {
         this.authService = authService;
         this.router = router;
-        this.flashMessage = flashMessage;
+        this.ngFlashMessageService = ngFlashMessageService;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        if (this.authService.loggedIn)
+            this.router.navigate(['/dashboard']);
     };
     LoginComponent.prototype.onLoginSubmit = function () {
         var _this = this;
@@ -385,23 +583,27 @@ var LoginComponent = /** @class */ (function () {
             username: this.username,
             password: this.password
         };
-        // Create the petition to authenticate the user and get all the data from the database
+        // Crea la petición para autenticar al usuario
         this.authService.authenticateUser(user).subscribe(function (data) {
             if (data.success) {
-                // If the login is success we are going to store the data into the local storage
+                // Login correcto, se almacenan los datos del usuario en el almacenamiento local
                 _this.authService.storeUserData(data.token, data.user);
                 // Show message as logged in
-                _this.flashMessage.show("You are now logged in", {
-                    cssClass: 'alert-success',
-                    timeout: 5000
+                _this.ngFlashMessageService.showFlashMessage({
+                    messages: ["¡Ya está conectado, bienvenido!"],
+                    dismissible: true,
+                    timeout: false,
+                    type: 'success'
                 });
                 _this.router.navigate(['/dashboard']);
             }
             else {
                 // Show message as cant log in
-                _this.flashMessage.show(data.msg, {
-                    cssClass: 'alert-danger',
-                    timeout: 5000
+                _this.ngFlashMessageService.showFlashMessage({
+                    messages: [data.msg],
+                    dismissible: true,
+                    timeout: false,
+                    type: 'danger'
                 });
                 _this.router.navigate(['/login']);
             }
@@ -415,7 +617,7 @@ var LoginComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"]])
+            ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__["NgFlashMessageService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -431,7 +633,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\n  background: #3e4460!important;\n}\n\n.navbar-brand\n{\n  color: #919aa1!important;\n}\n\n.navbar a {\n  color: #ffffffc4!important;\n  -webkit-transition: ease-in-out 0.2s;\n  transition: ease-in-out 0.2s;\n}\n\n.navbar a:hover {\n  color: #919aa1;\n  -webkit-transition: ease-in-out 0.2s;\n  transition: ease-in-out 0.2s;\n}\n\n.navbar-light .navbar-nav .active>.nav-link,\n.navbar-light .navbar-nav .nav-link.active\n{\n  color: #919aa1!important;\n}\n\n.navbar-light .navbar-toggler {\n  color: rgba(243, 243, 243, 0.3)!important;\n  border-color: rgba(255, 255, 255, 0.1);\n  padding: 5px 6px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9uYXZiYXIvbmF2YmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw2QkFBNkI7QUFDL0I7O0FBRUE7O0VBRUUsd0JBQXdCO0FBQzFCOztBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLG9DQUE0QjtFQUE1Qiw0QkFBNEI7QUFDOUI7O0FBRUE7RUFDRSxjQUFjO0VBQ2Qsb0NBQTRCO0VBQTVCLDRCQUE0QjtBQUM5Qjs7QUFFQTs7O0VBR0Usd0JBQXdCO0FBQzFCOztBQUVBO0VBQ0UseUNBQXlDO0VBQ3pDLHNDQUFzQztFQUN0QyxnQkFBZ0I7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xuICBiYWNrZ3JvdW5kOiAjM2U0NDYwIWltcG9ydGFudDtcbn1cblxuLm5hdmJhci1icmFuZFxue1xuICBjb2xvcjogIzkxOWFhMSFpbXBvcnRhbnQ7XG59XG5cbi5uYXZiYXIgYSB7XG4gIGNvbG9yOiAjZmZmZmZmYzQhaW1wb3J0YW50O1xuICB0cmFuc2l0aW9uOiBlYXNlLWluLW91dCAwLjJzO1xufVxuXG4ubmF2YmFyIGE6aG92ZXIge1xuICBjb2xvcjogIzkxOWFhMTtcbiAgdHJhbnNpdGlvbjogZWFzZS1pbi1vdXQgMC4ycztcbn1cblxuLm5hdmJhci1saWdodCAubmF2YmFyLW5hdiAuYWN0aXZlPi5uYXYtbGluayxcbi5uYXZiYXItbGlnaHQgLm5hdmJhci1uYXYgLm5hdi1saW5rLmFjdGl2ZVxue1xuICBjb2xvcjogIzkxOWFhMSFpbXBvcnRhbnQ7XG59XG5cbi5uYXZiYXItbGlnaHQgLm5hdmJhci10b2dnbGVyIHtcbiAgY29sb3I6IHJnYmEoMjQzLCAyNDMsIDI0MywgMC4zKSFpbXBvcnRhbnQ7XG4gIGJvcmRlci1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpO1xuICBwYWRkaW5nOiA1cHggNnB4O1xufVxuIl19 */"
+module.exports = "\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbmF2YmFyL25hdmJhci5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
@@ -442,7 +644,7 @@ module.exports = ".navbar {\n  background: #3e4460!important;\n}\n\n.navbar-bran
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light\">\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo03\" aria-controls=\"navbarTogglerDemo03\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <i class=\"fas fa-stream\"></i>\n  </button>\n  <a class=\"navbar-brand\">PlanEDU</a>\n  <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo03\">\n    <ul class=\"navbar-nav mr-auto \">\n      <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/']\">Inicio</a></li>\n    </ul>\n    <ul class=\" navbar-nav mt-auto\">\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/dashboard']\">Dashboard</a></li>\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/profile']\">Perfil</a></li>\n\n      <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/login']\">Iniciar sesión</a></li>\n      <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/register']\">Registrarse</a></li>\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\"><a class=\"nav-link\" (click)=\"onLogoutClick()\" href=\"#\">Cerrar sesión</a></li>\n    </ul>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n  <a class=\"navbar-brand\" href=\"#\">PLANEDU</a>\n  <button class=\"navbar-toggler collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"navbar-collapse collapse\" id=\"navbarColor01\" style=\"\">\n    <ul class=\"navbar-nav mr-auto\">\n      <!--<li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"!#\">Pestaña<span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"!#\">Pestaña</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"!#\">Pestaña</a>\n      </li>-->\n    </ul>\n    <ul class=\" navbar-nav mt-auto\">\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/dashboard']\">Tablón</a></li>\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/profile']\">Perfil</a></li>\n\n      <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/']\">Iniciar sesión</a></li>\n      <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a class=\"nav-link\" [routerLink]=\"['/register']\">Registrarse</a></li>\n      <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\"><a class=\"nav-link\" (click)=\"onLogoutClick()\" href=\"#\">Cerrar sesión</a></li>\n    </ul>\n  </div>\n</nav>\n  <ng-flash-message></ng-flash-message>\n"
 
 /***/ }),
 
@@ -459,8 +661,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -473,21 +675,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+//import { FlashMessagesService } from 'angular2-flash-messages';
 
 var NavbarComponent = /** @class */ (function () {
-    function NavbarComponent(authService, router, flashMessage) {
+    function NavbarComponent(authService, router, 
+    //private flashMessage: FlashMessagesService,
+    ngFlashMessageService) {
         this.authService = authService;
         this.router = router;
-        this.flashMessage = flashMessage;
+        this.ngFlashMessageService = ngFlashMessageService;
     }
     NavbarComponent.prototype.ngOnInit = function () {
+        //if (this.authService.loggedIn()) $('ul.navbar-nav.mr-auto').show();
+        //else $('ul.navbar-nav.mr-auto li').hide();
     };
     NavbarComponent.prototype.onLogoutClick = function () {
         // Send the instruction to clear the local storage and the memory of the user logged in
         this.authService.logout();
-        this.flashMessage.show('You are logged out', {
-            cssClass: 'alert-warning',
-            timeout: 3000
+        this.ngFlashMessageService.showFlashMessage({
+            messages: ["Tu sesión ha terminado"],
+            dismissible: true,
+            timeout: false,
+            type: 'warning'
         });
         this.router.navigate(['/login']);
         return false;
@@ -500,9 +709,72 @@ var NavbarComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"]])
+            ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__["NgFlashMessageService"]])
     ], NavbarComponent);
     return NavbarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/notfound/notfound.component.css":
+/*!************************************************************!*\
+  !*** ./src/app/components/notfound/notfound.component.css ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbm90Zm91bmQvbm90Zm91bmQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/notfound/notfound.component.html":
+/*!*************************************************************!*\
+  !*** ./src/app/components/notfound/notfound.component.html ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light\">\n  <div class=\"col-md-8 p-lg-5 mx-auto my-6\">\n    <h2 class=\"page-header\">Página no encontrada</h2>\n    <p>\n      La página solicitada no existe\n    </p>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/notfound/notfound.component.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/components/notfound/notfound.component.ts ***!
+  \***********************************************************/
+/*! exports provided: NotfoundComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotfoundComponent", function() { return NotfoundComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NotfoundComponent = /** @class */ (function () {
+    function NotfoundComponent() {
+    }
+    NotfoundComponent.prototype.ngOnInit = function () {
+    };
+    NotfoundComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-notfound',
+            template: __webpack_require__(/*! ./notfound.component.html */ "./src/app/components/notfound/notfound.component.html"),
+            styles: [__webpack_require__(/*! ./notfound.component.css */ "./src/app/components/notfound/notfound.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], NotfoundComponent);
+    return NotfoundComponent;
 }());
 
 
@@ -516,7 +788,7 @@ var NavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcHJvZmlsZS9wcm9maWxlLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcHJvZmlsZS9wcm9maWxlLmNvbXBvbmVudC5jc3MifQ== */"
 
 /***/ }),
 
@@ -527,7 +799,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light\">\n  <div class=\"col-md-8 p-lg-5 mx-auto my-6\" *ngIf=\"user\">\n    <h2 class=\"page-header\">{{user.name}}</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\">Username: {{user.username}}</li>\n      <li class=\"list-group-item\">Email: {{user.email}}</li>\n    </ul>\n  </div>\n</div>"
+module.exports = "\n<div class=\"container-fluid\">\n  <br><h1>Perfil</h1>\n  <div class=\"row\">\n    <!-- BEGIN COL 1 -->\n    <div class=\"col-12 col-md-4\">\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light\">\n        <!-- BEGIN COL PROFILE BASIC DATAS -->\n        <div class=\"card mb-3\">\n            <h3 class=\"card-header\">{{user.username}}</h3>\n              <div class=\"center-block\">\n                <img class=\"img-responsive\" style=\"height: 200px; width: 200px; margin: 10px\"\n                src=\"assets/img/profile/default_profile_200.png\" alt=\"Card image\">\n              </div>\n            <ul class=\"list-group list-group-flush \">\n                <li class=\"list-group-item\">Nombre: {{user.name}}</li>\n                <li class=\"list-group-item\">Universidad: {{user.universidad}}</li>\n            </ul>\n            <div class=\"card-footer text-muted\">\n                Última visita\n            </div>\n        </div>\n        <!-- END COL PROFILE BASIC DATAS -->\n      </div>\n    </div>\n    <!-- END COL 1 -->\n    <!-- BEGIN COL 2 -->\n    <div class=\"col-12 col-md-8\">\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light\">\n        <!-- BEGIN TAB NAVS PROFILE -->\n        <ul class=\"nav nav-tabs\">\n            <li class=\"nav-item\"><a class=\"nav-link active\" data-toggle=\"tab\" href=\"#home\">Tab1</a></li>\n            <li class=\"nav-item\"><a class=\"nav-link\" data-toggle=\"tab\" href=\"#profile\">Tab2</a></li>\n            <li class=\"nav-item\"><a class=\"nav-link disabled\" href=\"#\">Desactivado</a></li>\n            <li class=\"nav-item dropdown\">\n              <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Más</a>\n                <div class=\"dropdown-menu\">\n                  <a class=\"dropdown-item\" href=\"#\">Acción</a>\n                  <a class=\"dropdown-item\" href=\"#\">Otra acción</a>\n                  <a class=\"dropdown-item\" href=\"#\">Algo más aquí</a>\n                  <div class=\"dropdown-divider\"></div>\n                  <a class=\"dropdown-item\" href=\"#\">Enlaces separados</a>\n                </div>\n            </li>\n        </ul>\n        <div id=\"myTabContent\" class=\"tab-content\">\n          <div class=\"tab-pane fade show active\" id=\"home\">\n              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>\n          </div>\n          <div class=\"tab-pane fade\" id=\"profile\">\n              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>\n          </div>\n          <div class=\"tab-pane fade\" id=\"dropdown1\">\n              <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>\n          </div>\n          <div class=\"tab-pane fade\" id=\"dropdown2\">\n              <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>\n          </div>\n        </div>\n        <!-- END TAB NAVS PROFILE -->\n      </div>\n    </div>\n    <!-- END COL 2 -->\n\n  </div>\n</div>\n<br>\n<app-footer></app-footer>\n"
 
 /***/ }),
 
@@ -604,7 +876,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-7 p-lg-5 mx-auto my-8\">\n    <div class=\"form-group\">\n      <h2>Registro</h2>\n    </div>\n    <div class=\"dropdown-divider\"></div>\n    <form class=\"px-4 py-3\" (submit)=\"onRegisterSubmit()\">\n      <div class=\"form-group\">\n        <label>Nombre</label>\n        <input type=\"name\" class=\"form-control\" [(ngModel)]=\"name\" name=\"name\" placeholder=\"John Doe\">\n      </div>\n      <div class=\"form-group\"> \n        <label>Nombre de Usuario</label>\n        <input type=\"username\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\" placeholder=\"John12345\">\n      </div>\n      <div class=\"form-group\">\n        <label>Email</label>\n        <input type=\"email\" class=\"form-control\" [(ngModel)]=\"email\" name=\"email\" placeholder=\"email@example.com\">\n      </div>\n      <div class=\"form-group\">\n        <label>Contraseña</label>\n        <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\" placeholder=\"Password\">\n      </div>\n      <div class=\"form-group\">\n        <label>Universidad</label>\n        <input type=\"universidad\" class=\"form-control\" [(ngModel)]=\"universidad\" name=\"universidad\" placeholder=\"ULL\">\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">Registrarme</button>\n    </form>\n  </div>\n</div>"
+module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-7 p-lg-5 mx-auto my-8\">\n    <div class=\"form-group\">\n      <h2>Registro</h2>\n    </div>\n    <div class=\"dropdown-divider\"></div>\n    <form class=\"px-4 py-3\" (submit)=\"onRegisterSubmit()\" name=\"register\">\n      <div class=\"row\">\n        <div class=\"col-6\">\n\n          <div class=\"form-group\">\n            <label>Nombre</label>\n            <input type=\"name\" class=\"form-control\" name=\"name\" placeholder=\"John Doe\"\n            [(ngModel)]=\"name\"\n            required>\n          </div>\n\n        </div>\n        <div class=\"col-6\">\n          <div class=\"form-group\">\n            <label>Usuario</label>\n            <input type=\"username\" class=\"form-control\" name=\"username\" placeholder=\"John12345\"\n            [(ngModel)]=\"username\"\n            required>\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"form-group\">\n        <label>Email</label>\n        <input type=\"email\" class=\"form-control\"  name=\"email\" placeholder=\"email@example.com\"\n        [(ngModel)]=\"email\"\n        <!--(change)=\"onChangeEmail()\"-->\n        required>\n      </div>\n      <div class=\"form-group\">\n        <label>Contraseña</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Password\"\n        [(ngModel)]=\"password\"\n        required>\n      </div>\n      <div class=\"form-group\">\n        <label>Universidad</label>\n        <input type=\"universidad\" class=\"form-control\" name=\"universidad\" placeholder=\"Nombre completo de tu Universidad\"\n        [(ngModel)]=\"universidad\"\n        required>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">Registrarme</button>\n    </form>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -621,8 +893,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_validate_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/validate.service */ "./src/app/services/validate.service.ts");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -644,17 +916,33 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var RegisterComponent = /** @class */ (function () {
     function RegisterComponent(
     // Need to inject all the services in the constructor
-    validateService, flashMessage, authService, router) {
+    validateService, authService, router, ngFlashMessageService) {
         this.validateService = validateService;
-        this.flashMessage = flashMessage;
         this.authService = authService;
         this.router = router;
+        this.ngFlashMessageService = ngFlashMessageService;
     }
     RegisterComponent.prototype.ngOnInit = function () {
     };
+    // Validar email en el momento
+    /*onChangeEmail() {
+      const user = { email: this.email,}
+  
+      if (!this.validateService.validateEmail(user.email)) {
+        $("input[name='email']").removeClass('ng-valid');
+        $("input[name='email']").addClass('ng-invalid');
+  
+        return false;
+      } else {
+        $("input[name='email']").removeClass('ng-invalid');
+        $("input[name='email']").addClass('ng-valid');
+        return true;
+      }
+    }*/
+    // Al hacer submit del formulario
     RegisterComponent.prototype.onRegisterSubmit = function () {
         var _this = this;
-        // Create the user object
+        // Se crea el objeto usuario con los campos
         var user = {
             name: this.name,
             username: this.username,
@@ -662,29 +950,57 @@ var RegisterComponent = /** @class */ (function () {
             password: this.password,
             universidad: this.universidad
         };
-        // Required fields
+        // Validación de campos
         if (!this.validateService.validateRegister(user)) {
-            this.flashMessage.show('Please fill in all the fields', { cssClass: 'alert-danger', timeout: 3000 });
+            this.ngFlashMessageService.showFlashMessage({
+                messages: ["Por favor rellene los campos"],
+                dismissible: true,
+                timeout: false,
+                type: 'danger'
+            });
             return false;
         }
-        // Validate email
+        // Validación de email
         if (!this.validateService.validateEmail(user.email)) {
-            this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
+            this.ngFlashMessageService.showFlashMessage({
+                messages: ["Por favor, use un campo de email válido"],
+                dismissible: true,
+                timeout: false,
+                type: 'danger'
+            });
             return false;
         }
-        // Register user
+        // Validación de la Universidad
+        /*this.validateUni.getUniByName(user.universidad, (err) => { console.log("HEEY");
+          if (err) {
+            this.flashMessage.show('Introduce un nombre de Universidad válido', { cssClass: 'alert-danger', timeout: 3000 });
+            return false;
+          }
+        });*/
+        // Registro de usuario
         // Use the service with the function and the user object as is an observable
         // we need to subscribe to it and inside we have the data back
         this.authService.registerUser(user).subscribe(function (data) {
-            // Lets validate the response and show the user the response with an alert
+            // Si se ha regitrado correctametne
             if (data.success) {
-                _this.flashMessage.show('You are now registered', { cssClass: 'alert-success', timeout: 3000 });
-                // If the registration is success move to the login component
+                _this.ngFlashMessageService.showFlashMessage({
+                    messages: ["¡Ahora ya está registrado! Bienvenido."],
+                    dismissible: true,
+                    timeout: false,
+                    type: 'success'
+                });
+                // Redirecciona al formulario de login
                 _this.router.navigate(['/login']);
             }
+            // Si no se ha registrado
             else {
-                _this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
-                // If the registration is success move to the login component
+                _this.ngFlashMessageService.showFlashMessage({
+                    messages: [data.msg],
+                    dismissible: true,
+                    timeout: false,
+                    type: 'danger'
+                });
+                // Redirecciona al mismo formulario
                 _this.router.navigate(['/register']);
             }
         });
@@ -696,74 +1012,11 @@ var RegisterComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./register.component.css */ "./src/app/components/register/register.component.css")]
         }),
         __metadata("design:paramtypes", [_services_validate_service__WEBPACK_IMPORTED_MODULE_1__["ValidateService"],
-            angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"],
             _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__["NgFlashMessageService"]])
     ], RegisterComponent);
     return RegisterComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/footer/footer.component.css":
-/*!*********************************************!*\
-  !*** ./src/app/footer/footer.component.css ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/*********footer*******************/\n\n.kilimanjaro_area {\n    position: relative;\n    z-index: 1;\n\t}\n\n.foo_top_header_one {\n      background-color: #15171f;\n      color: #fff;\n  }\n\n.section_padding_100_70 {\n    padding-top: 100px;\n    padding-bottom: 70px;\n}\n\n.foo_top_header_one {\n    color: #fff;\n}\n\n.kilimanjaro_part {\n    margin-bottom: 30px;\n}\n\n.foo_top_header_one .kilimanjaro_part > h5 {\n    color: #fff;\n}\n\n.kilimanjaro_part h4, .kilimanjaro_part h5 {\n    margin-bottom: 30px;\n}\n\n.kilimanjaro_single_contact_info > p, .kilimanjaro_single_contact_info > h5, .kilimanjaro_blog_area > a, .foo_top_header_one .kilimanjaro_part > p {\n    color: rgba(255,255,255,.5);\n}\n\np, ul li, ol li {\n    font-weight: 300;\n}\n\nul {\n    margin: 0;\n    padding: 0;\n}\n\n.kilimanjaro_bottom_header_one {\n    background-color: #222635;\n}\n\n.section_padding_50 {\n    padding: 25px 0;\n}\n\n.kilimanjaro_bottom_header_one p {\n    color: #fff;\n    margin: 0;\n}\n\np, ul li, ol li {\n    font-weight: 300;\n}\n\n.kilimanjaro_bottom_header_one a {\n    color: inherit;\n    font-size: 14px;\n}\n\na, h1, h2, h3, h4, h5, h6 {\n    font-weight: 400;\n}\n\n.m-top-15 {\n    margin-top: 15px;\n}\n\nul {\n    margin: 0;\n    padding: 0;\n}\n\n.kilimanjaro_widget > li {\n    display: inline-block;\n}\n\np, ul li, ol li {\n    font-weight: 300;\n}\n\nol li, ul li {\n    list-style: outside none none;\n}\n\n.kilimanjaro_widget a {\n  border: 1px solid #ffffff14;\n  border-radius: 6px;\n  background: #ffffff05;\n  color: #888;\n  display: inline-block;\n  margin: 2px;\n  font-size: 13px;\n  margin-bottom: 3px;\n  padding: 7px 12px;\n}\n\nul {\n    margin: 0;\n    padding: 0;\n}\n\n.kilimanjaro_links a {\n    border-bottom: 1px solid #ffffff1f;\n    color: rgba(255,255,255,.5);\n    display: block;\n    font-size: 13px;\n    margin-bottom: 5px;\n    padding-bottom: 10px;\n}\n\n.kilimanjaro_links a {\n    color: rgba(255,255,255,.5);\n    font-size: 13px;\n}\n\ntop-15 {\n    margin-top: 15px;\n}\n\n.foo_top_header_one .kilimanjaro_part > h5 {\n    color: #fff;\n}\n\n.kilimanjaro_part h4, .kilimanjaro_part h5 {\n    margin-bottom: 30px;\n}\n\n.kilimanjaro_social_links > li {\n    display: inline-block;\n}\n\np, ul li, ol li {\n    font-weight: 300;\n}\n\n.kilimanjaro_social_links a {\n    border: 1px solid #ffffff14;\n    border-radius: 6px;\n    background: #ffffff05;\n    color: #888;\n    display: inline-block;\n    margin: 2px;\n    font-size: 13px;\n    margin-bottom: 3px;\n    padding: 7px 12px;\n}\n\n.kilimanjaro_blog_area .kilimanjaro_date {\n    color: #27ae60;\n    font-size: 13px;\n    margin-bottom: 5px;\n}\n\n.kilimanjaro_blog_area > p {\n    color: rgba(255,255,255,.5);\n    line-height: 1.3;\n    margin-bottom: 0;\n}\n\n.kilimanjaro_works > a {\n    display: inline-block;\n    float: left;\n    position: relative;\n    width: 33.33333333%;\n    z-index: 1;\n}\n\n.kilimanjaro_thumb {\n    left: 0;\n    position: absolute;\n    top: 0;\n    width: 75px;\n}\n\n.kilimanjaro_links a i {\n    padding-right: 10px;\n}\n\n/* :: 18.0 Footer Area CSS */\n\n.footer_area {\n        position: relative;\n        z-index: 1;\n    }\n\n.footer_bottom p > i,\n    .footer_bottom p > a:hover {\n        color: #27ae60;\n    }\n\n.social_links_area {\n        border-bottom: 1px solid rgba(255, 255, 255, 0.2);\n        padding: 50px 0 30px 0;\n        text-align: center;\n        position: relative;\n        z-index: 1;\n    }\n\n.social_links_area > a:hover {\n        color: #27ae60;\n    }\n\n.inline-style .social_links_area > a:hover {\n        background-color: transparent;\n        color: #27ae60;\n        border: 0px solid transparent;\n    }\n\n.single_feature:hover .feature_text h4 {\n        color: #27ae60;\n    }\n\n.kilimanjaro_blog_area {\n    border-bottom: 1px solid #333;\n    margin-bottom: 15px;\n    padding: 0 0 15px 90px;\n    position: relative;\n    z-index: 1;\n}\n\n.kilimanjaro_links a {\n    border-bottom: 1px solid #ffffff21;\n    color: rgba(255,255,255,.5);\n    display: block;\n    font-size: 13px;\n    margin-bottom: 5px;\n    padding-bottom: 10px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLG1DQUFtQzs7QUFFbkM7SUFDSSxrQkFBa0I7SUFDbEIsVUFBVTtDQUNiOztBQUNDO01BQ0kseUJBQXlCO01BQ3pCLFdBQVc7RUFDZjs7QUFDRjtJQUNJLGtCQUFrQjtJQUNsQixvQkFBb0I7QUFDeEI7O0FBQ0E7SUFDSSxXQUFXO0FBQ2Y7O0FBQUM7SUFDRyxtQkFBbUI7QUFDdkI7O0FBQ0E7SUFDSSxXQUFXO0FBQ2Y7O0FBQ0E7SUFDSSxtQkFBbUI7QUFDdkI7O0FBQ0E7SUFDSSwyQkFBMkI7QUFDL0I7O0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSxTQUFTO0lBQ1QsVUFBVTtBQUNkOztBQUNBO0lBQ0kseUJBQXlCO0FBQzdCOztBQUNBO0lBQ0ksZUFBZTtBQUNuQjs7QUFDQTtJQUNJLFdBQVc7SUFDWCxTQUFTO0FBQ2I7O0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSxjQUFjO0lBQ2QsZUFBZTtBQUNuQjs7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFDQTtJQUNJLFNBQVM7SUFDVCxVQUFVO0FBQ2Q7O0FBRUE7SUFDSSxxQkFBcUI7QUFDekI7O0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSw2QkFBNkI7QUFDakM7O0FBQ0E7RUFDRSwyQkFBMkI7RUFDM0Isa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLFdBQVc7RUFDWCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGlCQUFpQjtBQUNuQjs7QUFDQTtJQUNJLFNBQVM7SUFDVCxVQUFVO0FBQ2Q7O0FBQ0E7SUFDSSxrQ0FBa0M7SUFDbEMsMkJBQTJCO0lBQzNCLGNBQWM7SUFDZCxlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLG9CQUFvQjtBQUN4Qjs7QUFDQTtJQUNJLDJCQUEyQjtJQUMzQixlQUFlO0FBQ25COztBQUNBO0lBQ0ksZ0JBQWdCO0FBQ3BCOztBQUNBO0lBQ0ksV0FBVztBQUNmOztBQUNBO0lBQ0ksbUJBQW1CO0FBQ3ZCOztBQUNBO0lBQ0kscUJBQXFCO0FBQ3pCOztBQUNBO0lBQ0ksZ0JBQWdCO0FBQ3BCOztBQUNBO0lBQ0ksMkJBQTJCO0lBQzNCLGtCQUFrQjtJQUNsQixxQkFBcUI7SUFDckIsV0FBVztJQUNYLHFCQUFxQjtJQUNyQixXQUFXO0lBQ1gsZUFBZTtJQUNmLGtCQUFrQjtJQUNsQixpQkFBaUI7QUFDckI7O0FBQ0E7SUFDSSxjQUFjO0lBQ2QsZUFBZTtJQUNmLGtCQUFrQjtBQUN0Qjs7QUFDQTtJQUNJLDJCQUEyQjtJQUMzQixnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCOztBQUNBO0lBQ0kscUJBQXFCO0lBQ3JCLFdBQVc7SUFDWCxrQkFBa0I7SUFDbEIsbUJBQW1CO0lBQ25CLFVBQVU7QUFDZDs7QUFDQTtJQUNJLE9BQU87SUFDUCxrQkFBa0I7SUFDbEIsTUFBTTtJQUNOLFdBQVc7QUFDZjs7QUFDQTtJQUNJLG1CQUFtQjtBQUN2Qjs7QUFDRSw0QkFBNEI7O0FBRTFCO1FBQ0ksa0JBQWtCO1FBQ2xCLFVBQVU7SUFDZDs7QUFDSDs7UUFFTyxjQUFjO0lBQ2xCOztBQUVBO1FBQ0ksaURBQWlEO1FBQ2pELHNCQUFzQjtRQUN0QixrQkFBa0I7UUFDbEIsa0JBQWtCO1FBQ2xCLFVBQVU7SUFDZDs7QUFDSDtRQUNPLGNBQWM7SUFDbEI7O0FBRUE7UUFDSSw2QkFBNkI7UUFDN0IsY0FBYztRQUNkLDZCQUE2QjtJQUNqQzs7QUFDSDtRQUNPLGNBQWM7SUFDbEI7O0FBQ0o7SUFDSSw2QkFBNkI7SUFDN0IsbUJBQW1CO0lBQ25CLHNCQUFzQjtJQUN0QixrQkFBa0I7SUFDbEIsVUFBVTtBQUNkOztBQUNBO0lBQ0ksa0NBQWtDO0lBQ2xDLDJCQUEyQjtJQUMzQixjQUFjO0lBQ2QsZUFBZTtJQUNmLGtCQUFrQjtJQUNsQixvQkFBb0I7QUFDeEIiLCJmaWxlIjoic3JjL2FwcC9mb290ZXIvZm9vdGVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKioqKioqKioqZm9vdGVyKioqKioqKioqKioqKioqKioqKi9cblxuLmtpbGltYW5qYXJvX2FyZWEge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB6LWluZGV4OiAxO1xuXHR9XG4gIC5mb29fdG9wX2hlYWRlcl9vbmUge1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzE1MTcxZjtcbiAgICAgIGNvbG9yOiAjZmZmO1xuICB9XG4uc2VjdGlvbl9wYWRkaW5nXzEwMF83MCB7XG4gICAgcGFkZGluZy10b3A6IDEwMHB4O1xuICAgIHBhZGRpbmctYm90dG9tOiA3MHB4O1xufVxuLmZvb190b3BfaGVhZGVyX29uZSB7XG4gICAgY29sb3I6ICNmZmY7XG59LmtpbGltYW5qYXJvX3BhcnQge1xuICAgIG1hcmdpbi1ib3R0b206IDMwcHg7XG59XG4uZm9vX3RvcF9oZWFkZXJfb25lIC5raWxpbWFuamFyb19wYXJ0ID4gaDUge1xuICAgIGNvbG9yOiAjZmZmO1xufVxuLmtpbGltYW5qYXJvX3BhcnQgaDQsIC5raWxpbWFuamFyb19wYXJ0IGg1IHtcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xufVxuLmtpbGltYW5qYXJvX3NpbmdsZV9jb250YWN0X2luZm8gPiBwLCAua2lsaW1hbmphcm9fc2luZ2xlX2NvbnRhY3RfaW5mbyA+IGg1LCAua2lsaW1hbmphcm9fYmxvZ19hcmVhID4gYSwgLmZvb190b3BfaGVhZGVyX29uZSAua2lsaW1hbmphcm9fcGFydCA+IHAge1xuICAgIGNvbG9yOiByZ2JhKDI1NSwyNTUsMjU1LC41KTtcbn1cbnAsIHVsIGxpLCBvbCBsaSB7XG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcbn1cbnVsIHtcbiAgICBtYXJnaW46IDA7XG4gICAgcGFkZGluZzogMDtcbn1cbi5raWxpbWFuamFyb19ib3R0b21faGVhZGVyX29uZSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzIyMjYzNTtcbn1cbi5zZWN0aW9uX3BhZGRpbmdfNTAge1xuICAgIHBhZGRpbmc6IDI1cHggMDtcbn1cbi5raWxpbWFuamFyb19ib3R0b21faGVhZGVyX29uZSBwIHtcbiAgICBjb2xvcjogI2ZmZjtcbiAgICBtYXJnaW46IDA7XG59XG5wLCB1bCBsaSwgb2wgbGkge1xuICAgIGZvbnQtd2VpZ2h0OiAzMDA7XG59XG4ua2lsaW1hbmphcm9fYm90dG9tX2hlYWRlcl9vbmUgYSB7XG4gICAgY29sb3I6IGluaGVyaXQ7XG4gICAgZm9udC1zaXplOiAxNHB4O1xufVxuYSwgaDEsIGgyLCBoMywgaDQsIGg1LCBoNiB7XG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcbn1cbi5tLXRvcC0xNSB7XG4gICAgbWFyZ2luLXRvcDogMTVweDtcbn1cbnVsIHtcbiAgICBtYXJnaW46IDA7XG4gICAgcGFkZGluZzogMDtcbn1cblxuLmtpbGltYW5qYXJvX3dpZGdldCA+IGxpIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG5wLCB1bCBsaSwgb2wgbGkge1xuICAgIGZvbnQtd2VpZ2h0OiAzMDA7XG59XG5vbCBsaSwgdWwgbGkge1xuICAgIGxpc3Qtc3R5bGU6IG91dHNpZGUgbm9uZSBub25lO1xufVxuLmtpbGltYW5qYXJvX3dpZGdldCBhIHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2ZmZmZmZjE0O1xuICBib3JkZXItcmFkaXVzOiA2cHg7XG4gIGJhY2tncm91bmQ6ICNmZmZmZmYwNTtcbiAgY29sb3I6ICM4ODg7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgbWFyZ2luOiAycHg7XG4gIGZvbnQtc2l6ZTogMTNweDtcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xuICBwYWRkaW5nOiA3cHggMTJweDtcbn1cbnVsIHtcbiAgICBtYXJnaW46IDA7XG4gICAgcGFkZGluZzogMDtcbn1cbi5raWxpbWFuamFyb19saW5rcyBhIHtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2ZmZmZmZjFmO1xuICAgIGNvbG9yOiByZ2JhKDI1NSwyNTUsMjU1LC41KTtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBmb250LXNpemU6IDEzcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogNXB4O1xuICAgIHBhZGRpbmctYm90dG9tOiAxMHB4O1xufVxuLmtpbGltYW5qYXJvX2xpbmtzIGEge1xuICAgIGNvbG9yOiByZ2JhKDI1NSwyNTUsMjU1LC41KTtcbiAgICBmb250LXNpemU6IDEzcHg7XG59XG50b3AtMTUge1xuICAgIG1hcmdpbi10b3A6IDE1cHg7XG59XG4uZm9vX3RvcF9oZWFkZXJfb25lIC5raWxpbWFuamFyb19wYXJ0ID4gaDUge1xuICAgIGNvbG9yOiAjZmZmO1xufVxuLmtpbGltYW5qYXJvX3BhcnQgaDQsIC5raWxpbWFuamFyb19wYXJ0IGg1IHtcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xufVxuLmtpbGltYW5qYXJvX3NvY2lhbF9saW5rcyA+IGxpIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG5wLCB1bCBsaSwgb2wgbGkge1xuICAgIGZvbnQtd2VpZ2h0OiAzMDA7XG59XG4ua2lsaW1hbmphcm9fc29jaWFsX2xpbmtzIGEge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkICNmZmZmZmYxNDtcbiAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4gICAgYmFja2dyb3VuZDogI2ZmZmZmZjA1O1xuICAgIGNvbG9yOiAjODg4O1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICBtYXJnaW46IDJweDtcbiAgICBmb250LXNpemU6IDEzcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogM3B4O1xuICAgIHBhZGRpbmc6IDdweCAxMnB4O1xufVxuLmtpbGltYW5qYXJvX2Jsb2dfYXJlYSAua2lsaW1hbmphcm9fZGF0ZSB7XG4gICAgY29sb3I6ICMyN2FlNjA7XG4gICAgZm9udC1zaXplOiAxM3B4O1xuICAgIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbi5raWxpbWFuamFyb19ibG9nX2FyZWEgPiBwIHtcbiAgICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwuNSk7XG4gICAgbGluZS1oZWlnaHQ6IDEuMztcbiAgICBtYXJnaW4tYm90dG9tOiAwO1xufVxuLmtpbGltYW5qYXJvX3dvcmtzID4gYSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgIGZsb2F0OiBsZWZ0O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB3aWR0aDogMzMuMzMzMzMzMzMlO1xuICAgIHotaW5kZXg6IDE7XG59XG4ua2lsaW1hbmphcm9fdGh1bWIge1xuICAgIGxlZnQ6IDA7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMDtcbiAgICB3aWR0aDogNzVweDtcbn1cbi5raWxpbWFuamFyb19saW5rcyBhIGkge1xuICAgIHBhZGRpbmctcmlnaHQ6IDEwcHg7XG59XG4gIC8qIDo6IDE4LjAgRm9vdGVyIEFyZWEgQ1NTICovXG5cbiAgICAuZm9vdGVyX2FyZWEge1xuICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICAgIHotaW5kZXg6IDE7XG4gICAgfVxuIC5mb290ZXJfYm90dG9tIHAgPiBpLFxuICAgIC5mb290ZXJfYm90dG9tIHAgPiBhOmhvdmVyIHtcbiAgICAgICAgY29sb3I6ICMyN2FlNjA7XG4gICAgfVxuXG4gICAgLnNvY2lhbF9saW5rc19hcmVhIHtcbiAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yKTtcbiAgICAgICAgcGFkZGluZzogNTBweCAwIDMwcHggMDtcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICAgIHotaW5kZXg6IDE7XG4gICAgfVxuIC5zb2NpYWxfbGlua3NfYXJlYSA+IGE6aG92ZXIge1xuICAgICAgICBjb2xvcjogIzI3YWU2MDtcbiAgICB9XG5cbiAgICAuaW5saW5lLXN0eWxlIC5zb2NpYWxfbGlua3NfYXJlYSA+IGE6aG92ZXIge1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgICAgICAgY29sb3I6ICMyN2FlNjA7XG4gICAgICAgIGJvcmRlcjogMHB4IHNvbGlkIHRyYW5zcGFyZW50O1xuICAgIH1cbiAuc2luZ2xlX2ZlYXR1cmU6aG92ZXIgLmZlYXR1cmVfdGV4dCBoNCB7XG4gICAgICAgIGNvbG9yOiAjMjdhZTYwO1xuICAgIH1cbi5raWxpbWFuamFyb19ibG9nX2FyZWEge1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjMzMzO1xuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XG4gICAgcGFkZGluZzogMCAwIDE1cHggOTBweDtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgei1pbmRleDogMTtcbn1cbi5raWxpbWFuamFyb19saW5rcyBhIHtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2ZmZmZmZjIxO1xuICAgIGNvbG9yOiByZ2JhKDI1NSwyNTUsMjU1LC41KTtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBmb250LXNpemU6IDEzcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogNXB4O1xuICAgIHBhZGRpbmctYm90dG9tOiAxMHB4O1xufVxuIl19 */"
-
-/***/ }),
-
-/***/ "./src/app/footer/footer.component.html":
-/*!**********************************************!*\
-  !*** ./src/app/footer/footer.component.html ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!-- BEGIN FOOTER COMPONENT -->\n<footer class=\"kilimanjaro_area\">\n        <!-- Top Footer Area Start -->\n        <div class=\"foo_top_header_one section_padding_100_70\">\n            <div class=\"container\">\n                <div class=\"row\">\n                    <div class=\"col-12 col-md-8 col-lg-4\">\n                        <div class=\"kilimanjaro_part\">\n                            <h5>Sobre nosotros</h5>\n                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>\n                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>\n                        </div>\n                        <div class=\"kilimanjaro_part m-top-15\">\n                            <h5>Redes Sociales</h5>\n                            <ul class=\"kilimanjaro_social_links\">\n                                <li><a href=\"#\"><i class=\"fab fa-facebook\"></i> Facebook</a></li>\n                                <li><a href=\"#\"><i class=\"fab fa-twitter\"></i> Twitter</a></li>\n                                <li><a href=\"#\"><i class=\"fab fa-pinterest\"></i> Pinterest</a></li>\n                                <li><a href=\"#\"><i class=\"fab fa-youtube\"></i> YouTube</a></li>\n                                <li><a href=\"#\"><i class=\"fab fa-linkedin\"></i> Linkedin</a></li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"col-12 col-md-8 col-lg-4\">\n                        <div class=\"kilimanjaro_part\">\n                            <h5>Tags Relacionados</h5>\n                            <ul class=\" kilimanjaro_widget\">\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                                <li><a href=\"#\">tag</a></li>\n                            </ul>\n                        </div>\n\n                        <div class=\"kilimanjaro_part m-top-15\">\n                            <h5>Important Links</h5>\n                            <ul class=\"kilimanjaro_links\">\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Términos y condiciones</a></li>\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Licencia</a></li>\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Ayuda y soporte</a></li>\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Formación</a></li>\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Política de privacidad</a></li>\n                                <li><a href=\"#\"><i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>Comunidad y foros</a></li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"col-12 col-md-8 col-lg-4\">\n                        <div class=\"kilimanjaro_part\">\n                            <h5>Contacto</h5>\n                            <div class=\"kilimanjaro_single_contact_info\">\n                                <h5>Tfno:</h5>\n                                <p>+255 789 54 50 40<br>+2255 766 90 94 00\n                                </p>\n                            </div>\n                            <div class=\"kilimanjaro_single_contact_info\">\n                                <h5>Correo:</h5>\n                                <p>alu01010143266 <br> -  <br> -</p>\n                            </div>\n                        </div>\n                        <div class=\"kilimanjaro_part\">\n                            <h5>Últimos trabajos</h5>\n                            <div class=\"kilimanjaro_works\">\n                                <a class=\"kilimanjaro_works_img\" href=\"img/gallery/1.jpg\"><img src=\"img/gallery/1.jpg\" alt=\"\"></a>\n                                <a class=\"kilimanjaro_works_img\" href=\"img/gallery/4.jpg\"><img src=\"img/gallery/4.jpg\" alt=\"\"></a>\n                                <a class=\"kilimanjaro_works_img\" href=\"img/gallery/5.jpg\"><img src=\"img/gallery/5.jpg\" alt=\"\"></a>\n                                <a class=\"kilimanjaro_works_img\" href=\"img/gallery/7.jpg\"><img src=\"img/gallery/7.jpg\" alt=\"\"></a>\n                                <a class=\"kilimanjaro_works_img\" href=\"img/gallery/10.jpg\"><img src=\"img/gallery/10.jpg\" alt=\"\"></a>\n                                <a class=\"kilimanjaro_works_img\" href=\"img/gallery/11.jpg\"><img src=\"img/gallery/11.jpg\" alt=\"\"></a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <!-- Footer Bottom Area Start -->\n        <div class=\" kilimanjaro_bottom_header_one section_padding_50 text-center\">\n            <div class=\"container\">\n                <div class=\"row\">\n                    <div class=\"col-12\">\n                        <p>© All Rights Reserved by <a href=\"#\">Webublogoverflow.blogspot<i class=\"fa fa-love\"></i></a></p>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </footer>\n<!-- END FOOTER COMPONENT -->\n"
-
-/***/ }),
-
-/***/ "./src/app/footer/footer.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/footer/footer.component.ts ***!
-  \********************************************/
-/*! exports provided: FooterComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FooterComponent", function() { return FooterComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var FooterComponent = /** @class */ (function () {
-    function FooterComponent() {
-    }
-    FooterComponent.prototype.ngOnInit = function () {
-    };
-    FooterComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-footer',
-            template: __webpack_require__(/*! ./footer.component.html */ "./src/app/footer/footer.component.html"),
-            styles: [__webpack_require__(/*! ./footer.component.css */ "./src/app/footer/footer.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], FooterComponent);
-    return FooterComponent;
 }());
 
 
@@ -818,6 +1071,25 @@ var AuthGuard = /** @class */ (function () {
     return AuthGuard;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/reducers/index.ts":
+/*!***********************************!*\
+  !*** ./src/app/reducers/index.ts ***!
+  \***********************************/
+/*! exports provided: reducers, metaReducers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducers", function() { return reducers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metaReducers", function() { return metaReducers; });
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
+var reducers = {};
+var metaReducers = !_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].production ? [] : [];
 
 
 /***/ }),
@@ -901,20 +1173,20 @@ var AuthService = /** @class */ (function () {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
         // Map the response to json
     };
-    // Function to store the data in the local storage
+    // Función que almacena la sesión en el almacenamiento local
     AuthService.prototype.storeUserData = function (token, user) {
         localStorage.setItem('id_token', token);
         localStorage.setItem('user', JSON.stringify(user));
-        // Save our token and user in the component
+        // Almacena el token y el usuario en el componente
         this.authToken = token;
         this.user = user;
     };
-    // Function to get the token stored in the local storage
+    // Función para obtener el token del almacenamiento local
     AuthService.prototype.loadToken = function () {
         var token = localStorage.getItem('id_token');
         this.authToken = token;
     };
-    // Function to return if the token is not expired
+    // Función que devuelve si el token ha expirado o no
     AuthService.prototype.loggedIn = function () {
         return !this.jwtHelper.isTokenExpired();
     };
@@ -973,7 +1245,10 @@ var ValidateService = /** @class */ (function () {
     // Function of the service to validate the email
     ValidateService.prototype.validateEmail = function (email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
+        /*
+         send "email" to backend. El backend debe comprobar si está en la bdd y devolver un true o false.
+        */
+        return re.test(email); // <-- (Devolver re.test(email) * flag del backend)
     };
     ValidateService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1049,7 +1324,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/uno/Escritorio/SyTW/Proyecto SyTW/E01/angular-src/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/brian/E01/angular-src/src/main.ts */"./src/main.ts");
 
 
 /***/ })

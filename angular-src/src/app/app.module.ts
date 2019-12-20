@@ -4,34 +4,49 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 // Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContentComponent } from './components/content/content.component';
+import { ContentlistComponent } from './components/contentlist/contentlist.component';
 
 // Services
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
+import { ApuntesService } from './services/apuntes.service';
 
 // Libraries
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './guards/auth.guard';
-import { FooterComponent } from './footer/footer.component';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
 
-// Array for the routing
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
+
+
+
+// Array de Enrutamiento
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent},
   { path: '', component: LoginComponent },
-  // Protect the following routes if youre logged in
+  // Rutas protegidas, solo tienen acceso ususarios autenticados
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'content', component: ContentComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  // Ruta Comodín: URLs desconocidas
+  { path: '**', component: NotfoundComponent },
 ]
 
 @NgModule({
@@ -40,10 +55,12 @@ const appRoutes: Routes = [
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
     DashboardComponent,
     ProfileComponent,
-    FooterComponent
+    FooterComponent,
+    NotfoundComponent,
+    ContentComponent,
+    ContentlistComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +69,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot(),
+    NgFlashMessagesModule.forRoot(),
+    AngularSvgIconModule,
     // JWT set the JWT module with the local storage token
     JwtModule.forRoot({
       config: {
@@ -59,12 +78,21 @@ const appRoutes: Routes = [
           return localStorage.getItem('id_token');
         }
       }
-    })
+    }),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    EffectsModule.forRoot([AppEffects])
   ],
   providers: [
     ValidateService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    ApuntesService
   ],
   bootstrap: [AppComponent]
 })

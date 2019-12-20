@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
-import { FlashMessagesService } from 'angular2-flash-messages';
+import { NgFlashMessageService } from 'ng-flash-messages';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +17,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private flashMessage: FlashMessagesService
-
+    private ngFlashMessageService: NgFlashMessageService,
   ) { }
 
   ngOnInit() {
+    if (this.authService.loggedIn)
+      this.router.navigate(['/dashboard']);
   }
 
   onLoginSubmit() {
@@ -30,22 +32,26 @@ export class LoginComponent implements OnInit {
       password: this.password
     }
 
-    // Create the petition to authenticate the user and get all the data from the database
+    // Crea la petición para autenticar al usuario
     this.authService.authenticateUser(user).subscribe(data => {
       if (data.success) {
-        // If the login is success we are going to store the data into the local storage
+        // Login correcto, se almacenan los datos del usuario en el almacenamiento local
         this.authService.storeUserData(data.token, data.user)
         // Show message as logged in
-        this.flashMessage.show("You are now logged in", {
-          cssClass: 'alert-success',
-          timeout: 5000
+        this.ngFlashMessageService.showFlashMessage({
+          messages: ["¡Ya está conectado, bienvenido!"],
+          dismissible: true,
+          timeout: false,
+          type: 'success'
         });
         this.router.navigate(['/dashboard']);
       } else {
         // Show message as cant log in
-        this.flashMessage.show(data.msg, {
-          cssClass: 'alert-danger',
-          timeout: 5000
+        this.ngFlashMessageService.showFlashMessage({
+          messages: [data.msg],
+          dismissible: true,
+          timeout: false,
+          type: 'danger'
         });
         this.router.navigate(['/login']);
       }

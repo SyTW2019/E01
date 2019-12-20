@@ -7,3 +7,31 @@ svg {
 .nav-item {
   height: 2.5em;
 }
+
+.offset-md-1.col-md-6::after {
+    display: block;
+    content: ".";
+    background: linear-gradient(0deg, rgba(52,58,64,1) 0%, rgba(52,58,64,1) 0%, rgba(255,255,255,0) 40%);
+    height: 50px;
+    color: transparent;
+    width: 96%;
+    margin-top: -50px;
+    z-index: 3;
+    position: relative;
+}
+
+.bg svg-icon
+{
+  fill: #fff!important;
+}
+
+a .bg-primary:hover
+{
+  opacity: .6;
+  transition: ease-out 0.45s;
+}
+
+a .bg-primary
+{
+  transition: ease-in 0.4s;
+}

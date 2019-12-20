@@ -5,7 +5,8 @@ import { ValidateService } from '../../services/validate.service';
 import { AuthService } from '../../services/auth.service';
 
 // Import of the module for the flash messages
-import { FlashMessagesService } from 'angular2-flash-messages';
+import { NgFlashMessageService } from 'ng-flash-messages';
+import * as $ from 'jquery';
 
 // Bring out the Router so we can redirect from the code
 import { Router } from '@angular/router';
@@ -27,16 +28,33 @@ export class RegisterComponent implements OnInit {
   constructor(
     // Need to inject all the services in the constructor
     private validateService: ValidateService,
-    private flashMessage: FlashMessagesService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private ngFlashMessageService: NgFlashMessageService
   ) { }
 
   ngOnInit() {
   }
 
+  // Validar email en el momento
+  /*onChangeEmail() {
+    const user = { email: this.email,}
+
+    if (!this.validateService.validateEmail(user.email)) {
+      $("input[name='email']").removeClass('ng-valid');
+      $("input[name='email']").addClass('ng-invalid');
+
+      return false;
+    } else {
+      $("input[name='email']").removeClass('ng-invalid');
+      $("input[name='email']").addClass('ng-valid');
+      return true;
+    }
+  }*/
+
+  // Al hacer submit del formulario
   onRegisterSubmit() {
-    // Create the user object
+    // Se crea el objeto usuario con los campos
     const user = {
       name: this.name,
       username: this.username,
@@ -45,30 +63,60 @@ export class RegisterComponent implements OnInit {
       universidad: this.universidad
     }
 
-    // Required fields
+    // Validación de campos
     if (!this.validateService.validateRegister(user)) {
-      this.flashMessage.show('Please fill in all the fields', { cssClass: 'alert-danger', timeout: 3000 });
+      this.ngFlashMessageService.showFlashMessage({
+        messages: ["Por favor rellene los campos"],
+        dismissible: true,
+        timeout: false,
+        type: 'danger'
+      });
       return false;
     }
 
-    // Validate email
+    // Validación de email
     if (!this.validateService.validateEmail(user.email)) {
-      this.flashMessage.show('Please use a valid email', { cssClass: 'alert-danger', timeout: 3000 });
+      this.ngFlashMessageService.showFlashMessage({
+        messages: ["Por favor, use un campo de email válido"],
+        dismissible: true,
+        timeout: false,
+        type: 'danger'
+      });
       return false;
     }
 
-    // Register user
+    // Validación de la Universidad
+    /*this.validateUni.getUniByName(user.universidad, (err) => { console.log("HEEY");
+      if (err) {
+        this.flashMessage.show('Introduce un nombre de Universidad válido', { cssClass: 'alert-danger', timeout: 3000 });
+        return false;
+      }
+    });*/
+
+    // Registro de usuario
     // Use the service with the function and the user object as is an observable
     // we need to subscribe to it and inside we have the data back
     this.authService.registerUser(user).subscribe(data => {
-      // Lets validate the response and show the user the response with an alert
+      // Si se ha regitrado correctametne
       if (data.success) {
-        this.flashMessage.show('You are now registered', { cssClass: 'alert-success', timeout: 3000 });
-        // If the registration is success move to the login component
+        this.ngFlashMessageService.showFlashMessage({
+          messages: ["¡Ahora ya está registrado! Bienvenido."],
+          dismissible: true,
+          timeout: false,
+          type: 'success'
+        });
+        // Redirecciona al formulario de login
         this.router.navigate(['/login']);
-      } else {
-        this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
-        // If the registration is success move to the login component
+      } 
+      // Si no se ha registrado
+      else {
+        this.ngFlashMessageService.showFlashMessage({
+          messages: [data.msg],
+          dismissible: true,
+          timeout: false,
+          type: 'danger'
+        });
+        // Redirecciona al mismo formulario
         this.router.navigate(['/register']);
       }
     });

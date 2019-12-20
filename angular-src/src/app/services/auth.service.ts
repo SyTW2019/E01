@@ -66,22 +66,22 @@ export class AuthService {
     // Map the response to json
   }
 
-  // Function to store the data in the local storage
+  // Función que almacena la sesión en el almacenamiento local
   storeUserData(token, user) {
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
-    // Save our token and user in the component
+    // Almacena el token y el usuario en el componente
     this.authToken = token;
     this.user = user;
   }
 
-  // Function to get the token stored in the local storage
+  // Función para obtener el token del almacenamiento local
   loadToken() {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
   }
 
-  // Function to return if the token is not expired
+  // Función que devuelve si el token ha expirado o no
   loggedIn() {
     return !this.jwtHelper.isTokenExpired();
   }

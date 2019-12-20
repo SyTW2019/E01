@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApuntesService } from '../../services/apuntes.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  apuntesList: any[];
+
+  constructor(
+    protected apuntesService: ApuntesService,
+  ) {}
 
   ngOnInit() {
+    this.apuntesService.getApuntesList()
+      .subscribe(
+        (apuntes) => {
+          this.apuntesList = apuntes['apts'];
+        },
+        (err) => {
+          console.error(err);
+        }
+      );
   }
 
 }

@@ -1,9 +1,68 @@
-<div class="position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light">
-  <div class="col-md-8 p-lg-5 mx-auto my-6" *ngIf="user">
-    <h2 class="page-header">{{user.name}}</h2>
-    <ul class="list-group">
-      <li class="list-group-item">Username: {{user.username}}</li>
-      <li class="list-group-item">Email: {{user.email}}</li>
-    </ul>
+
+<div class="container-fluid">
+  <br><h1>Perfil</h1>
+  <div class="row">
+    <!-- BEGIN COL 1 -->
+    <div class="col-12 col-md-4">
+      <div class="position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light">
+        <!-- BEGIN COL PROFILE BASIC DATAS -->
+        <div class="card mb-3">
+            <h3 class="card-header">{{user.username}}</h3>
+              <div class="center-block">
+                <img class="img-responsive" style="height: 200px; width: 200px; margin: 10px"
+                src="assets/img/profile/default_profile_200.png" alt="Card image">
+              </div>
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item">Nombre: {{user.name}}</li>
+                <li class="list-group-item">Universidad: {{user.universidad}}</li>
+            </ul>
+            <div class="card-footer text-muted">
+                Última visita
+            </div>
+        </div>
+        <!-- END COL PROFILE BASIC DATAS -->
+      </div>
+    </div>
+    <!-- END COL 1 -->
+    <!-- BEGIN COL 2 -->
+    <div class="col-12 col-md-8">
+      <div class="position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light">
+        <!-- BEGIN TAB NAVS PROFILE -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">Tab1</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#profile">Tab2</a></li>
+            <li class="nav-item"><a class="nav-link disabled" href="#">Desactivado</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Más</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Acción</a>
+                  <a class="dropdown-item" href="#">Otra acción</a>
+                  <a class="dropdown-item" href="#">Algo más aquí</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Enlaces separados</a>
+                </div>
+            </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade show active" id="home">
+              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+          </div>
+          <div class="tab-pane fade" id="profile">
+              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+          </div>
+          <div class="tab-pane fade" id="dropdown1">
+              <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+          </div>
+          <div class="tab-pane fade" id="dropdown2">
+              <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
+          </div>
+        </div>
+        <!-- END TAB NAVS PROFILE -->
+      </div>
+    </div>
+    <!-- END COL 2 -->
+
   </div>
 </div>
+<br>
+<app-footer></app-footer>

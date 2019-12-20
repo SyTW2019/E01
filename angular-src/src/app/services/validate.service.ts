@@ -19,6 +19,10 @@ export class ValidateService {
   // Function of the service to validate the email
   validateEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+    /*
+     send "email" to backend. El backend debe comprobar si está en la bdd y devolver un true o false.
+    */
+
+    return re.test(email); // <-- (Devolver re.test(email) * flag del backend)
   }
 }
