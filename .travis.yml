@@ -1,36 +1,36 @@
-dist: trusty
 language: node_js
+dist: trusty
 node_js:
-- '8'
-sudo: false
-addons:
-  chrome: stable
-  firefox: "latest"
-  sonnarcloud:
-    organization: "sytw2019"
-    token:
-      secure: "vQa4WgBaGPai2ds+phCi4RQCysNUp/5BK6yc1VpJFdJvsN2Ew5wTLyWCEobhPa4mVDjyRsgNnDqUfDIKPnN+52V1xvPvxkR8vV3uWH3laydIx6aYD5cj2tLAxgKtGhcbUfUIsouLos4kAWsJZnyGXDVp1kSVc7rZ5CP+rwRMhbgIHeRHd/jl979ctD36mVPynpNtmD2VtjxtbPttsoy2PZgxMkPgMVeGJi8xyU2xT2bJHpC2POo5OFEsHBs+zVAPbk3pZO4UMbSujEi+8p3ZHfLbwOsSJWFpC8vqSGJLiTLOoM2aLvV0I2aGISpIfEUjoRnnpJ2PYovtzAHXZPGlsbsJN0zQfCAzdR9t9ZAu9bR3b3je6F8mhbYK90AmyDxtAbfbeQmaVq9RXKcFHEoOLEoPaTGWGgfYOqigXXStn9cjr5HhuEcYP7PS8ptYSBP8/Gsk5wGZjUGspEsUOcLNH5AFK4i4eXWJxrbRB1A8eFiwQ+VWXpdxNbZJspGt0GTguRMzqRg4y0lq5v9SGivavkXn65Bot2hSlkfyE3PW9bEyXXGXU4+gfdifF9Lhuv+ge6nWbgkXY9tyn1ScmxhnZGNa4+sEXuTxVUPe21IJGVwjtZkrUCNS+tp0+Gr43mFgfd1pOSmheonq/4svP30+lHRk3Ee5qto79oW7ys+e794="
+- stable
 cache:
   directories:
   - node_modules
-  #- ""./angular-src/node_modules"
-install:
-  - npm install
-notifications:
-  slack:
-    matrix:
-    - "<sytw>:<GUjDz0vvrkI1dqBHhx0Kh3Xy>#2019-e01"
-    rooms:
-      secure: rckEwR+3KmNQukURES97PYuyz6V0Wefq0J5G4MZRvLQu786d0tItlBQ0he9er+eEKrVjtVWZiDZayx40SZni7BOuc3dfMhvxQlP3tLfquIBPTTzqk0CCn4XtN4Dt+kR2CcR3jMNP5vH0ZpXsOvKyy5WlFshgbqZM5MHLQMTb6FFFiq6dTWEtykhCH6B0i69VGk1xaAcTt2Z4IO66ZYSiQziEYucB3io0POMzwbNurQ/8UqL0IJ0wlaxlV0jGhQ/JpFX2kSyLFhPu5FXNYW41/NvamdEyWp1TvWgM5tSXmD/QMaV7ZnRlXbPlc19hzHHt9EmUd5vH8QBocqt14alfEJs2yC270FtMUqSKLlAr5cWWddUm3E53tm/QEYHYUzHpxn92jW2oC7k5Zo3LCjtq5bq5llhnMFvXhbq4jkBBOR7tbKJBucPHS1IfiipdSy2RO1ddpb58EmKT7yCnELvchz9nmCW9PZ0dBui5/FFhMmb/t4nZehQxQuIfpCVVjKrP1yWEODQhLbn5sNvG3BO12k6pAJdNKYG302LZB/Btg6BTdCzgw4Ij6ZxEcArrcPKth0JNzDl7TpAuBEMc6AALPdGm3V0LwDn3cvSaho+CJ/O5/3ZCq60xPIBNmx4840WmsukWCo0FOYguv6Wkkf5+REn8lHOxitJ9jDxFp4b7nEs=
-beforescript:
-- "export DISPLAY=:99.0"
-- sh -e /etc/init.d/xvfb start
-- nohup bash -c "./node_modules/protractor/bin/webdriver-manager start 2>&1 &"
-- sleep 5
+#beforescript:
+#- "export DISPLAY=:99.0"
+#- sh -e /etc/init.d/xvfb start
+#- nohup bash -c "./node_modules/protractor/bin/webdriver-manager start 2>&1 &"
+#- sleep 5
 script:
 #- cd angular-src
 #- npm install
 #- node node_modules/protractor/bin/webdriver-manager update
 #- ng e2e
 #- cd ..
+- npm test
+- unset CI npm run build
 - sonar-scanner
+notifications:
+  slack:
+    #matrix:
+    #- "<sytw>:<GUjDz0vvrkI1dqBHhx0Kh3Xy>#2019-e01"
+    rooms:
+      - sytw:GUjDz0vvrkI1dqBHhx0Kh3Xy#2019-e01
+      #secure: rckEwR+3KmNQukURES97PYuyz6V0Wefq0J5G4MZRvLQu786d0tItlBQ0he9er+eEKrVjtVWZiDZayx40SZni7BOuc3dfMhvxQlP3tLfquIBPTTzqk0CCn4XtN4Dt+kR2CcR3jMNP5vH0ZpXsOvKyy5WlFshgbqZM5MHLQMTb6FFFiq6dTWEtykhCH6B0i69VGk1xaAcTt2Z4IO66ZYSiQziEYucB3io0POMzwbNurQ/8UqL0IJ0wlaxlV0jGhQ/JpFX2kSyLFhPu5FXNYW41/NvamdEyWp1TvWgM5tSXmD/QMaV7ZnRlXbPlc19hzHHt9EmUd5vH8QBocqt14alfEJs2yC270FtMUqSKLlAr5cWWddUm3E53tm/QEYHYUzHpxn92jW2oC7k5Zo3LCjtq5bq5llhnMFvXhbq4jkBBOR7tbKJBucPHS1IfiipdSy2RO1ddpb58EmKT7yCnELvchz9nmCW9PZ0dBui5/FFhMmb/t4nZehQxQuIfpCVVjKrP1yWEODQhLbn5sNvG3BO12k6pAJdNKYG302LZB/Btg6BTdCzgw4Ij6ZxEcArrcPKth0JNzDl7TpAuBEMc6AALPdGm3V0LwDn3cvSaho+CJ/O5/3ZCq60xPIBNmx4840WmsukWCo0FOYguv6Wkkf5+REn8lHOxitJ9jDxFp4b7nEs=
+#sudo: false
+addons:
+  chrome: stable
+  firefox: "latest"
+  sonarcloud:
+    organization: "sytw2019"
+    token:
+      secure: "PwCGszP/b58NjJhM2WrefGt9EmkhFK+6QmWzjCeFADPPceiBTFxsnpCHtwefgyVijMCjmP3vt52eBBi1ggLFIlEdH0W7CP2sKzPa+wa0agRI32DYIhCLQZKX+3RIU7hJv/XYG7tuPjmh7nNEV/geDl+Xg3IDnNesB6R7dDFwn4KI4uRn8fhZrRFm1vYhIYxX032XWQpr7HvuRwh0/OUNEtaT+ntt6r66ufNn76ingEfHAlP6ueXGo98ziWiUL623i5sfr1aVjVV8fO73WWkeDbKSKXYYCCAJvfEHxgjqq4HcTIkQGdZf7MzNdrTXjbFB1zFrZstv6kf5X+rnyNHMgaU7ZWP8SP3JXGg4JPciidAkxDRohzgQG6g7XqDMN5xnprKDw2FjEXC2uzLwQ/K0aBKmdup9umM/qffiucdqEqIoT5cZNo+XzdpvSc3qEP+lNmgHbstMhqgcFU9cPDywBTZxdOzFXDVJNxAE1Wd4xyNLtZAmT3Q3FN7ls4x9yMt6ybkeM+JKiXzGZbreDKX7kkf3OCBFFlEgr7nLeWXr/o+DA5FKqbjhUZPHfVJ7OU9OVq66UqcOEXLXuYQlxPpfLXexZdPkmXIn3hnMLys5CzwNs3JHtfNXvXxgoRHlE9eamZN4J/xr6qY0BVc2MI0tEEsL3tDFmixLWYUj1HQBo2A="
