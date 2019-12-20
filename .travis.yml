@@ -2,7 +2,7 @@ dist: trusty
 language: node_js
 node_js:
 - '8'
-#sudo: false
+sudo: false
 addons:
   chrome: stable
   firefox: "latest"
