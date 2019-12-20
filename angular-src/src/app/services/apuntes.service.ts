@@ -1,18 +1,35 @@
-//import { Injectable } from '@angular/core'; 
-//import { Http, Headers } from '@angular/http'; // Bring http module and headers package
-//import { map } from 'rxjs/operators'; // Bring map operation cause we are working with observables
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
     providedIn: 'root'
-  })
+})
 
 export class ApuntesService {
 
-    constructor(protected http: HttpClient) {}
+    constructor(
+        protected http: HttpClient
+    ) { }
 
-    getApuntesList() {
+    getApuntes() {
+
         return this.http.get('http://localhost:3000/apuntes/apuntes');
+
     }
+
+    createApuntes(apuntes) {
+
+        return this.http.post('http://localhost:3000/apuntes/apuntes/create',
+                              { 
+                                titulo:      apuntes.titulo,
+                                asignatura:  apuntes.asignatura,
+                                curso:       apuntes.curso,
+                                grado:       apuntes.grado,
+                                universidad: apuntes.universidad,
+                                usuario:     apuntes.usuario,
+                                autor:       apuntes.autor
+                               });
+
+    }
+
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+// Servicios
 import { ApuntesService } from '../../services/apuntes.service';
 
 @Component({
@@ -8,22 +11,59 @@ import { ApuntesService } from '../../services/apuntes.service';
 })
 export class DashboardComponent implements OnInit {
 
-  apuntesList: any[];
+  apuntes: any;
+
+  // Variables del formulario de creación de apuntes
+  titulo:      string;
+  asignatura:  string;
+  curso:       string;
+  grado:       string;
+  universidad: string;
+  usuario:     string;
+  autor:       string;
 
   constructor(
-    protected apuntesService: ApuntesService,
-  ) {}
+      protected apuntesService: ApuntesService
+  ) { }
 
   ngOnInit() {
-    this.apuntesService.getApuntesList()
+
+    this.apuntesService.getApuntes()
       .subscribe(
-        (apuntes) => {
-          this.apuntesList = apuntes['apts'];
+        (data) => {
+          this.apuntes = data;
+          //console.log(data);
         },
-        (err) => {
-          console.error(err);
+        (error) => {
+          console.error(error);
         }
       );
+
+  }
+
+  onCreateApuntes() {
+
+    const newApuntes = {
+      titulo:      this.titulo,
+      asignatura:  this.asignatura,
+      curso:       this.curso,
+      grado:       this.grado,
+      universidad: this.universidad,
+      usuario:     this.usuario,
+      autor:       this.autor
+    };
+
+    this.apuntesService.createApuntes(newApuntes)
+      .subscribe(
+        (data) => {
+          this.ngOnInit();
+          //console.log(data);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+
   }
 
 }

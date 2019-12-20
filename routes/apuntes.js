@@ -1,76 +1,154 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const config = require('../config/database');
+const User = require('../models/user');
+const Universidad = require('../models/uni');
 const Apuntes = require('../models/apuntes');
 
-// Leer lista completa de Apuntes
+
+// Crear Apuntes
+router.post('/apuntes/create', (req, res, next) => {
+    
+    // Se extrae de la petición el contenido de los apuntes
+    let newApuntes = new Apuntes({
+        titulo:      req.body.titulo,
+        asignatura:  req.body.asignatura,
+        curso:       req.body.curso,
+        grado:       req.body.grado,
+        universidad: req.body.universidad,
+        usuario:     req.body.usuario,
+        autor:       req.body.autor
+      });
+
+      // Añade los apuntes de la petición a la bdd
+      Apuntes.addApuntes(newApuntes, (err) => {
+        // En caso de error al introducirlos
+        if (err) {
+            res.json({
+              success: false,
+              msg: 'Se ha producido un error al introducir los apuntes'
+            });
+        }
+        // En caso de introducirlos correctamente
+        else {
+            res.json({
+              success: true,
+              msg: 'Apuntes añadidos correctamente'
+            });
+        }
+      });
+
+});
+
+// Consultar lista de Apuntes
 router.get('/apuntes', (req, res, next) => {
 
     Apuntes.find({}, (err, apuntes) => {
-        if (err) res.send(err);
-        res.json({
-            success: true,
-            apts: apuntes
-        });
-    });
+        if (err) {
+            res.json({
+              success: false,
+              msg: 'Se ha producido un error al recuperar los apuntes'
+            });
+        }
+        else {
+            res.json(apuntes);
+        }
+    })
 
 });
 
-// Crear Apuntes
-router.post('/apuntes', (req, res, next) => {
-
-    let apuntesObj = {
-        titulo: req.body.titulo,
-        asignatura: req.body.asignatura,
-        curso: req.body.curso,
-        grado: req.body.grado,
-        universidad: req.body.universidad,
-        usuario: req.body.usuario,
-        autor: req.body.autor
-    }
-
-    let newApuntes = new Apuntes(apuntesObj);
-    newApuntes.save((err, apuntes) => {
-        if (err) res.send(err);
-        res.json(apuntes);
-    });
-
-});
-
-// Leer Apuntes según su Id
+// Consultar Apuntes
 router.get('/apuntes/:id', (req, res, next) => {
 
-    Apuntes.findById(req.params.id, (err, apuntes) => {
-        if (err) 
-            res.send(err);
-        res.json(apuntes);
+    // Id de los apuntes solicitados
+    const apuntesId = req.body.id;
+
+    // Consulta en función del Id
+    Apuntes.getApuntesById(apuntesId, (err, apuntes) => {
+        if (err) {
+            res.json({
+              success: false,
+              msg: 'Se ha producido un error al recuperar los apuntes'
+            });
+        }
+        else if (!apuntes) {
+            res.json({
+                success: false,
+                msg: 'Los apuntes solicitados no existen'
+              });
+        }
+        else {
+            res.json({
+                success: true,
+                objSolicitado: apuntes
+              });
+        }
     });
 
 });
 
-// Actualizar Apuntes según su Id
-router.put('/apuntes/:id', (req, res, next) => {
+// Actualizar Apuntes
+router.post('/apuntes/:id', (req, res, next) => {
 
-    Apuntes.findOneAndUpdate({ _id: req.params.id }, req.body, {new: true}, (err, apuntes) => {
-        if (err) 
-            res.send(err);
-        res.json(apuntes);
+    // Id de los apuntes solicitados
+    const apuntesId = req.body.id;
+
+    // Actualiza los apuntes según su Id
+    Apuntes.updateApuntes(apuntesId, req, (err, apuntes) => {
+        if (err) {
+            res.json({
+                success: false,
+                msg: 'Se ha producido un error al recuperar los apuntes'
+            });
+        }
+        else if (!apuntes) {
+            res.json({
+                success: false,
+                msg: 'Los apuntes solicitados no existen'
+            });
+        }
+        else {
+            res.json({
+                success: true,
+                objSolicitado: apuntes
+            });
+        }
     });
 
 });
 
-// Eliminar Apuntes según su Id
+// Eliminar Apuntes
 router.delete('/apuntes/:id', (req, res, next) => {
 
-    Apuntes.remove({ _id: req.params.id }, (err, apuntes) => {
-        if (err) 
-            res.send(err);
-        res.json({
-            success: false,
-            msg: 'Apuntes eliminados correctamente'
-        });
+    // Id de los apuntes solicitados
+    const apuntesId = req.body.id;
+
+    // Elimina los apuntes según su Id
+    Apuntes.deleteApuntes(apuntesId, (err, apuntes) => {
+        if (err) {
+            res.json({
+                success: false,
+                msg: 'Se ha producido un error al recuperar los apuntes'
+            });
+        }
+        else if (!apuntes) {
+            res.json({
+                success: false,
+                msg: 'Los apuntes solicitados no existen'
+            });
+        }
+        else {
+            res.json({
+                success: true,
+                msg: 'Apuntes eliminados correctamente'
+            });
+        }
     });
 
 });
 
-// Router module for make the petitions
+
+// Módulo router de Express para que puedan hacerse las peticiones
 module.exports = router;
