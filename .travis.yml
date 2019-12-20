@@ -9,6 +9,10 @@ cache:
 addons:
   chrome: stable
   firefox: "latest"
+  sonnarcloud:
+    organization: "sytw2019"
+    token:
+      secure: "Mb0r8CqRo+Dkv9e+Ye5JHHtZGBIkE5roymIRJpckxIOPPLDc2a32anQaI+2gVFyao15OrGHslyefkgdsBTRJC3wPGCleMUglo6gVC8iYNLU0SVdZZixyFvVLFlZZpnD1TBAke0Z4A4pEUF51j0gBzpkLRVJKWuJ/3bSa5F1CMz17pHaNBztxTjzAOwRnhaLEgCXu+51lFSmmeP6rKK9jH6EU5ZMId5tQl2d7o6zybI5cP114J08Yyf/OZ5h1TR9eGy+tb8DADaprJw/sUBIMLXXuhPbkIFfTeVsfGyLHVwq/YvG+HbrV2GrpWUQ6tY7CWYT8wwWxvEjz1mliJqDM544j+fwGPp7qgeHTlo3DqAgSd4oRfq2XY7cEBBpd64ZQgM7vILVbp+AwJAAVCFV6frqDQQU6lptIwZigPpfAzrUJlnQXPmYWE0QDzk97GnSPfGjPqrguc38vy6AtJGdpnI93131N1TLlOMi7cTsRopTF6hXxGR8D3yKnjhQMC0kYm0bh+UtwcHfR0ddGzep1F64epQG891dYmxvJV/OuOZuR/IaqMkMIYH1AYDxKCqUWX1RNfwsvZic6Is2ARGZ655XXhuYo3syXcW1tAjutNX+IsBfsyiGAipAli3pw+uh0l1OyvwVGk/7VLjrZV+n06+aznNLniR2YjxUQ7Hug3Kw="
 beforescript:
 - "export DISPLAY=:99.0"
 - sh -e /etc/init.d/xvfb start
@@ -19,6 +23,7 @@ script:
 - npm install
 - node node_modules/protractor/bin/webdriver-manager update
 - ng e2e
+- sonnar-scanner
 notifications:
   slack:
     matrix:
