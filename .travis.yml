@@ -16,7 +16,7 @@ script:
 - npm install
 - node node_modules/protractor/bin/webdriver-manager update
 - ng e2e
-#- cd ..
+- cd ..
 - sonar-scanner
 notifications:
   slack:
@@ -30,5 +30,4 @@ addons:
   sonarcloud:
     organization: "sytw2019"
     token:
-      #secure: "xBdCORD0DAkIOlK3oPF+ZWkrjlKftTz+LzbEs0/0e/dvKAwUZqB6+VVGXXD3SxoGanDrhBSceRikvqsnjMM7WMKk0WosqLa6Ru4v8PTX7NAJZj5cGeBnA2QqdomTQ4GYHrV6OdKhzssX2jI8LtgblQIZtPXd1Jjx51Ss3iiKU7Et1UJECJ1gBXdLwHO923jQpO36Ix8UOXFm8+XukqZTNLCuKjAxxQ4JDnYaptbPgZquh4WOD/cup0FiMNIbP2mOOpRlKPqo8mZNrKi0N/Z4D+a2s3WiC9rNO9Mn86OZwGe6l4Sedse+zcyOD+8z36txnKOnXI83xYplBrdMkrlHh9I7sAVG//a9TBoBLQ2jXLYNLYj16QscrwNzUfpoTt+SkZMV1Ive3zlX1dFWC+51g2nSzt5l3WlxJzDk7IwdiqbKIhdsMUdd1LqImND3a/jhJaDtFI7Kv97uuldR1d66e1isayzOPgoGaNkVxd/SLTltRnlg+gnoZQpwIPdaeLoVA1ED6QfCWwkFpUXUQw+T6xd+c8Gigxp1LZa7HX5whYe8WVUhViadlI+pniXmQt6g2p6NcJysIQPRNV7A6A7LGGyng0CiqHf12DJUSFBhE1glVGBJmDlm4RvxaQevtHjDTI7KULHjQille0g+tfYGpoWOWE5KpTuUo4qH5eazLMA="
-      secure: ${sqtoken}    
+      secure: "xBdCORD0DAkIOlK3oPF+ZWkrjlKftTz+LzbEs0/0e/dvKAwUZqB6+VVGXXD3SxoGanDrhBSceRikvqsnjMM7WMKk0WosqLa6Ru4v8PTX7NAJZj5cGeBnA2QqdomTQ4GYHrV6OdKhzssX2jI8LtgblQIZtPXd1Jjx51Ss3iiKU7Et1UJECJ1gBXdLwHO923jQpO36Ix8UOXFm8+XukqZTNLCuKjAxxQ4JDnYaptbPgZquh4WOD/cup0FiMNIbP2mOOpRlKPqo8mZNrKi0N/Z4D+a2s3WiC9rNO9Mn86OZwGe6l4Sedse+zcyOD+8z36txnKOnXI83xYplBrdMkrlHh9I7sAVG//a9TBoBLQ2jXLYNLYj16QscrwNzUfpoTt+SkZMV1Ive3zlX1dFWC+51g2nSzt5l3WlxJzDk7IwdiqbKIhdsMUdd1LqImND3a/jhJaDtFI7Kv97uuldR1d66e1isayzOPgoGaNkVxd/SLTltRnlg+gnoZQpwIPdaeLoVA1ED6QfCWwkFpUXUQw+T6xd+c8Gigxp1LZa7HX5whYe8WVUhViadlI+pniXmQt6g2p6NcJysIQPRNV7A6A7LGGyng0CiqHf12DJUSFBhE1glVGBJmDlm4RvxaQevtHjDTI7KULHjQille0g+tfYGpoWOWE5KpTuUo4qH5eazLMA="   
