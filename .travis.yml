@@ -12,7 +12,8 @@ addons:
       secure: "vQa4WgBaGPai2ds+phCi4RQCysNUp/5BK6yc1VpJFdJvsN2Ew5wTLyWCEobhPa4mVDjyRsgNnDqUfDIKPnN+52V1xvPvxkR8vV3uWH3laydIx6aYD5cj2tLAxgKtGhcbUfUIsouLos4kAWsJZnyGXDVp1kSVc7rZ5CP+rwRMhbgIHeRHd/jl979ctD36mVPynpNtmD2VtjxtbPttsoy2PZgxMkPgMVeGJi8xyU2xT2bJHpC2POo5OFEsHBs+zVAPbk3pZO4UMbSujEi+8p3ZHfLbwOsSJWFpC8vqSGJLiTLOoM2aLvV0I2aGISpIfEUjoRnnpJ2PYovtzAHXZPGlsbsJN0zQfCAzdR9t9ZAu9bR3b3je6F8mhbYK90AmyDxtAbfbeQmaVq9RXKcFHEoOLEoPaTGWGgfYOqigXXStn9cjr5HhuEcYP7PS8ptYSBP8/Gsk5wGZjUGspEsUOcLNH5AFK4i4eXWJxrbRB1A8eFiwQ+VWXpdxNbZJspGt0GTguRMzqRg4y0lq5v9SGivavkXn65Bot2hSlkfyE3PW9bEyXXGXU4+gfdifF9Lhuv+ge6nWbgkXY9tyn1ScmxhnZGNa4+sEXuTxVUPe21IJGVwjtZkrUCNS+tp0+Gr43mFgfd1pOSmheonq/4svP30+lHRk3Ee5qto79oW7ys+e794="
 cache:
   directories:
-  - ""./angular-src/node_modules"
+  - node_modules
+  #- ""./angular-src/node_modules"
 install:
   - npm install
 notifications:
