@@ -64,7 +64,7 @@
 
       </div>
 
-      <!-- PRUEBAS PARA LA API
+      <!--        API
  -------------------------------->
       <br>
       <br>
@@ -82,13 +82,22 @@
           </thead>
           <tbody *ngFor='let apunte of apuntes'>
             <tr>
-              <td>{{ apunte.titulo }}</td>
+              <td type="button" (click)="getApunte(apunte._id)" data-toggle="modal" data-target="#infoModal">
+                {{ apunte.titulo }}
+              </td>
               <td>{{ apunte.asignatura }}</td>
               <td>{{ apunte.autor }}</td>
+              <td>
+                <button type="button" (click)="getApunte(apunte._id)" data-toggle="modal" data-target="#actModal">
+                  <span>&#9998;</span>
+                </button>
+              </td>
+              <td>
+                <button type="button" class="close" aria-label="Close" (click)="onDeleteApuntes(apunte._id)">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </td>
             </tr>
-        <!--  <ul *ngFor='let apunte of apuntes'>
-            <li><p>{{ apunte.titulo }}</p></li>
-          </ul>-->
           </tbody>
         </table>
         <button class="btn btn-secondary my-0 px-4 p-2" data-toggle="modal" data-target="#insModal">Insertar</button>
@@ -98,7 +107,7 @@
 
       <!-- Pop-Up de inserción de Apuntes-->
       <div class="modal" id="insModal">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Insertar Apuntes</h5>
@@ -125,7 +134,7 @@
                   <label>Curso</label>
                   <input type="curso" class="form-control" name="curso" placeholder="Curso"
                   [(ngModel)]="curso">
-                </div>
+                </div> 
                 <div class="form-group">
                   <label>Grado</label>
                   <input type="grado" class="form-control" name="grado" placeholder="Grado"
@@ -153,6 +162,101 @@
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="onCreateApuntes()">Insertar</button>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pop-Up de Actualización de Apuntes-->
+      <div class="modal" id="actModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Actualizar Apuntes</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Cuerpo del Modal (Formulario) -->
+            <div class="modal-body" *ngIf="getApunteId(); let apt">
+              <form class="mx-2 my-auto d-inline w-100 my-2 my-lg-0">
+                <div class="form-group">
+                  <label>Título</label>
+                  <input type="titulo" class="form-control" name="titulo" placeholder="Título"
+                  [value]="apt.objSolicitado.titulo"
+                  [(ngModel)]="titulo"
+                  required>
+                </div>
+                <div class="form-group">
+                  <label>Asignatura</label>
+                  <input type="asignatura" class="form-control" name="asignatura" placeholder="Asignatura"
+                  [value]="apt.objSolicitado.asignatura"
+                  [(ngModel)]="asignatura"
+                  required>
+                </div>
+                <div class="form-group">
+                  <label>Curso</label>
+                  <input type="curso" class="form-control" name="curso" placeholder="Curso"
+                  [value]="apt.objSolicitado.curso"
+                  [(ngModel)]="curso">
+                </div> 
+                <div class="form-group">
+                  <label>Grado</label>
+                  <input type="grado" class="form-control" name="grado" placeholder="Grado"
+                  [value]="apt.objSolicitado.grado"
+                  [(ngModel)]="grado">
+                </div>
+                <div class="form-group">
+                  <label>Universidad</label>
+                  <input type="universidad" class="form-control" name="universidad" placeholder="Universidad de La Laguna"
+                  [value]="apt.objSolicitado.universidad"
+                  [(ngModel)]="universidad">
+                </div>
+                <div class="form-group">
+                  <label>Usuario</label>
+                  <input type="usuario" class="form-control" name="usuario" placeholder="Usuario"
+                  [value]="apt.objSolicitado.usuario"
+                  [(ngModel)]="usuario">
+                </div>
+                <div class="form-group">
+                  <label>Autor</label>
+                  <input type="autor" class="form-control" name="autor" placeholder="Autor"
+                  [value]="apt.objSolicitado.autor"
+                  [(ngModel)]="autor"
+                  required>
+                </div>
+              </form>
+            </div>
+            <!-- Footer del Modal -->
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="onUpdateApuntes(myId)">Actualizar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pop-Up de Información de Apuntes-->
+      <div class="modal" id="infoModal" *ngIf="getApunteId(); let apt">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ apt.objSolicitado.titulo }}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Título:      {{ apt.objSolicitado.titulo }}</p><br>
+              <p>Asignatura:  {{ apt.objSolicitado.asignatura }}</p><br>
+              <p>Curso:       {{ apt.objSolicitado.curso }}</p><br>
+              <p>Grado:       {{ apt.objSolicitado.grado }}</p><br>
+              <p>Universidad: {{ apt.objSolicitado.universidad }}</p><br>
+              <p>Usuario:     {{ apt.objSolicitado.usuario }}</p><br>
+              <p>Autor:       {{ apt.objSolicitado.autor }}</p><br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
           </div>
         </div>

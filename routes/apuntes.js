@@ -63,7 +63,7 @@ router.get('/apuntes', (req, res, next) => {
 router.get('/apuntes/:id', (req, res, next) => {
 
     // Id de los apuntes solicitados
-    const apuntesId = req.body.id;
+    const apuntesId = req.params.id;
 
     // Consulta en función del Id
     Apuntes.getApuntesById(apuntesId, (err, apuntes) => {
@@ -93,7 +93,7 @@ router.get('/apuntes/:id', (req, res, next) => {
 router.post('/apuntes/:id', (req, res, next) => {
 
     // Id de los apuntes solicitados
-    const apuntesId = req.body.id;
+    const apuntesId = req.params.id;
 
     // Actualiza los apuntes según su Id
     Apuntes.updateApuntes(apuntesId, req, (err, apuntes) => {
@@ -123,7 +123,7 @@ router.post('/apuntes/:id', (req, res, next) => {
 router.delete('/apuntes/:id', (req, res, next) => {
 
     // Id de los apuntes solicitados
-    const apuntesId = req.body.id;
+    const apuntesId = req.params.id;
 
     // Elimina los apuntes según su Id
     Apuntes.deleteApuntes(apuntesId, (err, apuntes) => {

@@ -22,6 +22,12 @@ export class DashboardComponent implements OnInit {
   usuario:     string;
   autor:       string;
 
+  // Estructura de Apuntes auxiliar para recuperar uno por Id
+  apunteId: any;
+
+  // Id auxiliar 
+  //myId: string;
+
   constructor(
       protected apuntesService: ApuntesService
   ) { }
@@ -38,6 +44,33 @@ export class DashboardComponent implements OnInit {
           console.error(error);
         }
       );
+
+  }
+
+/*  setId(id) {
+
+    this.myId = id;
+
+  }*/
+
+  getApunte(id) {
+
+    this.apuntesService.getApuntesId(id)
+      .subscribe(
+        (data) => {
+          this.apunteId = data;
+          console.log(this.apunteId);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+
+  }
+
+  getApunteId() {
+
+    return this.apunteId;
 
   }
 
@@ -58,6 +91,45 @@ export class DashboardComponent implements OnInit {
         (data) => {
           this.ngOnInit();
           //console.log(data);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+
+  }
+
+  onUpdateApuntes(id) {
+
+    const newApuntes = {
+      titulo:      this.titulo,
+      asignatura:  this.asignatura,
+      curso:       this.curso,
+      grado:       this.grado,
+      universidad: this.universidad,
+      usuario:     this.usuario,
+      autor:       this.autor
+    };
+
+    this.apuntesService.updateApuntes(id,newApuntes)
+      .subscribe(
+        (data) => {
+          this.ngOnInit();
+          //console.log(data);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+
+  }
+
+  onDeleteApuntes(id) {
+
+    this.apuntesService.deleteApuntes(id)
+      .subscribe(
+        (data) => {
+          this.ngOnInit();
         },
         (error) => {
           console.error(error);

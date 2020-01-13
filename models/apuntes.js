@@ -48,12 +48,12 @@ module.exports.getApuntesByName = function(name, callback) {
 
 // Consulta y actualiza apuntes
 module.exports.updateApuntes = function(id, req, callback) {
-  Apuntes.findOneAndUpdate(id, req.body, {new: true}, callback);
+  Apuntes.findByIdAndUpdate(id, req.body, {new: true}, callback);
 }
 
 // Elimina apuntes
 module.exports.deleteApuntes = function(id, callback) {
-  Apuntes.remove(id, callback);
+  Apuntes.findByIdAndDelete(id, callback);
 }
 
 // Añade un nuevo documento a la colección
