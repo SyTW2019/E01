@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
   apunteId: any;
 
   // Id auxiliar 
-  //myId: string;
+  myId: string;
 
   constructor(
       protected apuntesService: ApuntesService
@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(
         (data) => {
           this.apunteId = data;
-          console.log(this.apunteId);
+          this.myId = id;
         },
         (error) => {
           console.error(error);
@@ -114,8 +114,8 @@ export class DashboardComponent implements OnInit {
     this.apuntesService.updateApuntes(id,newApuntes)
       .subscribe(
         (data) => {
+          this.myId = id;
           this.ngOnInit();
-          //console.log(data);
         },
         (error) => {
           console.error(error);

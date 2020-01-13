@@ -440,8 +440,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 // Servicios
 
 var DashboardComponent = /** @class */ (function () {
-    // Id auxiliar 
-    //myId: string;
     function DashboardComponent(apuntesService) {
         this.apuntesService = apuntesService;
     }
@@ -465,7 +463,7 @@ var DashboardComponent = /** @class */ (function () {
         this.apuntesService.getApuntesId(id)
             .subscribe(function (data) {
             _this.apunteId = data;
-            console.log(_this.apunteId);
+            _this.myId = id;
         }, function (error) {
             console.error(error);
         });
@@ -505,8 +503,9 @@ var DashboardComponent = /** @class */ (function () {
         };
         this.apuntesService.updateApuntes(id, newApuntes)
             .subscribe(function (data) {
+            _this.myId = id;
             _this.ngOnInit();
-            //console.log(data);
+            console.log(data);
         }, function (error) {
             console.error(error);
         });
