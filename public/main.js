@@ -148,16 +148,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_contentlist_contentlist_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/contentlist/contentlist.component */ "./src/app/components/contentlist/contentlist.component.ts");
 /* harmony import */ var _services_validate_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/validate.service */ "./src/app/services/validate.service.ts");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
-/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
-/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
-/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
-/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./reducers */ "./src/app/reducers/index.ts");
-/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm5/effects.js");
-/* harmony import */ var _app_effects__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./app.effects */ "./src/app/app.effects.ts");
+/* harmony import */ var _services_apuntes_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/apuntes.service */ "./src/app/services/apuntes.service.ts");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
+/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./reducers */ "./src/app/reducers/index.ts");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm5/effects.js");
+/* harmony import */ var _app_effects__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./app.effects */ "./src/app/app.effects.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -185,6 +186,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 // Services
 
 
+
 // Libraries
 
 
@@ -200,9 +202,9 @@ var appRoutes = [
     { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"] },
     { path: '', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"] },
     // Rutas protegidas, solo tienen acceso ususarios autenticados
-    { path: 'dashboard', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]] },
-    { path: 'content', component: _components_content_content_component__WEBPACK_IMPORTED_MODULE_15__["ContentComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]] },
-    { path: 'profile', component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__["ProfileComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]] },
+    { path: 'dashboard', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
+    { path: 'content', component: _components_content_content_component__WEBPACK_IMPORTED_MODULE_15__["ContentComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
+    { path: 'profile', component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__["ProfileComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
     // Ruta Comodín: URLs desconocidas
     { path: '**', component: _components_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_13__["NotfoundComponent"] },
 ];
@@ -229,30 +231,31 @@ var AppModule = /** @class */ (function () {
                 _angular_http__WEBPACK_IMPORTED_MODULE_3__["HttpModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(appRoutes),
-                angular2_flash_messages__WEBPACK_IMPORTED_MODULE_19__["FlashMessagesModule"].forRoot(),
-                ng_flash_messages__WEBPACK_IMPORTED_MODULE_22__["NgFlashMessagesModule"].forRoot(),
+                angular2_flash_messages__WEBPACK_IMPORTED_MODULE_20__["FlashMessagesModule"].forRoot(),
+                ng_flash_messages__WEBPACK_IMPORTED_MODULE_23__["NgFlashMessagesModule"].forRoot(),
                 angular_svg_icon__WEBPACK_IMPORTED_MODULE_6__["AngularSvgIconModule"],
                 // JWT set the JWT module with the local storage token
-                _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_20__["JwtModule"].forRoot({
+                _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_21__["JwtModule"].forRoot({
                     config: {
                         tokenGetter: function () {
                             return localStorage.getItem('id_token');
                         }
                     }
                 }),
-                _ngrx_store__WEBPACK_IMPORTED_MODULE_23__["StoreModule"].forRoot(_reducers__WEBPACK_IMPORTED_MODULE_24__["reducers"], {
-                    metaReducers: _reducers__WEBPACK_IMPORTED_MODULE_24__["metaReducers"],
+                _ngrx_store__WEBPACK_IMPORTED_MODULE_24__["StoreModule"].forRoot(_reducers__WEBPACK_IMPORTED_MODULE_25__["reducers"], {
+                    metaReducers: _reducers__WEBPACK_IMPORTED_MODULE_25__["metaReducers"],
                     runtimeChecks: {
                         strictStateImmutability: true,
                         strictActionImmutability: true
                     }
                 }),
-                _ngrx_effects__WEBPACK_IMPORTED_MODULE_25__["EffectsModule"].forRoot([_app_effects__WEBPACK_IMPORTED_MODULE_26__["AppEffects"]])
+                _ngrx_effects__WEBPACK_IMPORTED_MODULE_26__["EffectsModule"].forRoot([_app_effects__WEBPACK_IMPORTED_MODULE_27__["AppEffects"]])
             ],
             providers: [
                 _services_validate_service__WEBPACK_IMPORTED_MODULE_17__["ValidateService"],
                 _services_auth_service__WEBPACK_IMPORTED_MODULE_18__["AuthService"],
-                _guards_auth_guard__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"]
+                _guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"],
+                _services_apuntes_service__WEBPACK_IMPORTED_MODULE_19__["ApuntesService"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
@@ -408,7 +411,7 @@ module.exports = "svg {\n  width: 15px;\n  height: 15px;\n  margin-right: 10px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"col-md-2 d-none d-md-block bg-light sidebar\">\n      <div class=\"sidebar-sticky text-center\">\n        <br>\n        <a href=\"/dashboard?word\" value=\"apuntes\" >\n          <div class=\"bg  light-green lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n              <svg-icon src=\"assets/svg/document.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n          </div>\n        </a>\n\n      <a href=\"/dashboard?word\" value=\"examenes\" >\n        <div class=\"bg orange lighten-2 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n            <svg-icon src=\"assets/svg/examen.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n        </div>\n      </a>\n\n      <a href=\"/dashboard?word\" value=\"informes\" >\n        <div class=\"bg red red lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n            <svg-icon src=\"assets/svg/file.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n        </div>\n      </a>\n\n    <a href=\"/dashboard?word\" value=\"ejercicios\" >\n      <div class=\"bg blue lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n          <svg-icon src=\"assets/svg/write.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n      </div>\n    </a>\n\n    <a href=\"/dashboard?word\" value=\"prácticas\" >\n      <div class=\"bg teal lighten-2 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block\">\n          <svg-icon src=\"assets/svg/practice.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n      </div>\n    </a>\n\n  <a href=\"/dashboard?word\" value=\"tutoriales\" >\n    <div class=\"bg deep-purple lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n        <svg-icon src=\"assets/svg/e-learning.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n    </div>\n  </a>\n\n      </div>\n    </nav>\n\n\n    <main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-4\">\n      <ng-flash-message></ng-flash-message>\n      <br><h1>Tablón</h1>\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-primary\">\n\n        <!-- BEGIN SEARCHER -->\n        <form class=\"mx-2 my-auto d-inline w-100 my-2 my-lg-0\">\n          <div class=\"input-group\">\n              <input type=\"text\" class=\"form-control\" placeholder=\"Buscar...\">\n               <span class=\"input-group-append\">\n                 <button class=\"btn btn-secondary my-0 px-4 p-2\" type=\"submit\">Buscar</button>\n               </span>\n          </div>\n          <span class=\"btn badge badge-pill badge-dark m-1 px-3 float-left\" style=\"padding: 5px 10px; text-transform: capitalize\">\n            <i class=\"fas fa-filter\"></i> Filtrar\n          </span>\n        </form>\n        <!-- END SEARCHER -->\n\n      </div>\n\n      <app-contentlist></app-contentlist>\n\n      <!-- BEGIN CONTENIDOS RELEVANTES -->\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light\">\n        <h2>Contenidos relevantes</h2>\n        <br>\n\n        <!-- Volcado de contenidos relevantes-->\n        <div class=\"container\">\n          <!-- ITEM 1 -->\n          <div class=\"row\">\n            <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n              <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n                <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n                <div class=\"card-body text-justify\">\n                  <h3 class=\"card-title\">Título documento</h3>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-4\">\n              <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n              background-image: url('/assets/img/content-example/1.jpg');\n              background-size: cover;\n              background-position: center\">\n              </div>\n            </div>\n          </div>\n          <!-- END ITEM 1 -->\n          <br>\n          <!-- ITEM 2 -->\n          <div class=\"row\">\n            <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n              <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n                <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n                <div class=\"card-body text-justify\">\n                  <h3 class=\"card-title\">Título documento</h3>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                  <br><br>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-4\">\n              <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n              background-image: url('/assets/img/content-example/2.jpg');\n              background-size: cover;\n              background-position: center\">\n              </div>\n            </div>\n          </div>\n          <!-- END ITEM 2 -->\n          <!-- end volcado de contenido -->\n        </div>\n        <!-- END CONTENIDOS RELEVANTES -->\n\n      </div>\n\n    </main>\n  </div>\n</div>\n<app-footer></app-footer>\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"col-md-2 d-none d-md-block bg-light sidebar\">\n      <div class=\"sidebar-sticky text-center\">\n        <br>\n        <a href=\"/dashboard?word\" value=\"apuntes\" >\n          <div class=\"bg  light-green lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n              <svg-icon src=\"assets/svg/document.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n          </div>\n        </a>\n\n      <a href=\"/dashboard?word\" value=\"examenes\" >\n        <div class=\"bg orange lighten-2 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n            <svg-icon src=\"assets/svg/examen.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n        </div>\n      </a>\n\n      <a href=\"/dashboard?word\" value=\"informes\" >\n        <div class=\"bg red red lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n            <svg-icon src=\"assets/svg/file.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n        </div>\n      </a>\n\n    <a href=\"/dashboard?word\" value=\"ejercicios\" >\n      <div class=\"bg blue lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n          <svg-icon src=\"assets/svg/write.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n      </div>\n    </a>\n\n    <a href=\"/dashboard?word\" value=\"prácticas\" >\n      <div class=\"bg teal lighten-2 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block\">\n          <svg-icon src=\"assets/svg/practice.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n      </div>\n    </a>\n\n  <a href=\"/dashboard?word\" value=\"tutoriales\" >\n    <div class=\"bg deep-purple lighten-1 bg-primary w-45 p-4 m-1 text-center\" style=\"display: inline-block;\">\n        <svg-icon src=\"assets/svg/e-learning.svg\" [svgStyle]=\"{ 'width.px':25, 'height.px':25 }\"></svg-icon>\n    </div>\n  </a>\n\n      </div>\n    </nav>\n\n\n    <main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-4\">\n      <ng-flash-message></ng-flash-message>\n      <br><h1>Tablón</h1>\n      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-primary\">\n\n        <!-- BEGIN SEARCHER -->\n        <form class=\"mx-2 my-auto d-inline w-100 my-2 my-lg-0\">\n          <div class=\"input-group\">\n              <input type=\"text\" class=\"form-control\" placeholder=\"Buscar...\">\n               <span class=\"input-group-append\">\n                 <button class=\"btn btn-secondary my-0 px-4 p-2\" type=\"submit\">Buscar</button>\n               </span>\n          </div>\n          <span class=\"btn badge badge-pill badge-dark m-1 px-3 float-left\" style=\"padding: 5px 10px; text-transform: capitalize\">\n            <i class=\"fas fa-filter\"></i> Filtrar\n          </span>\n        </form>\n        <!-- END SEARCHER -->\n\n      </div>\n\n      <!--        API\n -------------------------------->\n      <br>\n      <br>\n      <div>\n        <table class=\"table table-hover\">\n          <thead>\n            <tr>\n              <th><h2>Listado de Apuntes Disponibles</h2></th>\n            </tr>\n            <tr>\n              <th scope=\"col\">Título</th>\n              <th scope=\"col\">Asignatura</th>\n              <th scope=\"col\">Autor</th>\n            </tr>\n          </thead>\n          <tbody *ngFor='let apunte of apuntes'>\n            <tr>\n              <td type=\"button\" (click)=\"getApunte(apunte._id)\" data-toggle=\"modal\" data-target=\"#infoModal\">\n                {{ apunte.titulo }}\n              </td>\n              <td>{{ apunte.asignatura }}</td>\n              <td>{{ apunte.autor }}</td>\n              <td>\n                <button type=\"button\" (click)=\"getApunte(apunte._id)\" data-toggle=\"modal\" data-target=\"#actModal\">\n                  <span>&#9998;</span>\n                </button>\n              </td>\n              <td>\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"onDeleteApuntes(apunte._id)\">\n                  <span aria-hidden=\"true\">&times;</span>\n                </button>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <button class=\"btn btn-secondary my-0 px-4 p-2\" data-toggle=\"modal\" data-target=\"#insModal\">Insertar</button>\n      </div>\n      <br>\n      <br>\n\n      <!-- Pop-Up de inserción de Apuntes-->\n      <div class=\"modal\" id=\"insModal\">\n        <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h5 class=\"modal-title\">Insertar Apuntes</h5>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                <span aria-hidden=\"true\">&times;</span>\n              </button>\n            </div>\n            <!-- Cuerpo del Modal (Formulario) -->\n            <div class=\"modal-body\">\n              <form class=\"mx-2 my-auto d-inline w-100 my-2 my-lg-0\">\n                <div class=\"form-group\">\n                  <label>Título</label>\n                  <input type=\"titulo\" class=\"form-control\" name=\"titulo\" placeholder=\"Título\"\n                  [(ngModel)]=\"titulo\"\n                  required>\n                </div>\n                <div class=\"form-group\">\n                  <label>Asignatura</label>\n                  <input type=\"asignatura\" class=\"form-control\" name=\"asignatura\" placeholder=\"Asignatura\"\n                  [(ngModel)]=\"asignatura\"\n                  required>\n                </div>\n                <div class=\"form-group\">\n                  <label>Curso</label>\n                  <input type=\"curso\" class=\"form-control\" name=\"curso\" placeholder=\"Curso\"\n                  [(ngModel)]=\"curso\">\n                </div> \n                <div class=\"form-group\">\n                  <label>Grado</label>\n                  <input type=\"grado\" class=\"form-control\" name=\"grado\" placeholder=\"Grado\"\n                  [(ngModel)]=\"grado\">\n                </div>\n                <div class=\"form-group\">\n                  <label>Universidad</label>\n                  <input type=\"universidad\" class=\"form-control\" name=\"universidad\" placeholder=\"Universidad de La Laguna\"\n                  [(ngModel)]=\"universidad\">\n                </div>\n                <div class=\"form-group\">\n                  <label>Usuario</label>\n                  <input type=\"usuario\" class=\"form-control\" name=\"usuario\" placeholder=\"Usuario\"\n                  [(ngModel)]=\"usuario\">\n                </div>\n                <div class=\"form-group\">\n                  <label>Autor</label>\n                  <input type=\"autor\" class=\"form-control\" name=\"autor\" placeholder=\"Autor\"\n                  [(ngModel)]=\"autor\"\n                  required>\n                </div>\n              </form>\n            </div>\n            <!-- Footer del Modal -->\n            <div class=\"modal-footer\">\n              <button type=\"submit\" class=\"btn btn-primary\" data-dismiss=\"modal\" (click)=\"onCreateApuntes()\">Insertar</button>\n              <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cancelar</button>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Pop-Up de Actualización de Apuntes-->\n      <div class=\"modal\" id=\"actModal\">\n        <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h5 class=\"modal-title\">Actualizar Apuntes</h5>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                <span aria-hidden=\"true\">&times;</span>\n              </button>\n            </div>\n            <!-- Cuerpo del Modal (Formulario) -->\n            <div class=\"modal-body\" *ngIf=\"getApunteId(); let apt\">\n              <form class=\"mx-2 my-auto d-inline w-100 my-2 my-lg-0\">\n                <div class=\"form-group\">\n                  <label>Título</label>\n                  <input type=\"titulo\" class=\"form-control\" name=\"titulo\" placeholder=\"Título\"\n                  [value]=\"apt.objSolicitado.titulo\"\n                  [(ngModel)]=\"titulo\"\n                  required>\n                </div>\n                <div class=\"form-group\">\n                  <label>Asignatura</label>\n                  <input type=\"asignatura\" class=\"form-control\" name=\"asignatura\" placeholder=\"Asignatura\"\n                  [value]=\"apt.objSolicitado.asignatura\"\n                  [(ngModel)]=\"asignatura\"\n                  required>\n                </div>\n                <div class=\"form-group\">\n                  <label>Curso</label>\n                  <input type=\"curso\" class=\"form-control\" name=\"curso\" placeholder=\"Curso\"\n                  [value]=\"apt.objSolicitado.curso\"\n                  [(ngModel)]=\"curso\">\n                </div> \n                <div class=\"form-group\">\n                  <label>Grado</label>\n                  <input type=\"grado\" class=\"form-control\" name=\"grado\" placeholder=\"Grado\"\n                  [value]=\"apt.objSolicitado.grado\"\n                  [(ngModel)]=\"grado\">\n                </div>\n                <div class=\"form-group\">\n                  <label>Universidad</label>\n                  <input type=\"universidad\" class=\"form-control\" name=\"universidad\" placeholder=\"Universidad de La Laguna\"\n                  [value]=\"apt.objSolicitado.universidad\"\n                  [(ngModel)]=\"universidad\">\n                </div>\n                <div class=\"form-group\">\n                  <label>Usuario</label>\n                  <input type=\"usuario\" class=\"form-control\" name=\"usuario\" placeholder=\"Usuario\"\n                  [value]=\"apt.objSolicitado.usuario\"\n                  [(ngModel)]=\"usuario\">\n                </div>\n                <div class=\"form-group\">\n                  <label>Autor</label>\n                  <input type=\"autor\" class=\"form-control\" name=\"autor\" placeholder=\"Autor\"\n                  [value]=\"apt.objSolicitado.autor\"\n                  [(ngModel)]=\"autor\"\n                  required>\n                </div>\n              </form>\n            </div>\n            <!-- Footer del Modal -->\n            <div class=\"modal-footer\">\n              <button type=\"submit\" class=\"btn btn-primary\" data-dismiss=\"modal\" (click)=\"onUpdateApuntes(myId)\">Actualizar</button>\n              <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cancelar</button>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <!-- Pop-Up de Información de Apuntes-->\n      <div class=\"modal\" id=\"infoModal\" *ngIf=\"getApunteId(); let apt\">\n        <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h5 class=\"modal-title\">{{ apt.objSolicitado.titulo }}</h5>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                <span aria-hidden=\"true\">&times;</span>\n              </button>\n            </div>\n            <div class=\"modal-body\">\n              <p>Título:      {{ apt.objSolicitado.titulo }}</p><br>\n              <p>Asignatura:  {{ apt.objSolicitado.asignatura }}</p><br>\n              <p>Curso:       {{ apt.objSolicitado.curso }}</p><br>\n              <p>Grado:       {{ apt.objSolicitado.grado }}</p><br>\n              <p>Universidad: {{ apt.objSolicitado.universidad }}</p><br>\n              <p>Usuario:     {{ apt.objSolicitado.usuario }}</p><br>\n              <p>Autor:       {{ apt.objSolicitado.autor }}</p><br>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button>\n            </div>\n          </div>\n        </div>\n      </div>\n\n<!--      <app-contentlist></app-contentlist> -->\n\n      <!-- BEGIN CONTENIDOS RELEVANTES -->\n<!--      <div class=\"position-relative overflow-hidden p-3 p-md-3 m-md-3 text-center bg-light\">\n        <h2>Contenidos relevantes</h2>\n        <br>\n-->\n        <!-- Volcado de contenidos relevantes-->\n<!--        <div class=\"container\"> -->\n          <!-- ITEM 1 -->\n<!--          <div class=\"row\">\n            <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n              <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n                <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n                <div class=\"card-body text-justify\">\n                  <h3 class=\"card-title\">Título documento</h3>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-4\">\n              <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n              background-image: url('/assets/img/content-example/1.jpg');\n              background-size: cover;\n              background-position: center\">\n              </div>\n            </div>\n          </div> -->\n          <!-- END ITEM 1 -->\n<!--          <br> -->\n          <!-- ITEM 2 -->\n<!--          <div class=\"row\">\n            <div class=\"offset-md-1 col-md-6\" style=\"margin-right: -30px\">\n              <div class=\"card text-white bg-dark overflow-auto\" style=\"height: 250px;\">\n                <div class=\"card-header\">Título del contenido <span class=\"badge badge-light\"><small>3 days ago</small></span></div>\n                <div class=\"card-body text-justify\">\n                  <h3 class=\"card-title\">Título documento</h3>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                  <br><br>\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n                </div>\n              </div>\n            </div>\n            <div class=\"col-12 col-md-4\">\n              <div class=\"card\" style=\"border: 1px solid rgb(210, 210, 210); height: 250px;\n              background-image: url('/assets/img/content-example/2.jpg');\n              background-size: cover;\n              background-position: center\">\n              </div>\n            </div>\n          </div> -->\n          <!-- END ITEM 2 -->\n          <!-- end volcado de contenido -->\n<!--        </div> -->\n        <!-- END CONTENIDOS RELEVANTES -->\n\n<!--      </div> -->\n\n    </main>\n  </div>\n</div>\n<app-footer></app-footer>\n"
 
 /***/ }),
 
@@ -423,6 +426,7 @@ module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <n
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_apuntes_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/apuntes.service */ "./src/app/services/apuntes.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -433,10 +437,87 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+// Servicios
+
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent() {
+    function DashboardComponent(apuntesService) {
+        this.apuntesService = apuntesService;
     }
     DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.apuntesService.getApuntes()
+            .subscribe(function (data) {
+            _this.apuntes = data;
+            //console.log(data);
+        }, function (error) {
+            console.error(error);
+        });
+    };
+    /*  setId(id) {
+    
+        this.myId = id;
+    
+      }*/
+    DashboardComponent.prototype.getApunte = function (id) {
+        var _this = this;
+        this.apuntesService.getApuntesId(id)
+            .subscribe(function (data) {
+            _this.apunteId = data;
+            _this.myId = id;
+        }, function (error) {
+            console.error(error);
+        });
+    };
+    DashboardComponent.prototype.getApunteId = function () {
+        return this.apunteId;
+    };
+    DashboardComponent.prototype.onCreateApuntes = function () {
+        var _this = this;
+        var newApuntes = {
+            titulo: this.titulo,
+            asignatura: this.asignatura,
+            curso: this.curso,
+            grado: this.grado,
+            universidad: this.universidad,
+            usuario: this.usuario,
+            autor: this.autor
+        };
+        this.apuntesService.createApuntes(newApuntes)
+            .subscribe(function (data) {
+            _this.ngOnInit();
+            //console.log(data);
+        }, function (error) {
+            console.error(error);
+        });
+    };
+    DashboardComponent.prototype.onUpdateApuntes = function (id) {
+        var _this = this;
+        var newApuntes = {
+            titulo: this.titulo,
+            asignatura: this.asignatura,
+            curso: this.curso,
+            grado: this.grado,
+            universidad: this.universidad,
+            usuario: this.usuario,
+            autor: this.autor
+        };
+        this.apuntesService.updateApuntes(id, newApuntes)
+            .subscribe(function (data) {
+            _this.myId = id;
+            _this.ngOnInit();
+            console.log(data);
+        }, function (error) {
+            console.error(error);
+        });
+    };
+    DashboardComponent.prototype.onDeleteApuntes = function (id) {
+        var _this = this;
+        this.apuntesService.deleteApuntes(id)
+            .subscribe(function (data) {
+            _this.ngOnInit();
+        }, function (error) {
+            console.error(error);
+        });
     };
     DashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -444,7 +525,7 @@ var DashboardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/components/dashboard/dashboard.component.html"),
             styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/components/dashboard/dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_apuntes_service__WEBPACK_IMPORTED_MODULE_1__["ApuntesService"]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -534,7 +615,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-5 p-lg-5 mx-auto my-6\">\n    <div class=\"form-group\">\n      <h2>Iniciar sesión</h2>\n    </div>\n    <div class=\"dropdown-divider\"></div>\n    <form class=\"px-4 py-3\" (submit)=\"onLoginSubmit()\" name=\"myForm\">\n      <div class=\"form-group\">\n        <label>Nombre de usuario</label>\n        <input type=\"text\" class=\"form-control\" name=\"username\" placeholder=\"John12345\"\n        [(ngModel)]=\"username\"\n        required>\n      </div>\n      <div class=\"form-group\">\n        <label>Contraseña</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Password\"\n        [(ngModel)]=\"password\"\n        required>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\">Iniciar sesión</button>\n    </form>\n    <div class=\"dropdown-divider\"></div>\n    <a class=\"dropdown-item\" [routerLink]=\"['/register']\">¿Nuevo por aquí? Regístrate</a>\n  </div>\n</div>\n"
+module.exports = "<div class=\"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light\">\n  <div class=\"col-md-5 p-lg-5 mx-auto my-6\">\n    <div class=\"form-group\">\n      <h2>Iniciar sesión</h2>\n    </div>\n    <div class=\"dropdown-divider\"></div>\n    <form class=\"px-4 py-3\" (submit)=\"onLoginSubmit()\" name=\"myForm\">\n      <div class=\"form-group\">\n        <label>Nombre de usuario</label>\n        <input type=\"text\" class=\"form-control\" name=\"username\" placeholder=\"John12345\"\n        [(ngModel)]=\"username\"\n        required>\n      </div>\n      <div class=\"form-group\">\n        <label>Contraseña</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Password\"\n        [(ngModel)]=\"password\"\n        required>\n      </div>\n      <button type=\"submit\" class=\"btn btn-primary\" id=\"login_submit\">Iniciar sesión</button>\n    </form>\n    <div class=\"dropdown-divider\"></div>\n    <a class=\"dropdown-item\" [routerLink]=\"['/register']\">¿Nuevo por aquí? Regístrate</a>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1094,6 +1175,77 @@ var metaReducers = !_environments_environment__WEBPACK_IMPORTED_MODULE_0__["envi
 
 /***/ }),
 
+/***/ "./src/app/services/apuntes.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/services/apuntes.service.ts ***!
+  \*********************************************/
+/*! exports provided: ApuntesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApuntesService", function() { return ApuntesService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ApuntesService = /** @class */ (function () {
+    function ApuntesService(http) {
+        this.http = http;
+    }
+    ApuntesService.prototype.getApuntes = function () {
+        return this.http.get('http://localhost:3000/apuntes/apuntes');
+    };
+    ApuntesService.prototype.createApuntes = function (apuntes) {
+        return this.http.post('http://localhost:3000/apuntes/apuntes/create', {
+            titulo: apuntes.titulo,
+            asignatura: apuntes.asignatura,
+            curso: apuntes.curso,
+            grado: apuntes.grado,
+            universidad: apuntes.universidad,
+            usuario: apuntes.usuario,
+            autor: apuntes.autor
+        });
+    };
+    ApuntesService.prototype.getApuntesId = function (id) {
+        return this.http.get('http://localhost:3000/apuntes/apuntes/' + id);
+    };
+    ApuntesService.prototype.deleteApuntes = function (id) {
+        return this.http.delete('http://localhost:3000/apuntes/apuntes/' + id);
+    };
+    ApuntesService.prototype.updateApuntes = function (id, newApuntes) {
+        return this.http.post('http://localhost:3000/apuntes/apuntes/' + id, {
+            titulo: newApuntes.titulo,
+            asignatura: newApuntes.asignatura,
+            curso: newApuntes.curso,
+            grado: newApuntes.grado,
+            universidad: newApuntes.universidad,
+            usuario: newApuntes.usuario,
+            autor: newApuntes.autor
+        });
+    };
+    ApuntesService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], ApuntesService);
+    return ApuntesService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/auth.service.ts":
 /*!******************************************!*\
   !*** ./src/app/services/auth.service.ts ***!
@@ -1324,7 +1476,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/brian/E01/angular-src/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/uno/Escritorio/SyTW/Proyecto SyTW/E01/angular-src/src/main.ts */"./src/main.ts");
 
 
 /***/ })

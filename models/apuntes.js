@@ -11,21 +11,17 @@ const ApuntesSchema = mongoose.Schema({
     required: true
   },
   curso: {
-    type: String, 
-    required: true
+    type: String
   },
   grado: {
-    type: String, 
-    required: true
+    type: String
   },
   universidad: {
-    type: String, 
-    required: true
+    type: String
   },
   // Usuario que sube los apuntes
   usuario: { 
-    type: String, 
-    required: true
+    type: String
   },
   // Autor de los apuntes
   autor: {
@@ -48,6 +44,16 @@ module.exports.getApuntesByName = function(name, callback) {
     titulo: name
   }
   Apuntes.findOne(query, callback);
+}
+
+// Consulta y actualiza apuntes
+module.exports.updateApuntes = function(id, req, callback) {
+  Apuntes.findByIdAndUpdate(id, req.body, {new: true}, callback);
+}
+
+// Elimina apuntes
+module.exports.deleteApuntes = function(id, callback) {
+  Apuntes.findByIdAndDelete(id, callback);
 }
 
 // Añade un nuevo documento a la colección

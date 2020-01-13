@@ -18,9 +18,10 @@ defineSupportCode(({Given, When, Then}) => {
   //  Scenario #1
   // -------------
   Given(/^Estoy autentificado/, () => {
-    /*loginPage.navigateTo();
+    loginPage.navigateTo();
     loginPage.fillCredentials();
-    Promise.resolve(dashboardPage.getApuntesList().all(by.css("tr")).count()).should.eventually.above(1);*/
+    dashboardPage.navigateTo();
+    Promise.resolve(dashboardPage.getApuntesList().all(by.css("tr")).count()).should.eventually.above(1);
     //dashboardPage.getApuntesList().then((count) => {expect(count).to.be.above(1)
     return true;
   });
