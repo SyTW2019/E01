@@ -51,9 +51,10 @@
         <!-- BEGIN SEARCHER -->
         <form class="mx-2 my-auto d-inline w-100 my-2 my-lg-0">
           <div class="input-group">
-              <input type="text" class="form-control" placeholder="Buscar...">
+              <input type="text" name="buscador" class="form-control" placeholder="Buscar..." [(ngModel)]="busqueda">
                <span class="input-group-append">
-                 <button class="btn btn-secondary my-0 px-4 p-2" type="submit">Buscar</button>
+                 <span class="input-group-text" type="button" id="clearInput" (click)="cleanSearch()">&times;</span>
+                 <button class="btn btn-secondary my-0 px-4 p-2" type="submit" (click)="searchByTitulo()">Buscar</button>
                </span>
           </div>
           <span class="btn badge badge-pill badge-dark m-1 px-3 float-left" style="padding: 5px 10px; text-transform: capitalize">
@@ -82,8 +83,10 @@
           </thead>
           <tbody *ngFor='let apunte of apuntes'>
             <tr>
-              <td type="button" (click)="getApunte(apunte._id)" data-toggle="modal" data-target="#infoModal">
-                {{ apunte.titulo }}
+              <td>
+                <a (click)="getApunte(apunte._id)" data-toggle="modal" data-target="#infoModal">
+                  {{ apunte.titulo }}
+                </a>
               </td>
               <td>{{ apunte.asignatura }}</td>
               <td>{{ apunte.autor }}</td>

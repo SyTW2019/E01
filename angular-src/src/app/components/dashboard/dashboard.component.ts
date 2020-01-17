@@ -28,6 +28,9 @@ export class DashboardComponent implements OnInit {
   // Id auxiliar 
   myId: string;
 
+  // Cadena a buscar
+  busqueda: string;
+
   constructor(
       protected apuntesService: ApuntesService
   ) { }
@@ -47,11 +50,35 @@ export class DashboardComponent implements OnInit {
 
   }
 
-/*  setId(id) {
+  searchByTitulo() {
 
-    this.myId = id;
+    this.apuntesService.searchApuntes(this.busqueda)
+      .subscribe(
+        (data) => {
+          this.apuntes = data;
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
 
-  }*/
+  }
+
+  cleanSearch() {
+
+    this.busqueda = '';
+
+    this.apuntesService.getApuntes()
+    .subscribe(
+      (data) => {
+        this.apuntes = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+  }
 
   getApunte(id) {
 
