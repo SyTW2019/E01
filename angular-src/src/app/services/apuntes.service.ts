@@ -59,4 +59,10 @@ export class ApuntesService {
 
     }
 
+    searchApuntes(title) {
+
+        return this.http.get('http://localhost:3000/apuntes/apuntes/search/' + title);
+
+    }
+
 }

@@ -59,6 +59,26 @@ router.get('/apuntes', (req, res, next) => {
 
 });
 
+// Consultar lista de Apuntes según un título dado
+router.get('/apuntes/search/:titulo', (req, res, next) => {
+
+    // Títulos que contengan la cadena recibida
+    const title = req.params.titulo;
+
+    Apuntes.find({titulo: { "$regex": title, "$options": "i" }}, (err, apuntes) => {
+        if (err) {
+            res.json({
+              success: false,
+              msg: 'Se ha producido un error al recuperar los apuntes'
+            });
+        }
+        else {
+            res.json(apuntes);
+        }
+    })
+
+});
+
 // Consultar Apuntes
 router.get('/apuntes/:id', (req, res, next) => {
 
