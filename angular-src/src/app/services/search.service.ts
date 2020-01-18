@@ -13,7 +13,7 @@ import 'rxjs/add/operator/switchMap';*/
 
 export class SearchService {
 
-  baseUrl: string = 'http://localhost:3000/apuntes/apuntes/search/';
+  baseUrl: string = 'https://plan-edu.herokuapp.com/apuntes/apuntes/search/';
 
   constructor(private http: HttpClient) { }
 

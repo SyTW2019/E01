@@ -29,7 +29,10 @@ mongoose.connection.on('error', (err) => {
 const app = express();
 
 // Set the port that you want to start the service app
-const port = 3000;
+let port = process.env.PORT;
+if(port == null || port == "") {
+  port = 3000;
+}
 
 // CORS Middleware added to express
 app.use(cors());

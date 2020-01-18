@@ -13,13 +13,13 @@ export class ApuntesService {
 
     getApuntes() {
 
-        return this.http.get('http://localhost:3000/apuntes/apuntes');
+        return this.http.get('https://plan-edu.herokuapp.com/apuntes/apuntes');
 
     }
 
     createApuntes(apuntes) {
 
-        return this.http.post('http://localhost:3000/apuntes/apuntes/create',
+        return this.http.post('https://plan-edu.herokuapp.com/apuntes/apuntes/create',
                               { 
                                 titulo:      apuntes.titulo,
                                 asignatura:  apuntes.asignatura,
@@ -34,19 +34,19 @@ export class ApuntesService {
 
     getApuntesId(id) {
 
-        return this.http.get('http://localhost:3000/apuntes/apuntes/' + id);
+        return this.http.get('https://plan-edu.herokuapp.com/apuntes/apuntes/' + id);
 
     }
 
     deleteApuntes(id) {
 
-        return this.http.delete('http://localhost:3000/apuntes/apuntes/' + id);
+        return this.http.delete('https://plan-edu.herokuapp.com/apuntes/apuntes/' + id);
 
     }
 
     updateApuntes(id, newApuntes) {
 
-        return this.http.post('http://localhost:3000/apuntes/apuntes/' + id,
+        return this.http.post('https://plan-edu.herokuapp.com/apuntes/apuntes/' + id,
                               { 
                                 titulo:      newApuntes.titulo,
                                 asignatura:  newApuntes.asignatura,
@@ -61,7 +61,7 @@ export class ApuntesService {
 
     searchApuntes(title) {
 
-        return this.http.get('http://localhost:3000/apuntes/apuntes/search/' + title);
+        return this.http.get('https://plan-edu.herokuapp.com/apuntes/apuntes/search/' + title);
 
     }
 
