@@ -1250,10 +1250,10 @@ var ApuntesService = /** @class */ (function () {
         this.http = http;
     }
     ApuntesService.prototype.getApuntes = function () {
-        return this.http.get('http://localhost:3000/apuntes/apuntes');
+        return this.http.get('https://plan-edu.herokuapp.com/apuntes/apuntes');
     };
     ApuntesService.prototype.createApuntes = function (apuntes) {
-        return this.http.post('http://localhost:3000/apuntes/apuntes/create', {
+        return this.http.post('https://plan-edu.herokuapp.com/apuntes/apuntes/create', {
             titulo: apuntes.titulo,
             asignatura: apuntes.asignatura,
             curso: apuntes.curso,
@@ -1264,13 +1264,13 @@ var ApuntesService = /** @class */ (function () {
         });
     };
     ApuntesService.prototype.getApuntesId = function (id) {
-        return this.http.get('http://localhost:3000/apuntes/apuntes/' + id);
+        return this.http.get('https://plan-edu.herokuapp.com/apuntes/apuntes/' + id);
     };
     ApuntesService.prototype.deleteApuntes = function (id) {
-        return this.http.delete('http://localhost:3000/apuntes/apuntes/' + id);
+        return this.http.delete('https://plan-edu.herokuapp.com/apuntes/apuntes/' + id);
     };
     ApuntesService.prototype.updateApuntes = function (id, newApuntes) {
-        return this.http.post('http://localhost:3000/apuntes/apuntes/' + id, {
+        return this.http.post('https://plan-edu.herokuapp.com/apuntes/apuntes/' + id, {
             titulo: newApuntes.titulo,
             asignatura: newApuntes.asignatura,
             curso: newApuntes.curso,
@@ -1281,7 +1281,7 @@ var ApuntesService = /** @class */ (function () {
         });
     };
     ApuntesService.prototype.searchApuntes = function (title) {
-        return this.http.get('http://localhost:3000/apuntes/apuntes/search/' + title);
+        return this.http.get('https://plan-edu.herokuapp.com/apuntes/apuntes/search/' + title);
     };
     ApuntesService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1345,7 +1345,7 @@ var AuthService = /** @class */ (function () {
         headers.append('Content-Type', 'application/json');
         // Return an observable with the response to our server
         //                               URL of the service          data  like options send the header
-        return this.http.post('http://localhost:3000/users/register', user, { headers: headers })
+        return this.http.post('https://plan-edu.herokuapp.com/users/register', user, { headers: headers })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
         // Map the response to json
     };
@@ -1357,7 +1357,7 @@ var AuthService = /** @class */ (function () {
         headers.append('Content-Type', 'application/json');
         // Return an observable with the response to our server
         //                               URL of the service          data  like options send the header
-        return this.http.post('http://localhost:3000/users/authenticate', user, { headers: headers })
+        return this.http.post('https://plan-edu.herokuapp.com/users/authenticate', user, { headers: headers })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
         // Map the response to json
     };
@@ -1371,7 +1371,7 @@ var AuthService = /** @class */ (function () {
         headers.append('Content-Type', 'application/json');
         // Return an observable with the response to our server
         //                               URL of the service          data  like options send the header
-        return this.http.get('http://localhost:3000/users/profile', { headers: headers })
+        return this.http.get('https://plan-edu.herokuapp.com/users/profile', { headers: headers })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
         // Map the response to json
     };
@@ -1443,7 +1443,7 @@ import 'rxjs/add/operator/switchMap';*/
 var SearchService = /** @class */ (function () {
     function SearchService(http) {
         this.http = http;
-        this.baseUrl = 'http://localhost:3000/apuntes/apuntes/search/';
+        this.baseUrl = 'https://plan-edu.herokuapp.com/apuntes/apuntes/search/';
     }
     SearchService.prototype.search = function (terms) {
         var _this = this;
