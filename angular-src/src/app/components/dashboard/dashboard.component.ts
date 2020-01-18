@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 import { HttpClientModule } from '@angular/common/http';
 
 // Servicios
 import { ApuntesService } from '../../services/apuntes.service';
+import { SearchService } from '../../services/search.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,12 +31,38 @@ export class DashboardComponent implements OnInit {
   // Id auxiliar 
   myId: string;
 
+  visible: boolean = false;
+
   // Cadena a buscar
-  busqueda: string;
+  //busqueda: string;
+
+  searchTerm$ = new Subject<string>();
 
   constructor(
-      protected apuntesService: ApuntesService
-  ) { }
+    protected apuntesService: ApuntesService,
+    protected searchService: SearchService
+  ) {
+
+      this.searchTerm$.subscribe(input => {
+
+        this.visible = true;
+
+        if (input === '') {
+          this.visible = false;
+          this.cleanSearch();
+        }
+      });
+
+      this.searchService.search(this.searchTerm$)
+      .subscribe(
+        (results) => {
+          this.apuntes = results;
+        },
+        (error) => {
+          console.error(error);
+        });
+
+   }
 
   ngOnInit() {
 
@@ -49,7 +78,7 @@ export class DashboardComponent implements OnInit {
       );
 
   }
-
+/*
   searchByTitulo() {
 
     this.apuntesService.searchApuntes(this.busqueda)
@@ -62,11 +91,15 @@ export class DashboardComponent implements OnInit {
         }
       );
 
-  }
+  }*/
 
   cleanSearch() {
 
-    this.busqueda = '';
+    //this.busqueda = '';
+
+    $('#buscador').val('');
+
+    this.visible = false;
 
     this.apuntesService.getApuntes()
     .subscribe(

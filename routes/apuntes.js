@@ -60,7 +60,7 @@ router.get('/apuntes', (req, res, next) => {
 });
 
 // Consultar lista de Apuntes según un título dado
-router.get('/apuntes/:titulo', (req, res, next) => {
+router.get('/apuntes/search/:titulo', (req, res, next) => {
 
     // Títulos que contengan la cadena recibida
     const title = req.params.titulo;
