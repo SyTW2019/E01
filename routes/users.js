@@ -30,17 +30,19 @@ router.post('/register', (req, res, next) => {
       // Añade el usuario a la bd
       User.addUser(newUser, (err, user) => {
         // Devuelve el estado 'success' como falso si no se ha registrado
-        if (err.errmsg.includes('username')) {
-          res.json({
-            success: false,
-            msg: 'El nombre de usuario introducido ya está en uso'
-          });
-        } 
-        else if (err.errmsg.includes('email')) {
-          res.json({
-            success: false,
-            msg: 'El email introducido ya está en uso'
-          });
+        if (err) {
+          if (err.errmsg.includes('username')) {
+            res.json({
+              success: false,
+              msg: 'El nombre de usuario introducido ya está en uso'
+            });
+          } 
+          else if (err.errmsg.includes('email')) {
+            res.json({
+              success: false,
+              msg: 'El email introducido ya está en uso'
+            });
+          }
         } 
         // Devuelve el estado 'success' como verdadero si se ha registrado
         else {
