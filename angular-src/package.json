@@ -30,7 +30,7 @@
     "angular2-jwt": "^0.2.3",
     "chai-as-promised": "^7.1.1",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-flash-messages": "^0.3.0",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
